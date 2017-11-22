@@ -7,14 +7,10 @@ Our goals are to:
   2) improve our programming skills
   3) make a cool website!
 
-## Built With
-
-* [Link Name Here](website here) - Description here
-
 ## Authors
 
-* **sepuckett86** - *Front-end* - [sepuckett86](https://github.com/sepuckett86)
-* **codegold79** - *Back-end* - [codegold79](https://github.com/codegold79)
+* [sepuckett86](https://github.com/sepuckett86) - *Front-end*  
+* [codegold79](https://github.com/codegold79) - *Back-end* 
 
 See also the list of [contributors](https://github.com/sepuckett86/goodminder/contributors) who participated in this project.
 
