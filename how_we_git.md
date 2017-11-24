@@ -31,6 +31,7 @@ $ git clone https://github.com/sepuckett86/goodminder.git
 ```
 
 -Note: this makes a new folder with the repository name inside the current directory
+
 -Note: in order to create a new directory and clone the repository into that directory in one command, do git clone https://somerepositoryurl.com/repo.git nameOfNewFolder
 ## Make a new branch or navigate to existing branch
 
