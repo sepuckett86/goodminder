@@ -38,9 +38,17 @@ footer{
 	font-size: 12px;
 }
 
+.submissionfield { width: 300px; height: 16px; border: 1px solid #999999; padding: 5px; }
+
+.box {
+    
+    border: 1px solid black;
+    padding: 25px;
+}
+
 h1 {
-	font-size: 16px; 
-	font-weight: normal;
+	
+	font-family: 'Comfortaa', cursive;
 }
 
 h2 {
@@ -114,7 +122,7 @@ p.comfortaa {
     float: left;
 }
 
-a.button {
+.button {
     background-color: #009999; /* Green */
     border: none;
     color: white;
@@ -127,6 +135,6 @@ a.button {
 
 }
 
-a.button:hover {
+.button:hover {
     background-color: #00cccc;
 }
