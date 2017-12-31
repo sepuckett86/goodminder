@@ -3,21 +3,20 @@ session_start();
 require_once 'auth/class.user.php';
 $user = new USER();
 
-if($user->is_logged_in()!="")
-{
+if($user->is_logged_in()!="") {
 	$user->redirect('index.php');
-}
+} 
 
-if(isset($_POST['btn-submit']))
-{
+if(isset($_POST['btn-submit'])) {
 	$email = $_POST['txtemail'];
-	
+
 	$stmt = $user->runQuery("SELECT userId FROM usersTbl WHERE userEmail=:email LIMIT 1");
 	$stmt->execute(array(":email"=>$email));
 	$row = $stmt->fetch(PDO::FETCH_ASSOC);	
 	if($stmt->rowCount() == 1)
 	{
-		$id = base64_encode($row['userId']);
+		$id = $row['userId'];
+		echo "the id is $id";
 		$code = md5(uniqid(rand()));
 		
 		$stmt = $user->runQuery("UPDATE usersTbl SET tokenCode=:token WHERE userEmail=:email");
@@ -26,13 +25,13 @@ if(isset($_POST['btn-submit']))
 		$message= "
 				   Hello , $email
 				   <br /><br />
-				   We got requested to reset your password, if you do this then just click the following link to reset your password, if not just ignore this email,
+				   We received a request to reset your password. Click the following link to reset your password or if password reset is not desired, ignore this email,
 				   <br /><br />
 				   Click Following Link To Reset Your Password 
 				   <br /><br />
-				   <a href='http://goodminder.ihostfull.com/resetpass.php?id=$id&code=$code'>click here to reset your password</a>
+				   <a href='http://goodminder.ihostfull.com/resetpass.php?id=$id&code=$code'>Reset Password Link</a>
 				   <br /><br />
-				   thank you :)
+				   Thank you.
 				   ";
 		$subject = "Password Reset";
 		
@@ -48,7 +47,7 @@ if(isset($_POST['btn-submit']))
 	{
 		$msg = "<div class='alert alert-danger'>
 					<button class='close' data-dismiss='alert'>&times;</button>
-					<strong>Sorry!</strong>  this email not found. 
+					<strong>Sorry!</strong> this email was not found. 
 			    </div>";
 	}
 }
@@ -58,7 +57,7 @@ if(isset($_POST['btn-submit']))
 
 <html>
 <head>
-    <title>goodminder reset</title>
+    <title>goodminder password reset</title>
     <link href="main.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet"/>
 </head>
@@ -79,7 +78,7 @@ if(isset($_POST['btn-submit']))
 <aside style="text-align: left">
     <div style="margin: 25px">
         <h1>Reset Password</h1>
-        <form style="font-size: 18px">
+        <form style="font-size: 18px" method="post">
             <?php
 			if(isset($msg))
 			{
@@ -89,13 +88,12 @@ if(isset($_POST['btn-submit']))
 			{
 				?>
               	<div class='alert alert-info'>
-				Please enter your email address. You will receive a link to create a new password via email.!
+				Please enter your email address. You will receive a link to create a new password via email.
 				</div>  
                 <?php
 			}
 			?>
-			<p>Type in your email and when you hit submit, you'll get a link in your email
-            inbox allowing you to reset your password</p>
+			<p>Type in your email and when you hit submit, you'll get a link in your email inbox allowing you to reset your password.</p>
             <table>
             <tr>
                 <td>Email: </td>

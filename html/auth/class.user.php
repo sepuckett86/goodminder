@@ -1,10 +1,8 @@
 <?php
-
 require_once 'dbconfig.php';
 
 class USER
 {	
-
 	private $conn;
 	
 	public function __construct()
@@ -32,7 +30,7 @@ class USER
 		{							
 			$password = md5($upass);
 			$stmt = $this->conn->prepare("INSERT INTO usersTbl(userName,userEmail,userPass,tokenCode) 
-			                                             VALUES(:user_name, :user_mail, :user_pass, :active_code)");
+			     VALUES(:user_name, :user_mail, :user_pass, :active_code)");
 			$stmt->bindparam(":user_name",$uname);
 			$stmt->bindparam(":user_mail",$email);
 			$stmt->bindparam(":user_pass",$password);
@@ -90,10 +88,9 @@ class USER
 	
 	public function is_logged_in()
 	{
-		if(isset($_SESSION['userSession']))
-		{
+		if(isset($_SESSION['userSession'])) {
 			return true;
-		}
+		} 
 	}
 	
 	public function redirect($url)
