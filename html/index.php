@@ -1,3 +1,16 @@
+<?php
+session_start();
+require_once 'auth/class.user.php';
+$user_home = new USER();
+
+if($user_home->is_logged_in())
+{
+	$stmt = $user_home->runQuery("SELECT * FROM usersTbl WHERE userID=:uid");
+	$stmt->execute(array(":uid"=>$_SESSION['userSession']));
+	$row = $stmt->fetch(PDO::FETCH_ASSOC);
+}
+?>
+
 <!DOCTYPE html>
 
 <html>
@@ -14,10 +27,15 @@
 <div id="container">
     <header>
     <ul>
-    <li class="left"><a href="index.html">goodminder</a></li>
+    <li class="left"><a href="index.php">goodminder</a></li>
     <li class="right"><a href="examplePage.html">Examples</a></li>
     <li class="right"><a href="aboutPage.html">About</a></li>
-    <li class="right"><a href="loginPage.html">Log In</a></li>
+	<?php if($user_home->is_logged_in()){
+		echo '<li class="right"><a href="logout.php">Logout ' . $row['userEmail'] .'</a></li>';
+	} else {
+		echo '<li class="right"><a href="loginPage.php">Log In</a></li>';
+	}
+	?>
     </ul>
     </header>
     <section>
@@ -49,7 +67,7 @@
     </aside>
     <section>
         <br>
-        <p class='comfortaa'><a href="newUserPage.html" class='button'>Get Started</a></p>
+        <p class='comfortaa'><a href="newUserPage.php" class='button'>Get Started</a></p>
         <br><br><br></b>
     </section>
     <footer><p>Copyright 2017 <a href="https://github.com/sepuckett86">sepuckett86</a> and 
