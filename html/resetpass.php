@@ -4,7 +4,7 @@ $user = new USER();
 
 if(empty($_GET['id']) && empty($_GET['code']))
 {
-	$user->redirect('loginPage.php');
+	$user->redirect('login.php');
 }
 
 if(isset($_GET['id']) && isset($_GET['code']))
@@ -40,7 +40,7 @@ if(isset($_GET['id']) && isset($_GET['code']))
 						<button class='close' data-dismiss='alert'>&times;</button>
 						Password changed successfully!
 						</div>";
-				header("refresh:5;loginPage.php");
+				header("refresh:5;login.php");
 			}
 		}	
 	}
