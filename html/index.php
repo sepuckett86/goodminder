@@ -28,12 +28,12 @@ if($user_home->is_logged_in())
     <header>
     <ul>
     <li class="left"><a href="index.php">goodminder</a></li>
-    <li class="right"><a href="examplePage.html">Examples</a></li>
-    <li class="right"><a href="aboutPage.html">About</a></li>
+    <li class="right"><a href="example.php">Examples</a></li>
+    <li class="right"><a href="about.php">About</a></li>
 	<?php if($user_home->is_logged_in()){
 		echo '<li class="right"><a href="logout.php">Logout ' . $row['userEmail'] .'</a></li>';
 	} else {
-		echo '<li class="right"><a href="loginPage.php">Log In</a></li>';
+		echo '<li class="right"><a href="login.php">Log In</a></li>';
 	}
 	?>
     </ul>
@@ -67,7 +67,7 @@ if($user_home->is_logged_in())
     </aside>
     <section>
         <br>
-        <p class='comfortaa'><a href="newUserPage.php" class='button'>Get Started</a></p>
+        <p class='comfortaa'><a href="newUser.php" class='button'>Get Started</a></p>
         <br><br><br></b>
     </section>
     <footer><p>Copyright 2017 <a href="https://github.com/sepuckett86">sepuckett86</a> and 

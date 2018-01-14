@@ -34,9 +34,9 @@ if(isset($_POST['btn-login']))
 <div id="container">
     <header><ul>
     <li class="left"><a href="index.php">goodminder</a></li>
-    <li class="right"><a href="examplePage.html">Examples</a></li>
-    <li class="right"><a href="aboutPage.html">About</a></li>
-    <li class="right"><a href="loginPage.php">Log In</a></li>
+    <li class="right"><a href="example.php">Examples</a></li>
+    <li class="right"><a href="about.php">About</a></li>
+    <li class="right"><a href="login.php">Log In</a></li>
     </ul></header>
     <section>
         <p></p>
@@ -85,8 +85,8 @@ if(isset($_POST['btn-login']))
         </div>
         <br>
         <br>
-        <p>First time here? Go to: <p class='comfortaa'><a href="newUserPage.php" class='button'>New User Page</a></p></p>
-        <p>Did you forget your password? Go to: <p class='comfortaa'><a href="resetPasswordPage.php" class='button'>Reset Password Page</a></p></p>
+        <p>First time here? Go to: <p class='comfortaa'><a href="newUser.php" class='button'>New User Page</a></p></p>
+        <p>Did you forget your password? Go to: <p class='comfortaa'><a href="resetPassword.php" class='button'>Reset Password Page</a></p></p>
         </div>
     </aside>
  <section>

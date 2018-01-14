@@ -13,8 +13,8 @@
     <ul>
     <li class="left"><a href="index.php">goodminder</a></li>
     <li class="right"><a href="#">Settings</a></li>
-    <li class="right"><a href="examplePage.html">Examples</a></li>
-    <li class="right"><a href="aboutPage.html">About</a></li>
+    <li class="right"><a href="example.php">Examples</a></li>
+    <li class="right"><a href="about.php">About</a></li>
     <li class="right"><a href="#">Log Out</a></li>
 
     </ul>

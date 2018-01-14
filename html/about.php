@@ -12,9 +12,9 @@
 <header>
     <ul>
     <li class="left"><a href="index.php">goodminder</a></li>
-    <li class="right"><a href="examplePage.html">Examples</a></li>
-    <li class="right"><a href="aboutPage.html">About</a></li>
-    <li class="right"><a href="loginPage.php">Log In</a></li>
+    <li class="right"><a href="example.php">Examples</a></li>
+    <li class="right"><a href="about.php">About</a></li>
+    <li class="right"><a href="login.php">Log In</a></li>
     </ul>
 </header>
  <section>
