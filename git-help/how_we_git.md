@@ -67,6 +67,10 @@ Or, add all file of certain type to staging environment
 $ git add “*.<type of file>”
 ```
 
+```
+$ git add -A
+```
+
 Create a commit
 
 ```
