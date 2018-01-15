@@ -1,117 +1,119 @@
 body{
-	background-image: url("texel_beach.jpg");
 	background-repeat: no-repeat;
-	background-size: cover;
-	background-attachment: fixed;
+  background-image: url(http://res.cloudinary.com/sepuckett86/image/upload/v1515668911/texel_beach_ll16fl.jpg);
+  background-size:cover;
+  background-attachment: fixed;
+	min-width:700px;
+  width: auto !important;
+  width:700px;
 }
-header, aside, article, footer, section{
-	color: black;
-    width: 100%;
-	float: left;
-    font-family: 'arial';
-    font-size: 16px;
-    text-align: center;
-}
-
 
 header{
-    background-color: white;
+  color: white;
 	font-family: 'Comfortaa', cursive;
 }
 
-aside {
- 	height: auto;
-	background: rgba(255, 255, 255, 0.6);
+.navbar {
+    border-bottom: 3px solid #46B3B3;
 }
-	
-section {
-	height: auto;
+.navbar-brand:hover {
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
-article {
-	height: auto;
-
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 footer{
-	background-color: #b3d9ff;
-	font-size: 12px;
+	color: black;
+	font-family: 'Comfortaa', cursive;
+  background-color: rgba(255, 255, 255, 0.8);
+	font-size: 14px;
+  text-align: center;
+  margin-bottom: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  border-top: 2px solid #46B3B3;
+
 }
 
 .submissionfield { width: 300px; height: 16px; border: 1px solid #999999; padding: 5px; }
 
 .box {
-    
+    background-color: rgba(255, 255, 255, 0.8);
     border: 1px solid black;
     padding: 25px;
+    border-radius: 10px;
+    -moz-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+    -webkit-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+    box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+    font-size: 16px;
+    text-align: left;
+    color: #5777C0;
+}
+
+.box-clear {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 25px;
+    border-radius: 10px;
+    font-size: 16px;
+    color: #5777C0;
 }
 
 h1 {
-	
+
 	font-family: 'Comfortaa', cursive;
 }
 
 h2 {
-    font-size: 16px; 
+    font-size: 16px;
     font-weight: normal;
 }
+
 
 ol {
 	text-align: center;
 }
 
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #009999;
+h5 {
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-size: 24px;
 }
 
 
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-li a:hover {
-    background-color: #00cccc;
-}
-
-p.barlow {
+.barlow {
     font-family: 'Barlow Semi Condensed', sans-serif;
 	font-size: 30px;
 }
 
-p.marker {
+.marker {
 	font-family: 'Permanent Marker', cursive;
 	font-size: 45px;
 }
 
-p.arial {
+.arial {
     font-family: 'arial';
 	font-size: 12px;
 }
 
-p.comfortaa {
+.comfortaa {
     font-family: 'Comfortaa', cursive;
 }
 
+.lato {
+  font-family: 'Lato', sans-serif;
 
-@media screen and (max-width: 960px) {
-	#container {
-	width: 100%;
-	}
-	
+}
+
 }
 #container {
     position: relative;
     width: 100%;
     height: 0;
-    
+
+
 }
 
 .right {
@@ -122,19 +124,98 @@ p.comfortaa {
     float: left;
 }
 
-.button {
-    background-color: #009999; /* Green */
-    border: none;
-    color: white;
+.button-standard {
+    border: solid;
+  border-radius: 10px;
+    border-color: #46B3B3;
+    border-width: 2px;
+    color: black;
     padding: 15px 32px;
     text-align: center;
 	font-family: 'Comfortaa', cursive;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 24px;
+  background-color: rgba(255, 255, 255, 0.7);
 
 }
 
-.button:hover {
-    background-color: #00cccc;
+.button-clear {
+    border: none;
+    color: #5777C0;
+    text-align: center;
+	font-family: 'Comfortaa', cursive;
+    text-decoration: none;
+    display: inline-block;
+
 }
+
+.button-white {
+    border: none;
+    color: white;
+    text-align: center;
+	font-family: 'Comfortaa', cursive;
+    text-decoration: none;
+    display: inline-block;
+
+}
+
+.button-standard:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.media {
+  padding: 10px;
+  border-radius: 10px;
+  position: relative;
+  border: solid;
+  border-color: #46B3B3;
+}
+
+.prompt {
+  color: black;
+  font-size: 24px;
+
+}
+
+.answer {
+
+  color: black;
+}
+
+.reason {
+
+  color: black;
+}
+
+.options {
+  text-align: center;
+  color: black;
+}
+
+/* default styles here for older browsers.
+       I tend to go for a 600px - 960px width max but using percentages
+    */
+@media only screen and (min-width:960px){
+        /* styles for browsers larger than 960px; */
+    }
+@media only screen and (min-width:1440px){
+        /* styles for browsers larger than 1440px; */
+    }
+@media only screen and (min-width:2000px){
+        /* for sumo sized (mac) screens */
+    }
+@media only screen and (max-device-width:480px){
+       /* styles for mobile browsers smaller than 480px; (iPhone) */
+    }
+@media only screen and (device-width:768px){
+       /* default iPad screens */
+    }
+    /* different techniques for iPad screening */
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
+      /* For portrait layouts only */
+    }
+
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
+      /* For landscape layouts only */
+    }

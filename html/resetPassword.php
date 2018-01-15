@@ -5,79 +5,104 @@ $user = new USER();
 
 if($user->is_logged_in()!="") {
 	$user->redirect('index.php');
-} 
+}
 
 if(isset($_POST['btn-submit'])) {
 	$email = $_POST['txtemail'];
 
 	$stmt = $user->runQuery("SELECT userId FROM usersTbl WHERE userEmail=:email LIMIT 1");
 	$stmt->execute(array(":email"=>$email));
-	$row = $stmt->fetch(PDO::FETCH_ASSOC);	
+	$row = $stmt->fetch(PDO::FETCH_ASSOC);
 	if($stmt->rowCount() == 1)
 	{
 		$id = $row['userId'];
 		echo "the id is $id";
 		$code = md5(uniqid(rand()));
-		
+
 		$stmt = $user->runQuery("UPDATE usersTbl SET tokenCode=:token WHERE userEmail=:email");
 		$stmt->execute(array(":token"=>$code,"email"=>$email));
-		
+
 		$message= "
 				   Hello , $email
 				   <br /><br />
 				   We received a request to reset your password. Click the following link to reset your password or if password reset is not desired, ignore this email,
 				   <br /><br />
-				   Click Following Link To Reset Your Password 
+				   Click Following Link To Reset Your Password
 				   <br /><br />
 				   <a href='http://goodminder.ihostfull.com/resetpass.php?id=$id&code=$code'>Reset Password Link</a>
 				   <br /><br />
 				   Thank you.
 				   ";
 		$subject = "Password Reset";
-		
+
 		$user->send_mail($email,$message,$subject);
-		
+
 		$msg = "<div class='alert alert-success'>
 					<button class='close' data-dismiss='alert'>&times;</button>
 					We've sent an email to $email.
-                    Please click on the password reset link in the email to generate new password. 
+                    Please click on the password reset link in the email to generate new password.
 			  	</div>";
 	}
 	else
 	{
 		$msg = "<div class='alert alert-danger'>
 					<button class='close' data-dismiss='alert'>&times;</button>
-					<strong>Sorry!</strong> this email was not found. 
+					<strong>Sorry!</strong> this email was not found.
 			    </div>";
 	}
 }
 ?>
 
-<!DOCTYPE html>
+<!doctype html>
+<html lang="en">
 
-<html>
+
 <head>
-    <title>goodminder password reset</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>goodminder</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
     <link href="main.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet"/>
+		<link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed" rel="stylesheet"/>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.3/js/all.js"></script>
+
+
 </head>
 
 <body>
-<div id="container">
-<header>
-    <ul>
-    <li class="left"><a href="index.php">goodminder</a></li>
-    <li class="right"><a href="example.php">Examples</a></li>
-    <li class="right"><a href="about.php">About</a></li>
-    <li class="right"><a href="login.php">Log In</a></li>
-    </ul>
-</header>
- <section>
-        <p></p>
-    </section>
-<aside style="text-align: left">
-    <div style="margin: 25px">
-        <h1>Reset Password</h1>
+
+	<header>
+
+		<nav class="navbar navbar-dark navbar-expand-sm">
+		<a class="navbar-brand" href="index.php">goodminder</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item active">
+					<a class="nav-link" href="about.php">Log In</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="about.php">About</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="example.php">Examples</a>
+				</li>
+			</ul>
+		</div>
+		</nav>
+
+	</header>
+
+
+<main>
+	<div class="box" style="margin: 25px" style="text-align:left; font-family: 'Comfortaa', cursive;">
+			 <h1>Reset Password</h1>
         <form style="font-size: 18px" method="post">
             <?php
 			if(isset($msg))
@@ -89,7 +114,7 @@ if(isset($_POST['btn-submit'])) {
 				?>
               	<div class='alert alert-info'>
 				Please enter your email address. You will receive a link to create a new password via email.
-				</div>  
+				</div>
                 <?php
 			}
 			?>
@@ -104,14 +129,20 @@ if(isset($_POST['btn-submit'])) {
             <button class="button" type="submit" name="btn-submit">Submit</button>
         </form>
     </div>
-</aside>
- <section>
-        <p></p>
-    </section>
-<footer>
-    <p>Copyright 2017 <a href="https://github.com/sepuckett86">sepuckett86</a> and 
-    <a href="https://github.com/codegold79">codegold79</a> </p>
+
+</main>
+
+<footer class="fixed-bottom">
+	<p><span style="float: left">&nbsp&nbsp&nbsp&nbsp <a href="#" class="button-clear"><i class="fab fa-facebook"></i>
+		 Visit us on facebook</a></span>Copyright 2018 | <a href="https://github.com/sepuckett86" class="button-clear">sepuckett86</a> and
+		 <a href="https://github.com/codegold79" class="button-clear">codegold79</a><span style="float: right"> Questions? <a href="#" class="button-clear">Click Here</a>&nbsp&nbsp&nbsp&nbsp</span></p>
 </footer>
-</div>
+
+<!--script below-->
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+<script src="main.js"></script>
 </body>
 </html>

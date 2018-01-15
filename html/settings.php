@@ -23,8 +23,6 @@ if($user_home->is_logged_in())
     <link href="main.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet"/>
-		<link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed" rel="stylesheet"/>
     <script defer src="https://use.fontawesome.com/releases/v5.0.3/js/all.js"></script>
 
 
@@ -63,17 +61,21 @@ if($user_home->is_logged_in())
   </nav>
 
 </header>
+
 <main>
   <div class="container" style="text-align:center; font-family: 'Comfortaa', cursive;">
      <div style="margin: 25px">
-       <h1 style="color: white; text-shadow: 2px 2px 2px black;">Examples</h1>
+       <h1 style="color: white; text-shadow: 2px 2px 2px black;">Settings</h1>
 
-</main>
+   </main>
+
+
 <footer class="fixed-bottom">
-	<p><span style="float: left">&nbsp&nbsp&nbsp&nbsp <a href="#" class="button-clear"><i class="fab fa-facebook"></i>
-		 Visit us on facebook</a></span>Copyright 2018 | <a href="https://github.com/sepuckett86" class="button-clear">sepuckett86</a> and
-		 <a href="https://github.com/codegold79" class="button-clear">codegold79</a><span style="float: right"> Questions? <a href="#" class="button-clear">Click Here</a>&nbsp&nbsp&nbsp&nbsp</span></p>
+  <p><span style="float: left">&nbsp&nbsp&nbsp&nbsp <a href="#" class="button-clear"><i class="fab fa-facebook"></i>
+     Visit us on facebook</a></span>Copyright 2018 | <a href="https://github.com/sepuckett86" class="button-clear">sepuckett86</a> and
+     <a href="https://github.com/codegold79" class="button-clear">codegold79</a><span style="float: right"> Questions? <a href="#" class="button-clear">Click Here</a>&nbsp&nbsp&nbsp&nbsp</span></p>
 </footer>
+
 
 <!--script below-->
 
