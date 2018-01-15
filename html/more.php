@@ -63,19 +63,30 @@ if($user_home->is_logged_in())
 </header>
 
 <main>
-  <div class="container" style="text-align:center; font-family: 'Comfortaa', cursive;">
-     <div style="margin: 25px">
-       <h1 style="color: white; text-shadow: 2px 2px 2px black;">Settings</h1>
+ <div class="container" style="text-align:center; font-family: 'Comfortaa', cursive;">
+    <div style="margin: 25px">
+      <h1 style="color: white; text-shadow: 2px 2px 2px black;">More</h1>
+      <p style="text-align: left; color: white; text-shadow: 1px 2px 1px black; ">
+        Other things to do:</p>
 
+<div class="box">
+<h4>Export your data</h4>
+<h4>Make a PDF</h4>
+</div>
+  <br>
+  <p style="color: black;"><a href="userHome.php" class='button-standard'><i class="fas fa-arrow-circle-left" style="margin-right: 3px;"></i>Home</a> &nbsp
+  <a href="add.php" class='button-standard'><i class="fas fa-dot-circle" style="margin-right: 3px;"></i></i>Add</a></p>
+</div>
+</div>
    </main>
+<br><br>
 
-
+<br>
 	 <footer class="fixed-bottom">
 	 	<p><span style="float: left">&nbsp&nbsp&nbsp&nbsp <a href="#" class="button-clear"><i class="fab fa-facebook"></i>
 	 		 Visit us on facebook</a></span>Copyright 2018 | <a href="https://github.com/sepuckett86" class="button-clear">sepuckett86</a> and
 	 		 <a href="https://github.com/codegold79" class="button-clear">codegold79</a><span style="float: right"> Questions? <a href="faq.php" class="button-clear">Click Here</a>&nbsp&nbsp&nbsp&nbsp</span></p>
 	 </footer>
-
 
 <!--script below-->
 

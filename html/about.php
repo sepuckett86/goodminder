@@ -72,12 +72,14 @@ if($user_home->is_logged_in())
 <br>
 <div class="box" style="text-align:center;">
         <h1>Our Philosophy</h1>
+
         <p>Why do you live?</p>
         <p>It is easy to focus on negatives rather than positives.
         And it is easy to succumb to social media and entertainment rather than
         focusing on our own real lives. Here, we aim to help you catalogue the good
         in your life.</p>
         <h1>What is goodminder?</h1>
+				<p>goodminder: Specifically you.</p>
         <p>goodminder is a similar to a journal, yet it has a focus.
         Prompts help you think of things worth recording in your life.
         There is also an element of randomness that reminds you of ideas or events
@@ -97,7 +99,7 @@ if($user_home->is_logged_in())
 <footer class="fixed-bottom">
 	<p><span style="float: left">&nbsp&nbsp&nbsp&nbsp <a href="#" class="button-clear"><i class="fab fa-facebook"></i>
 		 Visit us on facebook</a></span>Copyright 2018 | <a href="https://github.com/sepuckett86" class="button-clear">sepuckett86</a> and
-		 <a href="https://github.com/codegold79" class="button-clear">codegold79</a><span style="float: right"> Questions? <a href="#" class="button-clear">Click Here</a>&nbsp&nbsp&nbsp&nbsp</span></p>
+		 <a href="https://github.com/codegold79" class="button-clear">codegold79</a><span style="float: right"> Questions? <a href="faq.php" class="button-clear">Click Here</a>&nbsp&nbsp&nbsp&nbsp</span></p>
 </footer>
 
 <!--script below-->

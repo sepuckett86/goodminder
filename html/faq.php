@@ -23,6 +23,8 @@ if($user_home->is_logged_in())
     <link href="main.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet"/>
+		<link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed" rel="stylesheet"/>
     <script defer src="https://use.fontawesome.com/releases/v5.0.3/js/all.js"></script>
 
 
@@ -61,21 +63,44 @@ if($user_home->is_logged_in())
   </nav>
 
 </header>
-
 <main>
   <div class="container" style="text-align:center; font-family: 'Comfortaa', cursive;">
      <div style="margin: 25px">
-       <h1 style="color: white; text-shadow: 2px 2px 2px black;">Settings</h1>
+       <h1 style="color: white; text-shadow: 2px 2px 2px black;">Frequently Asked Questions</h1>
+			 <br>
+			 <div class="box">
+			 <p>Q: What is different about goodminder compared to other quote websites?</p>
+			 <p>A: Prompt collections or user inputted prompts that allow for a more personal experience.</p>
+		 </div><br>
+			 <h1 style="color: white; text-shadow: 2px 2px 2px black;">Have a question? Enter here:</h1>
+			 <br>
+			 <form>
+  <div class="form-group" style="text-align: left;">
+    <label for="exampleFormControlInput1">Email address</label>
+    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+		<br>
+<label for="firstname">Name: </label><br>
+	<div class="row">
 
-   </main>
-
-
-	 <footer class="fixed-bottom">
-	 	<p><span style="float: left">&nbsp&nbsp&nbsp&nbsp <a href="#" class="button-clear"><i class="fab fa-facebook"></i>
-	 		 Visit us on facebook</a></span>Copyright 2018 | <a href="https://github.com/sepuckett86" class="button-clear">sepuckett86</a> and
-	 		 <a href="https://github.com/codegold79" class="button-clear">codegold79</a><span style="float: right"> Questions? <a href="faq.php" class="button-clear">Click Here</a>&nbsp&nbsp&nbsp&nbsp</span></p>
-	 </footer>
-
+	    <div class="col">
+	      <input type="text" class="form-control" placeholder="First">
+	    </div>
+	    <div class="col">
+	      <input type="text" class="form-control" placeholder="Last">
+	    </div>
+	  </div>
+		<br>
+    <label for="exampleFormControlTextarea1">Enter Question Here:</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+</form>
+<br><br>
+</main>
+<footer class="fixed-bottom">
+	<p><span style="float: left">&nbsp&nbsp&nbsp&nbsp <a href="#" class="button-clear"><i class="fab fa-facebook"></i>
+		 Visit us on facebook</a></span>Copyright 2018 | <a href="https://github.com/sepuckett86" class="button-clear">sepuckett86</a> and
+		 <a href="https://github.com/codegold79" class="button-clear">codegold79</a><span style="float: right"> Questions? <a href="faq.php" class="button-clear">Click Here</a>&nbsp&nbsp&nbsp&nbsp</span></p>
+</footer>
 
 <!--script below-->
 
