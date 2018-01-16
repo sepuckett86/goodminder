@@ -93,35 +93,19 @@ if(isset($_POST['btn-login']))
             <?php
 		}
 		?>
-
-
-            <table>
-            <tr>
-                <td>Email: </td>
-                <td><input class="submissionfield" style="font-size:16px;" type="email" placeholder="my_email@awesome.com" name="txtemail" required></td>
-            </tr>
-            <tr><td></td></tr>
-            <tr>
-                <td>Password: </td>
-                <td><input class="submissionfield" style="font-size:16px;" type="password" placeholder="************" name="txtupass" required></td>
-            </tr>
-            </table>
-            <br>
-            <button class="button" type="submit" name="btn-login">Submit</button>
-        </form>
 <br><br>
-				<p>new login: please update</p>
+				<p>new login: updated as of 1/15/2018. @sepuckett, do you know if "required" at the end of the input tag is all right? I added them but go ahead and delete them if you think these are deprecated, not useful, or perhaps there's a better way. ~CG</p>
 				<form>
 				  <div class="form-group">
 				    <label for="exampleInputEmail1">Email address</label>
-				    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="txtemail" placeholder="Enter email">
+				    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="txtemail" placeholder="Enter email" required>
 				    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
 				  </div>
 				  <div class="form-group">
 				    <label for="exampleInputPassword1">Password</label>
-				    <input type="password" class="form-control" id="exampleInputPassword1" name="txtupass" placeholder="Password">
+				    <input type="password" class="form-control" id="exampleInputPassword1" name="txtupass" placeholder="Password" required>
 				  </div>
-				  <button type="submit" class="btn btn-primary">Submit</button>
+				  <button type="submit" class="btn btn-primary" name="btn-login">Submit</button>
 				</form>
         </div>
         <br>
