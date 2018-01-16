@@ -66,10 +66,9 @@ if($user_home->is_logged_in())
 
 <main>
 
-      <div class="container" style="text-align:center; font-family: 'Comfortaa', cursive;">
-         <div style="margin: 25px">
-           <h1 style="color: white; text-shadow: 2px 2px 2px black;">About</h1></div>
-<br>
+      <div class="container" style="text-align:center;">
+           <h1 class="main-header">About</h1>
+
 <div class="box" style="text-align:center;">
         <h1>Our Philosophy</h1>
 
@@ -79,7 +78,7 @@ if($user_home->is_logged_in())
         focusing on our own real lives. Here, we aim to help you catalogue the good
         in your life.</p>
         <h1>What is goodminder?</h1>
-				<p>goodminder: Specifically you.</p>
+				<p><b>goodminder: Specifically you.</b></p>
         <p>goodminder is a similar to a journal, yet it has a focus.
         Prompts help you think of things worth recording in your life.
         There is also an element of randomness that reminds you of ideas or events
@@ -87,11 +86,32 @@ if($user_home->is_logged_in())
         <h1>Inspirations</h1>
         <p>Man's Search for Meaning by Viktor E. Frankl</p>
         <h1>Who we are</h1>
-        <a href="https://github.com/sepuckett86">sepuckett86</a> and
-    <a href="https://github.com/codegold79">codegold79</a>
-        <h1>Contact us</h1>
-        <p>insert email here</p>
-    </div>
+
+      <p>  <a href="https://github.com/sepuckett86">sepuckett86</a> and
+    <a href="https://github.com/codegold79">codegold79</a></p>
+<div class="box">
+        <h1 style="text-align: center;">Contact us</h1>
+
+ 			 <form>
+   <div class="form-group" style="text-align: left;">
+     <label for="exampleFormControlInput1">Email address</label>
+     <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+ 		<br>
+ <label for="firstname">Name: </label><br>
+ 	<div class="row">
+ 	    <div class="col">
+ 	      <input type="text" class="form-control" placeholder="First">
+ 	    </div>
+ 	    <div class="col">
+ 	      <input type="text" class="form-control" placeholder="Last">
+ 	    </div>
+ 	  </div>
+ 		<br>
+     <label for="exampleFormControlTextarea1">Enter comment here:</label>
+     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+   </div>
+ </form>
+</div>
 </div>
 <br><br><br><br>
 </main>

@@ -22,15 +22,16 @@ if(isset($_POST['btn-submit'])) {
 		$stmt->execute(array(":token"=>$code,"email"=>$email));
 
 		$message= "
-				   Hello , $email
+				   Hello $email,
 				   <br /><br />
-				   We received a request to reset your password. Click the following link to reset your password or if password reset is not desired, ignore this email,
+				   We received a request to reset your password.
+					 <br /><br />
+					 Click the following link to reset your password or if password reset is not desired, ignore this email.
 				   <br /><br />
-				   Click Following Link To Reset Your Password
+				   <a href='http://goodminder.ihostfull.com/resetPassword2.php?id=$id&code=$code'>Reset Password Here</a>
 				   <br /><br />
-				   <a href='http://goodminder.ihostfull.com/resetpass.php?id=$id&code=$code'>Reset Password Link</a>
-				   <br /><br />
-				   Thank you.
+				   Thank you!
+					 The goodminder team.
 				   ";
 		$subject = "Password Reset";
 
@@ -39,7 +40,7 @@ if(isset($_POST['btn-submit'])) {
 		$msg = "<div class='alert alert-success'>
 					<button class='close' data-dismiss='alert'>&times;</button>
 					We've sent an email to $email.
-                    Please click on the password reset link in the email to generate new password.
+                    Please click on the password reset link in the email to generate a new password.
 			  	</div>";
 	}
 	else

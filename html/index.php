@@ -77,7 +77,7 @@ if($user_home->is_logged_in())
 	  </div>
 <div class="container">
         <div style="margin: 25px; text-align:center;">
-            <p class='marker'>Step into a place where the focus is on the good in your life</p>
+            <p class='marker' style="text-shadow: 3px 3px 3px #5777C0;">Step into a place where the focus is on the good in your life</p>
         </div>
 </div>
 				<div class="container">

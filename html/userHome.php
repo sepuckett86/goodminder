@@ -71,6 +71,7 @@ if($user_home->is_logged_in())
       </h1>
       <p style="text-align: left; color: white; text-shadow: 1px 2px 1px black; ">
         Here is your dailyminder:</p>
+			</div>
 
     <div class="box">
       <p style="text-align: right;">Quote added <a href="#">Month Day, Year</a> to <a href="#">
@@ -115,12 +116,12 @@ if($user_home->is_logged_in())
       </div>
 
     </div>
-    <br>
+  
     <p style="color: black;"><a href="userHome2.php" class='button-standard'><i class="fas fa-arrow-circle-right" style="margin-right: 3px;"></i>Next</a> &nbsp
       <a href="add.php" class='button-standard'><i class="fas fa-plus-circle" style="margin-right: 3px;"></i>Add</a> &nbsp
     <a href="more.php" class='button-standard'><i class="fas fa-dot-circle" style="margin-right: 3px;"></i></i>More</a></p>
     </div>
-  </div>
+	<br><br>
    </main>
 
 

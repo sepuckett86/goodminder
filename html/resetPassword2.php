@@ -32,48 +32,60 @@ if($user_home->is_logged_in())
 
 <body>
 
-<header>
+	<header>
 
-  <nav class="navbar navbar-dark navbar-expand-sm">
-  <a class="navbar-brand" href="index.php">goodminder</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+		<nav class="navbar navbar-dark navbar-expand-sm">
+		<a class="navbar-brand" href="index.php">goodminder</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
 
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav ml-auto">
-			<?php if($user_home->is_logged_in()){
-				echo '<li class="nav-item active"><a class="nav-link" href="logout.php">Log Out ' . $row['userEmail'] .'<span class="sr-only">(current)</span></a></li>';
-			} else {
-				echo '<li class="nav-item active"><a class="nav-link" href="login.php">Log In<span class="sr-only">(current)</span></a></li>';
-			}
-			?>
-      <li class="nav-item active">
-        <a class="nav-link" href="about.php">About<span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="example.php">Examples</a>
-      </li>
-			<?php if($user_home->is_logged_in()){
-				echo '<li class="nav-item"><a class="nav-link" href="settings.php">Settings</a></li>';
-			}
-			?>
-    </ul>
-  </div>
-  </nav>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item active">
+					<a class="nav-link" href="about.php">Log In</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="about.php">About</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="example.php">Examples</a>
+				</li>
+			</ul>
+		</div>
+		</nav>
 
-</header>
+	</header>
+
 
 <main>
-  <h1 class="main-header">Log Out Successful</h1>
-<div class="container">
-  <div class="box">
-    <p>Thanks for using goodminder!</p>
-    <p>Have a great day!</p>
-  </div>
-</div>
+	<div class="box" style="margin: 25px" style="text-align:left; font-family: 'Comfortaa', cursive;">
+			 <h1>Reset Password</h1>
+            <p>Please enter your new password for "email address goes here"</p>
+						<form id="needs-validation" novalidate>
+							<div class="form-group row">
+								<label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+								<div class="col-sm-10">
+									<input type="password" class="form-control" id="inputPassword" aria-describedby="passwordHelpBlock" placeholder="********" required>
+									<small id="passwordHelpBlock" class="form-text text-muted">
+									Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+									</small>
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="inputPassword2" class="col-sm-2 col-form-label">Re-Type Password</label>
+								<div class="col-sm-10">
+									<input type="password" class="form-control" id="inputPassword2" placeholder="********" required>
+								</div>
+							</div>
+							<div class="form-group row">
+								<div class="col-sm-10">
+									<button type="submit" class="btn btn-primary">Submit</button>
+								</div>
+							</div>
+						</form>
+    </div>
 
-<br><br>
 </main>
 
 <footer class="fixed-bottom">
