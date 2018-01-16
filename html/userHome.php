@@ -65,7 +65,10 @@ if($user_home->is_logged_in())
 <main>
  <div class="container" style="text-align:center; font-family: 'Comfortaa', cursive;">
     <div style="margin: 25px">
-      <h1 style="color: white; text-shadow: 2px 2px 2px black;">Welcome, User</h1>
+      <h1 style="color: white; text-shadow: 2px 2px 2px black;">
+        <?php echo "Welcome, " . $row['userName'];
+        ?>
+      </h1>
       <p style="text-align: left; color: white; text-shadow: 1px 2px 1px black; ">
         Here is your dailyminder:</p>
 
