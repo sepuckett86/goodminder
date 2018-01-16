@@ -1,15 +1,15 @@
 <?php
 session_start();
 require_once 'auth/class.user.php';
-$user_home = new USER();
+$user = new USER();
 
-if($user_home->is_logged_in())
+
+if($user->is_logged_in()!="")
 {
-	$stmt = $user_home->runQuery("SELECT * FROM usersTbl WHERE userID=:uid");
-	$stmt->execute(array(":uid"=>$_SESSION['userSession']));
-	$row = $stmt->fetch(PDO::FETCH_ASSOC);
+	$user->logout();
 }
 ?>
+
 
 <!doctype html>
 <html lang="en">
@@ -42,19 +42,15 @@ if($user_home->is_logged_in())
 
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
-			<?php if($user_home->is_logged_in()){
-				echo '<li class="nav-item active"><a class="nav-link" href="logout.php">Log Out ' . $row['userEmail'] .'<span class="sr-only">(current)</span></a></li>';
-			} else {
-				echo '<li class="nav-item active"><a class="nav-link" href="login.php">Log In<span class="sr-only">(current)</span></a></li>';
-			}
-			?>
-      <li class="nav-item active">
-        <a class="nav-link" href="about.php">About<span class="sr-only">(current)</span></a>
+
+			<li class="nav-item active"><a class="nav-link" href="login.php">Log In<span class="sr-only">(current)</span></a></li>
+      <li class="nav-item">
+        <a class="nav-link" href="about.php">About</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="example.php">Examples</a>
       </li>
-			<?php if($user_home->is_logged_in()){
+			<?php if($user->is_logged_in()){
 				echo '<li class="nav-item"><a class="nav-link" href="settings.php">Settings</a></li>';
 			}
 			?>
