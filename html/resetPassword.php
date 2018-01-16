@@ -16,7 +16,6 @@ if(isset($_POST['btn-submit'])) {
 	if($stmt->rowCount() == 1)
 	{
 		$id = $row['userId'];
-		echo "the id is $id";
 		$code = md5(uniqid(rand()));
 
 		$stmt = $user->runQuery("UPDATE usersTbl SET tokenCode=:token WHERE userEmail=:email");
