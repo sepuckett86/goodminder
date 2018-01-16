@@ -23,8 +23,6 @@ if($user_home->is_logged_in())
     <link href="main.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet"/>
-		<link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed" rel="stylesheet"/>
     <script defer src="https://use.fontawesome.com/releases/v5.0.3/js/all.js"></script>
 
 
@@ -65,48 +63,30 @@ if($user_home->is_logged_in())
 </header>
 
 <main>
+ <div class="container" style="text-align:center; font-family: 'Comfortaa', cursive;">
+    <div style="margin: 25px">
+      <h1 style="color: white; text-shadow: 2px 2px 2px black;">More</h1>
+      <p style="text-align: left; color: white; text-shadow: 1px 2px 1px black; ">
+        Other things to do:</p>
 
-    <div class="container">
-
-			<br>
-			<div class="box-clear">
-        <div style="text-align: center;">
-            <p class='barlow'>Tired of social media bumming you out?</p>
-        </div>
-      </div>
-	  </div>
-<div class="container">
-        <div style="margin: 25px; text-align:center;">
-            <p class='marker'>Step into a place where the focus is on the good in your life</p>
-        </div>
+<div class="box">
+<h4>Export your data</h4>
+<h4>Make a PDF</h4>
 </div>
-				<div class="container">
-        <div class="box-clear" style="text-align: center;">
-        <p class='arial'>
-            <ul style="list-style-type: none;">
-            <li style="margin: 5px;">Record positive life experiences to read at a later date. </li>
-            <li style="margin: 5px;">Collect inspiring sayings, quotes, snippets.</li>
-            <li style="margin: 5px;">Be inspired by prompts that help you remember what you live for.</li>
-            <li style="margin: 5px;">Create a personal random thought generator.</li>
-            <li style="margin: 5px;">Export all of your saved thoughts, including as a PDF that can be printed as a book. </li>
-            </ul>
-        </p>
-        </div>
-				</div>
+  <br>
+  <p style="color: black;"><a href="userHome.php" class='button-standard'><i class="fas fa-arrow-circle-left" style="margin-right: 3px;"></i>Home</a> &nbsp
+  <a href="add.php" class='button-standard'><i class="fas fa-dot-circle" style="margin-right: 3px;"></i></i>Add</a></p>
+</div>
+</div>
+   </main>
+<br><br>
 
-
-
-        <br>
-        <p style="color: black; text-align: center;"><a href="newUser.php" class='button-standard'><i class="fas fa-arrow-circle-right" style="margin-right: 3px;"></i>Get Started</a></p>
-        <br><br>
-
-</main>
-
-<footer class="fixed-bottom">
-	<p><span style="float: left">&nbsp&nbsp&nbsp&nbsp <a href="#" class="button-clear"><i class="fab fa-facebook"></i>
-		 Visit us on facebook</a></span>Copyright 2018 | <a href="https://github.com/sepuckett86" class="button-clear">sepuckett86</a> and
-		 <a href="https://github.com/codegold79" class="button-clear">codegold79</a><span style="float: right"> Questions? <a href="faq.php" class="button-clear">Click Here</a>&nbsp&nbsp&nbsp&nbsp</span></p>
-</footer>
+<br>
+	 <footer class="fixed-bottom">
+	 	<p><span style="float: left">&nbsp&nbsp&nbsp&nbsp <a href="#" class="button-clear"><i class="fab fa-facebook"></i>
+	 		 Visit us on facebook</a></span>Copyright 2018 | <a href="https://github.com/sepuckett86" class="button-clear">sepuckett86</a> and
+	 		 <a href="https://github.com/codegold79" class="button-clear">codegold79</a><span style="float: right"> Questions? <a href="faq.php" class="button-clear">Click Here</a>&nbsp&nbsp&nbsp&nbsp</span></p>
+	 </footer>
 
 <!--script below-->
 

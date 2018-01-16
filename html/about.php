@@ -1,36 +1,85 @@
-<!DOCTYPE html>
+<?php
+session_start();
+require_once 'auth/class.user.php';
+$user_home = new USER();
 
-<html>
+if($user_home->is_logged_in())
+{
+	$stmt = $user_home->runQuery("SELECT * FROM usersTbl WHERE userID=:uid");
+	$stmt->execute(array(":uid"=>$_SESSION['userSession']));
+	$row = $stmt->fetch(PDO::FETCH_ASSOC);
+}
+?>
+
+<!doctype html>
+<html lang="en">
+
+
 <head>
-    <title>goodminder about</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>goodminder</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
     <link href="main.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet"/>
+		<link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed" rel="stylesheet"/>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.3/js/all.js"></script>
+
+
 </head>
 
 <body>
-<div id="container">
+
 <header>
-    <ul>
-    <li class="left"><a href="index.php">goodminder</a></li>
-    <li class="right"><a href="example.php">Examples</a></li>
-    <li class="right"><a href="about.php">About</a></li>
-    <li class="right"><a href="login.php">Log In</a></li>
+
+  <nav class="navbar navbar-dark navbar-expand-sm">
+  <a class="navbar-brand" href="index.php">goodminder</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+			<?php if($user_home->is_logged_in()){
+				echo '<li class="nav-item active"><a class="nav-link" href="logout.php">Log Out ' . $row['userEmail'] .'<span class="sr-only">(current)</span></a></li>';
+			} else {
+				echo '<li class="nav-item active"><a class="nav-link" href="login.php">Log In<span class="sr-only">(current)</span></a></li>';
+			}
+			?>
+      <li class="nav-item active">
+        <a class="nav-link" href="about.php">About<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="example.php">Examples</a>
+      </li>
+			<?php if($user_home->is_logged_in()){
+				echo '<li class="nav-item"><a class="nav-link" href="settings.php">Settings</a></li>';
+			}
+			?>
     </ul>
+  </div>
+  </nav>
+
 </header>
- <section>
-        <p></p>
-    </section>
-<aside>
-    <div style="margin: 25px;">
-        <h1>About goodminder</h1>
-        
+
+<main>
+
+      <div class="container" style="text-align:center; font-family: 'Comfortaa', cursive;">
+         <div style="margin: 25px">
+           <h1 style="color: white; text-shadow: 2px 2px 2px black;">About</h1></div>
+<br>
+<div class="box" style="text-align:center;">
         <h1>Our Philosophy</h1>
+
         <p>Why do you live?</p>
-        <p>It is easy to focus on negatives rather than positives. 
+        <p>It is easy to focus on negatives rather than positives.
         And it is easy to succumb to social media and entertainment rather than
         focusing on our own real lives. Here, we aim to help you catalogue the good
         in your life.</p>
         <h1>What is goodminder?</h1>
+				<p>goodminder: Specifically you.</p>
         <p>goodminder is a similar to a journal, yet it has a focus.
         Prompts help you think of things worth recording in your life.
         There is also an element of randomness that reminds you of ideas or events
@@ -38,19 +87,26 @@
         <h1>Inspirations</h1>
         <p>Man's Search for Meaning by Viktor E. Frankl</p>
         <h1>Who we are</h1>
-        <a href="https://github.com/sepuckett86">sepuckett86</a> and 
+        <a href="https://github.com/sepuckett86">sepuckett86</a> and
     <a href="https://github.com/codegold79">codegold79</a>
         <h1>Contact us</h1>
         <p>insert email here</p>
     </div>
-</aside>
- <section>
-        <p></p>
-    </section>
-<footer>
-    <p>Copyright 2017 <a href="https://github.com/sepuckett86">sepuckett86</a> and 
-    <a href="https://github.com/codegold79">codegold79</a> </p>
-</footer>
 </div>
+<br><br><br><br>
+</main>
+
+<footer class="fixed-bottom">
+	<p><span style="float: left">&nbsp&nbsp&nbsp&nbsp <a href="#" class="button-clear"><i class="fab fa-facebook"></i>
+		 Visit us on facebook</a></span>Copyright 2018 | <a href="https://github.com/sepuckett86" class="button-clear">sepuckett86</a> and
+		 <a href="https://github.com/codegold79" class="button-clear">codegold79</a><span style="float: right"> Questions? <a href="faq.php" class="button-clear">Click Here</a>&nbsp&nbsp&nbsp&nbsp</span></p>
+</footer>
+
+<!--script below-->
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+<script src="main.js"></script>
 </body>
 </html>

@@ -63,45 +63,39 @@ if($user_home->is_logged_in())
   </nav>
 
 </header>
-
 <main>
+  <div class="container" style="text-align:center; font-family: 'Comfortaa', cursive;">
+     <div style="margin: 25px">
+       <h1 style="color: white; text-shadow: 2px 2px 2px black;">Frequently Asked Questions</h1>
+			 <br>
+			 <div class="box">
+			 <p>Q: What is different about goodminder compared to other quote websites?</p>
+			 <p>A: Prompt collections or user inputted prompts that allow for a more personal experience.</p>
+		 </div><br>
+			 <h1 style="color: white; text-shadow: 2px 2px 2px black;">Have a question? Enter here:</h1>
+			 <br>
+			 <form>
+  <div class="form-group" style="text-align: left;">
+    <label for="exampleFormControlInput1">Email address</label>
+    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+		<br>
+<label for="firstname">Name: </label><br>
+	<div class="row">
 
-    <div class="container">
-
-			<br>
-			<div class="box-clear">
-        <div style="text-align: center;">
-            <p class='barlow'>Tired of social media bumming you out?</p>
-        </div>
-      </div>
+	    <div class="col">
+	      <input type="text" class="form-control" placeholder="First">
+	    </div>
+	    <div class="col">
+	      <input type="text" class="form-control" placeholder="Last">
+	    </div>
 	  </div>
-<div class="container">
-        <div style="margin: 25px; text-align:center;">
-            <p class='marker'>Step into a place where the focus is on the good in your life</p>
-        </div>
-</div>
-				<div class="container">
-        <div class="box-clear" style="text-align: center;">
-        <p class='arial'>
-            <ul style="list-style-type: none;">
-            <li style="margin: 5px;">Record positive life experiences to read at a later date. </li>
-            <li style="margin: 5px;">Collect inspiring sayings, quotes, snippets.</li>
-            <li style="margin: 5px;">Be inspired by prompts that help you remember what you live for.</li>
-            <li style="margin: 5px;">Create a personal random thought generator.</li>
-            <li style="margin: 5px;">Export all of your saved thoughts, including as a PDF that can be printed as a book. </li>
-            </ul>
-        </p>
-        </div>
-				</div>
-
-
-
-        <br>
-        <p style="color: black; text-align: center;"><a href="newUser.php" class='button-standard'><i class="fas fa-arrow-circle-right" style="margin-right: 3px;"></i>Get Started</a></p>
-        <br><br>
-
+		<br>
+    <label for="exampleFormControlTextarea1">Enter Question Here:</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+</form>
+<br><br>
 </main>
-
 <footer class="fixed-bottom">
 	<p><span style="float: left">&nbsp&nbsp&nbsp&nbsp <a href="#" class="button-clear"><i class="fab fa-facebook"></i>
 		 Visit us on facebook</a></span>Copyright 2018 | <a href="https://github.com/sepuckett86" class="button-clear">sepuckett86</a> and
