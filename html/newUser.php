@@ -97,7 +97,7 @@ if(isset($_POST['btn-signup']))
 		<div class="collapse navbar-collapse" id="navbarNav">
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item active">
-					<a class="nav-link" href="about.php">Log In</a>
+					<a class="nav-link" href="login.php">Log In</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="about.php">About</a>
@@ -119,6 +119,52 @@ if(isset($_POST['btn-signup']))
         <div class="box">
         <h1>Create New Account</h1>
         <?php if(isset($msg)) echo $msg; ?>
+				<br>
+				<!--NEW FORM -->
+				<form id="needs-validation" novalidate>
+					<div class="form-group row">
+    				<label for="inputName" class="col-sm-2 col-form-label">Your Name</label>
+						<div class="col-sm-10">
+    				<input type="text" class="form-control" id="inputName" placeholder="Bob" required>
+  				  </div>
+					</div>
+					<div class="form-group row">
+    				<label for="inputUserName" class="col-sm-2 col-form-label">Unique User Name</label>
+						<div class="col-sm-10">
+    				<input type="text" class="form-control" id="inputUserName" placeholder="abc_man5000" required>
+  				  </div>
+					</div>
+					<div class="form-group row">
+				    <label for="inputEmail" class="col-sm-2 col-form-label">Email address</label>
+						<div class="col-sm-10">
+				    <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="example@awesome.com" required>
+				    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+				  </div>
+				  </div>
+				  <div class="form-group row">
+				    <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+				    <div class="col-sm-10">
+				      <input type="password" class="form-control" id="inputPassword" aria-describedby="passwordHelpBlock" placeholder="********" required>
+							<small id="passwordHelpBlock" class="form-text text-muted">
+  						Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+							</small>
+						</div>
+				  </div>
+					<div class="form-group row">
+				    <label for="inputPassword2" class="col-sm-2 col-form-label">Re-Type Password</label>
+				    <div class="col-sm-10">
+				      <input type="password" class="form-control" id="inputPassword2" placeholder="********" required>
+				    </div>
+				  </div>
+				  <div class="form-group row">
+				    <div class="col-sm-10">
+				      <button type="submit" class="btn btn-primary">Submit</button>
+				    </div>
+				  </div>
+				</form>
+
+<!--OLD FORM-->
+
         <form style="font-size: 18px" method="post">
             <table>
             <tr>
@@ -140,10 +186,11 @@ if(isset($_POST['btn-signup']))
             <button class="button" type="submit" name="btn-signup">Submit</button>
         </form>
         </div>
-        <br>
-        <br>
-        <p>Already have an account? Go to: <p class='comfortaa'><a href="login.php" class='button'>Log In Page</a></p></p>
-        </div>
+
+				<div class="box">
+        <p>Already have an account? <a href="login.php" class='btn btn-outline-primary btn-sm'><i class="fas fa-arrow-circle-right" style="margin-right: 3px;"></i>Log In</a></p>
+				</div>
+			</div>
     </div>
 <br>
 <br>

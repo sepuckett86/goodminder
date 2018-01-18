@@ -1,55 +1,13 @@
 <?php
 session_start();
 require_once 'auth/class.user.php';
-$user = new USER();
+$user_home = new USER();
 
-if($user->is_logged_in()!="") {
-	$user->redirect('index.php');
-}
-
-if(isset($_POST['btn-submit'])) {
-	$email = $_POST['txtemail'];
-
-	$stmt = $user->runQuery("SELECT userId FROM usersTbl WHERE userEmail=:email LIMIT 1");
-	$stmt->execute(array(":email"=>$email));
+if($user_home->is_logged_in())
+{
+	$stmt = $user_home->runQuery("SELECT * FROM usersTbl WHERE userID=:uid");
+	$stmt->execute(array(":uid"=>$_SESSION['userSession']));
 	$row = $stmt->fetch(PDO::FETCH_ASSOC);
-	if($stmt->rowCount() == 1)
-	{
-		$id = $row['userId'];
-		$code = md5(uniqid(rand()));
-
-		$stmt = $user->runQuery("UPDATE usersTbl SET tokenCode=:token WHERE userEmail=:email");
-		$stmt->execute(array(":token"=>$code,"email"=>$email));
-
-		$message= "
-				   Hello $email,
-				   <br /><br />
-				   We received a request to reset your password.
-					 <br /><br />
-					 Click the following link to reset your password or if password reset is not desired, ignore this email.
-				   <br /><br />
-				   <a href='http://goodminder.ihostfull.com/resetPassword2.php?id=$id&code=$code'>Reset Password Here</a>
-				   <br /><br />
-				   Thank you!
-					 The goodminder team.
-				   ";
-		$subject = "Password Reset";
-
-		$user->send_mail($email,$message,$subject);
-
-		$msg = "<div class='alert alert-success'>
-					<button class='close' data-dismiss='alert'>&times;</button>
-					We've sent an email to $email.
-                    Please click on the password reset link in the email to generate a new password.
-			  	</div>";
-	}
-	else
-	{
-		$msg = "<div class='alert alert-danger'>
-					<button class='close' data-dismiss='alert'>&times;</button>
-					<strong>Sorry!</strong> this email was not found.
-			    </div>";
-	}
 }
 ?>
 
@@ -103,31 +61,29 @@ if(isset($_POST['btn-submit'])) {
 <main>
 	<div class="box" style="margin: 25px" style="text-align:left; font-family: 'Comfortaa', cursive;">
 			 <h1>Reset Password</h1>
-        <form style="font-size: 18px" method="post">
-            <?php
-			if(isset($msg))
-			{
-				echo $msg;
-			}
-			else
-			{
-				?>
-              	<div class='alert alert-info'>
-				Please enter your email address. You will receive a link to create a new password via email.
-				</div>
-                <?php
-			}
-			?>
-			<p>Type in your email and when you hit submit, you'll get a link in your email inbox allowing you to reset your password.</p>
-            <table>
-            <tr>
-                <td>Email: </td>
-                <td><input class="submissionfield" style="font-size:16px;" type="email" placeholder="my_email@awesome.com" name="txtemail" required></td>
-            </tr>
-            </table>
-            <br>
-            <button class="button" type="submit" name="btn-submit">Submit</button>
-        </form>
+            <p>Please enter your new password for "email address goes here"</p>
+						<form id="needs-validation" novalidate>
+							<div class="form-group row">
+								<label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+								<div class="col-sm-10">
+									<input type="password" class="form-control" id="inputPassword" aria-describedby="passwordHelpBlock" placeholder="********" required>
+									<small id="passwordHelpBlock" class="form-text text-muted">
+									Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+									</small>
+								</div>
+							</div>
+							<div class="form-group row">
+								<label for="inputPassword2" class="col-sm-2 col-form-label">Re-Type Password</label>
+								<div class="col-sm-10">
+									<input type="password" class="form-control" id="inputPassword2" placeholder="********" required>
+								</div>
+							</div>
+							<div class="form-group row">
+								<div class="col-sm-10">
+									<button type="submit" class="btn btn-primary">Submit</button>
+								</div>
+							</div>
+						</form>
     </div>
 
 </main>

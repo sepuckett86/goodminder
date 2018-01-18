@@ -64,16 +64,16 @@ if($user_home->is_logged_in())
 
 </header>
 <main>
-  <div class="container" style="text-align:center; font-family: 'Comfortaa', cursive;">
-     <div style="margin: 25px">
-       <h1 style="color: white; text-shadow: 2px 2px 2px black;">Frequently Asked Questions</h1>
-			 <br>
+  <div class="container">
+       <h1 class="main-header">Frequently Asked Questions</h1>
+
 			 <div class="box">
 			 <p>Q: What is different about goodminder compared to other quote websites?</p>
 			 <p>A: Prompt collections or user inputted prompts that allow for a more personal experience.</p>
-		 </div><br>
-			 <h1 style="color: white; text-shadow: 2px 2px 2px black;">Have a question? Enter here:</h1>
-			 <br>
+		 </div>
+
+			 <h1 class="main-header">Have a question? Contact us here:</h1>
+			 <div class="box">
 			 <form>
   <div class="form-group" style="text-align: left;">
     <label for="exampleFormControlInput1">Email address</label>
@@ -90,10 +90,12 @@ if($user_home->is_logged_in())
 	    </div>
 	  </div>
 		<br>
-    <label for="exampleFormControlTextarea1">Enter Question Here:</label>
+    <label for="exampleFormControlTextarea1">Enter question here:</label>
     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
   </div>
 </form>
+</div>
+</div>
 <br><br>
 </main>
 <footer class="fixed-bottom">

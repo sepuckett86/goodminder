@@ -52,7 +52,7 @@ if(isset($_POST['btn-login']))
 	  <div class="collapse navbar-collapse" id="navbarNav">
 	    <ul class="navbar-nav ml-auto">
 				<li class="nav-item active">
-	        <a class="nav-link" href="about.php">Log In</a>
+	        <a class="nav-link" href="login.php">Log In</a>
 	      </li>
 	      <li class="nav-item">
 	        <a class="nav-link" href="about.php">About</a>
@@ -76,7 +76,7 @@ if(isset($_POST['btn-login']))
 			?>
             <div class='alert alert-error'>
 				<button class='close' data-dismiss='alert'>&times;</button>
-				<strong>Sorry!</strong> This Account is not Activated Go to your Inbox and Activate it.
+				<strong>Sorry!</strong> This account is not activated. Check your email inbox for the activation link.
 			</div>
             <?php
 		}
@@ -88,19 +88,18 @@ if(isset($_POST['btn-login']))
 			?>
             <div class='alert alert-success'>
 				<button class='close' data-dismiss='alert'>&times;</button>
-				<strong>Wrong Details!</strong>
+				<strong>Email or password is incorrect. Please try again.</strong>
 			</div>
             <?php
 		}
 		?>
-<br><br>
-				<p>new login: updated as of 1/15/2018. @sepuckett, do you know if "required" at the end of the input tag is all right? I added them but go ahead and delete them if you think these are deprecated, not useful, or perhaps there's a better way. ~CG</p>
-				<form>
+<br>
+				<form id="needs-validation" novalidate>
 				  <div class="form-group">
 				    <label for="exampleInputEmail1">Email address</label>
-				    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="txtemail" placeholder="Enter email" required>
-				    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+				    <input type="email" class="form-control" id="exampleInputEmail1" name="txtemail" placeholder="Enter email" required>
 				  </div>
+
 				  <div class="form-group">
 				    <label for="exampleInputPassword1">Password</label>
 				    <input type="password" class="form-control" id="exampleInputPassword1" name="txtupass" placeholder="Password" required>
@@ -108,11 +107,11 @@ if(isset($_POST['btn-login']))
 				  <button type="submit" class="btn btn-primary" name="btn-login">Submit</button>
 				</form>
         </div>
-        <br>
-        <br>
-				<div style="margin:25px;">
-        <p>First time here? Go to: <p class='comfortaa'><a href="newUser.php" class='button'>New User Page</a></p></p>
-        <p>Did you forget your password? Go to: <p class='comfortaa'><a href="resetPassword.php" class='button'>Reset Password Page</a></p></p>
+				<div class="box">
+        <p>First time here? <a href="newUser.php" class='btn btn-outline-primary btn-sm'><i class="fas fa-arrow-circle-right" style="margin-right: 3px;"></i>Make New User</a></p>
+				<p>Forget your password? <a href="resetPassword.php" class='btn btn-outline-primary btn-sm'><i class="fas fa-arrow-circle-right" style="margin-right: 3px;"></i>Reset Password</a></p>
+				</div>
+
 			</div></div>
 <br><br>
 
