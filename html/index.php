@@ -74,7 +74,7 @@ if($user_home->is_logged_in())
 			<div class="box-clear">
         <div style="text-align: center;">
 
-            <p class='barlow'>Tired of social media bumming you out?</p>
+            <p class='barlow' style="font-size: 36px;">Tired of social media bumming you out?</p>
         </div>
       </div>
 	  </div>
