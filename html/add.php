@@ -64,13 +64,10 @@ if($user_home->is_logged_in())
 </header>
 
 <main>
- <div class="container" style="text-align:center; font-family: 'Comfortaa', cursive;">
-    <div style="margin: 25px">
-      <h1 style="color: white; text-shadow: 2px 2px 2px black;">Add</h1>
-      <p style="text-align: left; color: white; text-shadow: 1px 2px 1px black; ">
-        Choose an entry type:</p>
-
+      <h1 class="main-header">Add</h1>
+<div class="container">
 <div class="box">
+	<p>Choose an entry type</p>
         <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item">
     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Prompt</a>
@@ -88,7 +85,7 @@ if($user_home->is_logged_in())
 <form>
     <div class="form-group">
       <p>From Prompt Collection: <a href='#' class="button-clear">Happy</a></p>
-      <h4 class="lato">Who is your favorite celebrity?</h4>
+      <h4 class="lato" style="color:black; font-size: 36px;">Who is your favorite celebrity?</h4>
       <br>
         <p><span style="text-align: right;">Next prompt from:
         <a href="#" class="button-clear"><i class="fas fa-arrow-circle-right"></i> Same collection</a> |
@@ -156,8 +153,10 @@ if($user_home->is_logged_in())
 
   </div>
   <br>
+	<div style="text-align:center;">
   <p style="color: black;"><a href="userHome.php" class='button-standard'><i class="fas fa-arrow-circle-left" style="margin-right: 3px;"></i>Home</a> &nbsp
   <a href="more.php" class='button-standard'><i class="fas fa-dot-circle" style="margin-right: 3px;"></i></i>More</a></p>
+</div>
 </div>
    </main>
 <br><br>
