@@ -1,44 +1,57 @@
-window.onload = star(4);
+$(document).ready(function(){
 
-function star(number) {
-    var a = document.getElementById("1");
-    var b = document.getElementById("2");
-    var c = document.getElementById("3");
-    var d = document.getElementById("4");
-    var e = document.getElementById("5");
-    if (number == 1) {
-      a.className = "fas fa-star";
-      b.className = "far fa-star";
-      c.className = "far fa-star";
-      d.className = "far fa-star";
-      e.className = "far fa-star";
+  /* 1. Visualizing things on Hover - See next part for action on click */
+  $('#stars li').on('mouseover', function(){
+    var onStar = parseInt($(this).data('value'), 10); // The star currently mouse on
+
+    // Now highlight all the stars that's not after the current hovered star
+    $(this).parent().children('li.star').each(function(e){
+      if (e < onStar) {
+        $(this).addClass('hover');
+      }
+      else {
+        $(this).removeClass('hover');
+      }
+    });
+
+  }).on('mouseout', function(){
+    $(this).parent().children('li.star').each(function(e){
+      $(this).removeClass('hover');
+    });
+  });
+
+
+  /* 2. Action to perform on click */
+  $('#stars li').on('click', function(){
+    var onStar = parseInt($(this).data('value'), 10); // The star currently selected
+    var stars = $(this).parent().children('li.star');
+
+    for (i = 0; i < stars.length; i++) {
+      $(stars[i]).removeClass('selected');
     }
-    if (number == 2) {
-      a.className = "fas fa-star";
-      b.className = "fas fa-star";
-      c.className = "far fa-star";
-      d.className = "far fa-star";
-      e.className = "far fa-star";
+
+    for (i = 0; i < onStar; i++) {
+      $(stars[i]).addClass('selected');
     }
-    if (number == 3) {
-      a.className = "fas fa-star";
-      b.className = "fas fa-star";
-      c.className = "fas fa-star";
-      d.className = "far fa-star";
-      e.className = "far fa-star";
+
+    // JUST RESPONSE (Not needed)
+    var ratingValue = parseInt($('#stars li.selected').last().data('value'), 10);
+    var msg = "";
+    if (ratingValue > 1) {
+        msg = "Thanks! You rated this " + ratingValue + " stars.";
     }
-    if (number == 4) {
-      a.className = "fas fa-star";
-      b.className = "fas fa-star";
-      c.className = "fas fa-star";
-      d.className = "fas fa-star";
-      e.className = "far fa-star";
+    else {
+        msg = "We will improve ourselves. You rated this " + ratingValue + " stars.";
     }
-    if (number == 5) {
-      a.className = "fas fa-star";
-      b.className = "fas fa-star";
-      c.className = "fas fa-star";
-      d.className = "fas fa-star";
-      e.className = "fas fa-star";
-    }
+    responseMessage(msg);
+
+  });
+
+
+});
+
+
+function responseMessage(msg) {
+  $('.success-box').fadeIn(200);
+  $('.success-box div.text-message').html("<span>" + msg + "</span>");
 }

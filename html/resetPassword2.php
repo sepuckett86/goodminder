@@ -35,7 +35,7 @@ if($user_home->is_logged_in())
 	<header>
 
 		<nav class="navbar navbar-dark navbar-expand-sm">
-		<a class="navbar-brand" href="index.php">goodminder</a>
+		<a class="navbar-brand" href="index.php"><img src="logo.png" width="30" height="30" style="margin-right: 5px;" class="d-inline-block align-top" alt="logo">goodminder</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>

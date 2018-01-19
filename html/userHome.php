@@ -26,6 +26,7 @@ if($user_home->is_logged_in())
     <script defer src="https://use.fontawesome.com/releases/v5.0.3/js/all.js"></script>
 
 
+
 </head>
 
 <body>
@@ -33,7 +34,7 @@ if($user_home->is_logged_in())
 <header>
 
   <nav class="navbar navbar-dark navbar-expand-sm">
-  <a class="navbar-brand" href="index.php">goodminder</a>
+  <a class="navbar-brand" href="index.php"><img src="logo.png" width="30" height="30" style="margin-right: 5px;" class="d-inline-block align-top" alt="logo">goodminder</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -102,12 +103,8 @@ if($user_home->is_logged_in())
 
       <div id="rating" data.now = "1" class="container options" style="text-align: right;"><span style="float: left;">
 
-				<i id="1" class="fas fa-star"></i>
-        <i id="2" class="fas fa-star"></i>
-        <i id="3" class="fas fa-star"></i>
-        <i id="4" class="fas fa-star"></i>
-        <i id="5" class="far fa-star"></i>
-				<a href="#" class="button-clear"> Rating</a>
+
+
       </span>
 
         <a href="#" class="button-clear"><i class="fas fa-edit"></i> Edit</a> |
@@ -116,15 +113,36 @@ if($user_home->is_logged_in())
       </div>
 
     </div>
-  
+
+
+
     <p style="color: black;"><a href="userHome2.php" class='button-standard'><i class="fas fa-arrow-circle-right" style="margin-right: 3px;"></i>Next</a> &nbsp
       <a href="add.php" class='button-standard'><i class="fas fa-plus-circle" style="margin-right: 3px;"></i>Add</a> &nbsp
     <a href="more.php" class='button-standard'><i class="fas fa-dot-circle" style="margin-right: 3px;"></i></i>More</a></p>
     </div>
 	<br><br>
    </main>
-
-
+	 <!-- Rating Stars Box -->
+<div class='rating-stars text-center'>
+<ul id='stars'>
+<li class='star' title='Poor' data-value='1'>
+	<i class='fa fa-star fa-fw'></i>
+</li>
+<li class='star' title='Fair' data-value='2'>
+	<i class='fa fa-star fa-fw'></i>
+</li>
+<li class='star' title='Good' data-value='3'>
+	<i class='fa fa-star fa-fw'></i>
+</li>
+<li class='star' title='Excellent' data-value='4'>
+	<i class='fa fa-star fa-fw'></i>
+</li>
+<li class='star' title='WOW!!!' data-value='5'>
+	<i class='fa fa-star fa-fw'></i>
+</li>
+</ul>
+</div>
+<br><br><br>
 	 <footer class="fixed-bottom">
 	 	<p><span style="float: left">&nbsp&nbsp&nbsp&nbsp <a href="#" class="button-clear"><i class="fab fa-facebook"></i>
 	 		 Visit us on facebook</a></span>Copyright 2018 | <a href="https://github.com/sepuckett86" class="button-clear">sepuckett86</a> and
@@ -132,10 +150,7 @@ if($user_home->is_logged_in())
 	 </footer>
 
 <!--script below-->
-
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="main.js"></script>
 </body>
 </html>
