@@ -19,6 +19,7 @@ if($user_home->is_logged_in())
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>goodminder</title>
+		<link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
     <link href="main.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet"/>
@@ -35,7 +36,7 @@ if($user_home->is_logged_in())
 <header>
 
   <nav class="navbar navbar-dark navbar-expand-sm">
-  <a class="navbar-brand" href="index.php">goodminder</a>
+  <a class="navbar-brand" href="index.php"><img src="logo.png" width="30" height="30" style="margin-right: 5px;" class="d-inline-block align-top" alt="logo">goodminder</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -43,9 +44,9 @@ if($user_home->is_logged_in())
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
 			<?php if($user_home->is_logged_in()){
-				echo '<li class="nav-item active"><a class="nav-link" href="logout.php">Log Out ' . $row['userEmail'] .'<span class="sr-only">(current)</span></a></li>';
+				echo '<li class="nav-item"><a class="nav-link" href="logout.php">Log Out ' . $row['userEmail'] .'</a></li>';
 			} else {
-				echo '<li class="nav-item active"><a class="nav-link" href="login.php">Log In<span class="sr-only">(current)</span></a></li>';
+				echo '<li class="nav-item"><a class="nav-link" href="login.php">Log In</a></li>';
 			}
 			?>
       <li class="nav-item active">
@@ -66,8 +67,8 @@ if($user_home->is_logged_in())
 
 <main>
 
-      <div class="container" style="text-align:center;">
-           <h1 class="main-header">About</h1>
+      <div class="container" style="text-align:left;">
+           <h1 class="main-header"><span><img src="logoDark.png" alt="logo" width="auto" height="60px" ></span>About</h1>
 
 <div class="box" style="text-align:center;">
         <h1>Our Philosophy</h1>
@@ -77,18 +78,79 @@ if($user_home->is_logged_in())
         And it is easy to succumb to social media and entertainment rather than
         focusing on our own real lives. Here, we aim to help you catalogue the good
         in your life.</p>
+				<hr />
         <h1>What is goodminder?</h1>
 				<p><b>goodminder: Specifically you.</b></p>
         <p>goodminder is a similar to a journal, yet it has a focus.
         Prompts help you think of things worth recording in your life.
         There is also an element of randomness that reminds you of ideas or events
         in your past.</p>
+				<hr />
         <h1>Inspirations</h1>
-        <p>Man's Search for Meaning by Viktor E. Frankl</p>
+        <p><a href="https://www.amazon.com/Mans-Search-Meaning-classic-Holocaust-ebook/dp/B00EKOC0HI">Man's Search for Meaning</a>
+				 by Viktor E. Frankl</p>
+				<hr />
         <h1>Who we are</h1>
 
       <p>  <a href="https://github.com/sepuckett86">sepuckett86</a> and
     <a href="https://github.com/codegold79">codegold79</a></p>
+<hr />
+			<h1>Resources</h1>
+			<p>We are new to web development and goodminder is helping us learn.</p>
+				 <p>A big thanks go to all of the great resources available online for free listed here:
+				</p>
+
+			<div class="container">
+			<div class="row">
+			  <div class="col-sm">
+					<ul style="text-align: left;">
+						<lh><b>Visual Elements</b></lh>
+						<li><a href="https://getbootstrap.com/docs/4.0/getting-started/introduction/" target="_blank">Bootstrap 4</a></li>
+						<li><a href="https://fontawesome.com/icons?d=gallery" target="_blank">Font Awesome 5</a></li>
+						<li><a href="https://www.freelogodesign.org/index.html" target="_blank">Free Logo Design</a></li>
+						<li><a href="https://fonts.google.com/" target="_blank">Google Fonts</a></li>
+						<!-- <li><a href="" target="_blank"></a></li> -->
+					</ul>
+			  </div>
+			  <div class="col-sm">
+					<ul title="Tutorials and Help" style="text-align: left;">
+						<lh><b>Tutorials and Help</b></lh>
+						<li><a href="https://www.taniarascia.com/" target="_blank">Tania Rascia</a></li>
+					</ul>
+			  </div>
+			  <div class="col-sm">
+
+			  </div>
+			</div>
+			</div>
+
+			<p>
+			  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapseExample">
+			    Show goodminder fonts
+			  </button>
+				<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapseExample">
+			    Show something else
+			  </button>
+			</p>
+			<div class="collapse" id="collapse1">
+			  <div class="card card-body">
+					<ul style="text-align: left;">
+						<lh><b>Fonts</b></lh>
+						<li><a class="comfortaa" style="font-size:36px;"href="https://fonts.googleapis.com/css?family=Comfortaa" target="_blank">Comfortaa</a></li>
+						<li><a class="lato" style="font-size:36px;"href="https://fonts.google.com/specimen/Lato" target="_blank">Lato</a></li>
+						<li><a class="marker" style="font-size:36px;"href="https://fonts.google.com/specimen/Permanent+Marker" target="_blank">Permanent Marker</a></li>
+						<li><a class="barlow" style="font-size:36px;"href="https://fonts.google.com/specimen/Barlow+Semi+Condensed" target="_blank">Barlow Semi Condensed</a></li>
+					</ul>
+			  </div>
+			</div>
+			<div class="collapse" id="collapse2">
+			  <div class="card card-body">
+			    Hi there!
+			  </div>
+			</div>
+
+<hr />
+
 <div class="box">
         <h1 style="text-align: center;">Contact us</h1>
 

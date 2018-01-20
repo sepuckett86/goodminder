@@ -19,6 +19,7 @@ if($user_home->is_logged_in())
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>goodminder</title>
+		<link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
     <link href="main.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet"/>
@@ -35,7 +36,7 @@ if($user_home->is_logged_in())
 <header>
 
   <nav class="navbar navbar-dark navbar-expand-sm">
-  <a class="navbar-brand" href="index.php">goodminder</a>
+  <a class="navbar-brand" href="index.php"><img src="logo.png" width="30" height="30" style="margin-right: 5px;" class="d-inline-block align-top" alt="logo">goodminder</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -66,7 +67,7 @@ if($user_home->is_logged_in())
 <main>
   <div class="container" style="text-align:center; font-family: 'Comfortaa', cursive;">
      <div style="margin: 25px">
-       <h1 style="color: white; text-shadow: 2px 2px 2px black;">Examples</h1>
+       <h1 style="color: white; text-shadow: 2px 2px 2px black;"><span><img src="logoDark.png" alt="logo" width="auto" height="60px" ></span>Examples</h1>
 
 </main>
 <footer class="fixed-bottom">
