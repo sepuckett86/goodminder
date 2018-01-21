@@ -13,20 +13,21 @@ if($reg_user->is_logged_in()!="")
 if(isset($_POST['btn-signup']))
 {
 	$email = trim($_POST['txtemail']);
-	$uname = $email;
+    $uname2 = trim($_POST['txtuname2']); 
+	$uname = trim($_POST['txtuname']);
 	$upass = trim($_POST['txtpass']);
 	$cpass = trim($_POST['txtcpass']);
 	$code = md5(uniqid(rand()));
 
-	$stmt = $reg_user->runQuery("SELECT * FROM usersTbl WHERE userEmail=:email_id");
-	$stmt->execute(array(":email_id"=>$email));
+	$stmt = $reg_user->runQuery("SELECT * FROM usersTbl WHERE userEmail=:email_id or userName=:user_name");
+	$stmt->execute(array(":email_id"=>$email, ":user_name"=>$uname));
 	$row = $stmt->fetch(PDO::FETCH_ASSOC);
 
 	if($stmt->rowCount() > 0) {
 		$msg = "
 		      <div class='alert alert-error'>
 				<button class='close' data-dismiss='alert'>&times;</button>
-					<strong>Sorry,</strong> email already exists. Please try another one.
+					<strong>Sorry,</strong> email or user name already exists. Please try another one.
 			  </div>
 			  ";
 	} elseif($cpass !== $upass ) {
@@ -34,13 +35,13 @@ if(isset($_POST['btn-signup']))
 				<button class='close' data-dismiss='alert'>&times;</button>
 				<strong>Sorry!</strong> Passwords do not match.
 				</div>";
-	} elseif($reg_user->register($uname,$email,$upass,$code)){
+	} elseif($reg_user->register($email,$uname2,$uname,$upass,$code)){
 		$id = $reg_user->lasdID();
 		$key = base64_encode($id);
 		$id = $key;
 
 		$message = "
-			Hello $uname,
+			Hello $uname2,
 			<br /><br />
 			Welcome to Goodminder!<br/>
 			To complete your registration, please click the following link:<br/>
@@ -60,7 +61,7 @@ if(isset($_POST['btn-signup']))
 				</div>
 				";
 	} else {
-		echo "Sorry , query could no execute...";
+		echo "Sorry , query could not execute...";
 	}
 }
 ?>
@@ -80,14 +81,10 @@ if(isset($_POST['btn-signup']))
 		<link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet"/>
 		<link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed" rel="stylesheet"/>
     <script defer src="https://use.fontawesome.com/releases/v5.0.3/js/all.js"></script>
-
-
 </head>
 
 <body>
-
 	<header>
-
 		<nav class="navbar navbar-dark navbar-expand-sm">
 		<a class="navbar-brand" href="index.php">goodminder</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -120,71 +117,47 @@ if(isset($_POST['btn-signup']))
         <h1>Create New Account</h1>
         <?php if(isset($msg)) echo $msg; ?>
 				<br>
-				<!--NEW FORM -->
-				<form id="needs-validation" novalidate>
+				<form id="needs-validation" method="post">
 					<div class="form-group row">
-    				<label for="inputName" class="col-sm-2 col-form-label">Your Name</label>
-						<div class="col-sm-10">
-    				<input type="text" class="form-control" id="inputName" placeholder="Bob" required>
-  				  </div>
+    				    <label for="inputName" class="col-sm-2 col-form-label">Your Name</label>
+					   <div class="col-sm-10">
+    				        <input type="text" class="form-control" id="inputName" placeholder="Bob" name="txtuname2" required>
+                        </div>
 					</div>
 					<div class="form-group row">
-    				<label for="inputUserName" class="col-sm-2 col-form-label">Unique User Name</label>
-						<div class="col-sm-10">
-    				<input type="text" class="form-control" id="inputUserName" placeholder="abc_man5000" required>
-  				  </div>
+    				    <label for="inputUserName" class="col-sm-2 col-form-label">Unique User Name</label>
+					   <div class="col-sm-10">
+    				        <input type="text" class="form-control" id="inputUserName" placeholder="abc_man5000" name="txtuname" required>
+                        </div>
 					</div>
 					<div class="form-group row">
-				    <label for="inputEmail" class="col-sm-2 col-form-label">Email address</label>
+				        <label for="inputEmail" class="col-sm-2 col-form-label">Email address</label>
 						<div class="col-sm-10">
-				    <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="example@awesome.com" required>
-				    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-				  </div>
+				            <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="example@awesome.com" name="txtemail" required>
+				            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+				        </div>
 				  </div>
 				  <div class="form-group row">
 				    <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-				    <div class="col-sm-10">
-				      <input type="password" class="form-control" id="inputPassword" aria-describedby="passwordHelpBlock" placeholder="********" required>
+				        <div class="col-sm-10">
+				            <input type="password" class="form-control" id="inputPassword" aria-describedby="passwordHelpBlock" placeholder="********" name="txtpass" required>
 							<small id="passwordHelpBlock" class="form-text text-muted">
   						Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
 							</small>
 						</div>
 				  </div>
 					<div class="form-group row">
-				    <label for="inputPassword2" class="col-sm-2 col-form-label">Re-Type Password</label>
-				    <div class="col-sm-10">
-				      <input type="password" class="form-control" id="inputPassword2" placeholder="********" required>
+				        <label for="inputPassword2" class="col-sm-2 col-form-label">Re-Type Password</label>
+				        <div class="col-sm-10">
+				            <input type="password" class="form-control" id="inputPassword2" placeholder="********" name="txtcpass" required>
+				        </div>
 				    </div>
-				  </div>
-				  <div class="form-group row">
-				    <div class="col-sm-10">
-				      <button type="submit" class="btn btn-primary">Submit</button>
+				    <div class="form-group row">
+				        <div class="col-sm-10">
+				            <button type="submit" class="btn btn-primary" name="btn-signup">Submit</button>
+				        </div>
 				    </div>
-				  </div>
 				</form>
-
-<!--OLD FORM-->
-
-        <form style="font-size: 18px" method="post">
-            <table>
-            <tr>
-                <td>Email: </td>
-                <td><input class="submissionfield" style="font-size:16px;" type="text" placeholder="my_email@awesome.com" name="txtemail" required></td>
-            </tr>
-            <tr><td></td></tr>
-            <tr>
-                <td>Password: </td>
-                <td><input class="submissionfield" style="font-size:16px;" type="password" placeholder="************" name="txtpass" required></td>
-            </tr>
-            <tr><td></td></tr>
-            <tr>
-                <td>Re-type Password: </td>
-                <td><input class="submissionfield" style="font-size:16px;" type="password" placeholder="************" name="txtcpass" required></td>
-            </tr>
-            </table>
-            <br>
-            <button class="button" type="submit" name="btn-signup">Submit</button>
-        </form>
         </div>
 
 				<div class="box">
