@@ -24,14 +24,14 @@ class USER
 		return $stmt;
 	}
 	
-	public function register($uname,$email,$upass,$code)
+	public function register($email,$uname2,$uname,$upass,$code)
 	{
 		try
 		{							
 			$password = md5($upass);
-			$stmt = $this->conn->prepare("INSERT INTO usersTbl(userName,userEmail,userPass,tokenCode) 
-			     VALUES(:user_name, :user_mail, :user_pass, :active_code)");
+			$stmt = $this->conn->prepare("INSERT INTO usersTbl(userName,userNameFamiliar,userEmail,userPass,tokenCode) VALUES(:user_name, :user_name_familiar, :user_mail, :user_pass, :active_code)");
 			$stmt->bindparam(":user_name",$uname);
+			$stmt->bindparam(":user_name_familiar",$uname2);
 			$stmt->bindparam(":user_mail",$email);
 			$stmt->bindparam(":user_pass",$password);
 			$stmt->bindparam(":active_code",$code);
@@ -115,11 +115,11 @@ class USER
 		$mail->Host       = "smtp.gmail.com";      
 		$mail->Port       = 465;             
 		$mail->AddAddress($email);
-		$mail->Username="bioebeaver@gmail.com";  
-		$mail->Password="bDrednimdoog908";            
-		$mail->SetFrom('bioebeaver@gmail.com','Goodminder');
-		$mail->AddReplyTo("bioebeaver@gmail.com","Goodminder");
-		$mail->Subject    = $subject;
+		$mail->Username="goodminder.site@gmail.com";  
+		$mail->Password="frannie&susan";            
+		$mail->SetFrom('goodminder.site@gmail.com','Goodminder');
+		$mail->AddReplyTo("goodminder.site@gmail.com","Goodminder");
+		$mail->Subject = $subject;
 		$mail->MsgHTML($message);
 		$mail->Send();
 	}	
