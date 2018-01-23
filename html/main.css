@@ -163,7 +163,39 @@ h5 {
   background-image: none;
   border-color: #01549b;
 }
+
+.btn-outline-goodminder {
+  color: black;
+  background-image: none;
+  background-color: transparent;
+  border-color: #46B3B3;
+}
+
+.btn-outline-goodminder:hover {
+  color: #fff;
+  background-color: #46B3B3;
+  border-color: #46B3B3;
+}
+
+.btn-outline-goodminder:focus, .btn-outline-goodminder.focus {
+  -webkit-box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.5);
+          box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.5);
+}
+
+.btn-outline-goodminder.disabled, .btn-outline-goodminder:disabled {
+  color: #0275d8;
+  background-color: transparent;
+}
+
+.btn-outline-goodminder:active, .btn-outline-goodminder.active,
+.show > .btn-outline-goodminder.dropdown-toggle {
+  color: #fff;
+  background-color: #0275d8;
+  border-color: #0275d8;
+}
+
 /* End btn-goodminder */
+
 .button-standard {
     border: solid;
   border-radius: 10px;
