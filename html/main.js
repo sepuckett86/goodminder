@@ -1,3 +1,4 @@
+
 $(document).ready(function(){
 
   /* 1. Visualizing things on Hover - See next part for action on click */
