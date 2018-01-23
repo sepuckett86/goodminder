@@ -66,7 +66,7 @@ if($user_home->is_logged_in())
 </header>
 
 <main>
-<div class="bgimg-1">
+<div class="bgimg-2">
 <div class="caption">
 	<span class="border comfortaa">About</span>
 </div>

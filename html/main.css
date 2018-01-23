@@ -313,12 +313,12 @@ h5 {
 
 .bgimg-2 {
     background-image: url(http://res.cloudinary.com/sepuckett86/image/upload/v1513176676/IMG_7166_hlep5j.jpg);
-    min-height: 100%;
+    min-height: 300px;
 }
 
 .bgimg-3 {
     background-image: url(http://res.cloudinary.com/sepuckett86/image/upload/v1513176676/DSCN2129_copy_cdgcqc.jpg);
-    min-height: 100%;
+    min-height: 300px;
 }
 
 .opaque-container {
