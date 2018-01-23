@@ -133,7 +133,37 @@ h5 {
 .left {
     float: left;
 }
+/* btn-goodminder following bootstrap css for btn-primary */
+.btn-goodminder {
+  color: #fff;
+  background-color: #46B3B3;
+  border-color: #46B3B3;
+}
 
+.btn-goodminder:hover {
+  color: #fff;
+  background-color: #399393;
+  border-color: #46B3B3;
+}
+
+.btn-goodminder:focus, .btn-goodminder.focus {
+  -webkit-box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.5);
+          box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.5);
+}
+
+.btn-goodminder.disabled, .btn-goodminder:disabled {
+  background-color: #0275d8;
+  border-color: #0275d8;
+}
+
+.btn-goodminder:active, .btn-goodminder.active,
+.show > .btn-goodminder.dropdown-toggle {
+  color: #fff;
+  background-color: #025aa5;
+  background-image: none;
+  border-color: #01549b;
+}
+/* End btn-goodminder */
 .button-standard {
     border: solid;
   border-radius: 10px;

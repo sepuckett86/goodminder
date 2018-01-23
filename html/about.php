@@ -81,7 +81,7 @@ if($user_home->is_logged_in())
         focusing on our own real lives. Here, we aim to help you catalogue the good
         in your life.</p>
 				<hr />
-        <h1>Enter goodminder</h1>
+        <h1>Enter <img src="logoDark.png" alt="logoDark" height="60px" style="padding-bottom:10px"/>goodminder</h1>
 				<p><b>goodminder: Specifically you.</b></p>
         <p>goodminder is a similar to a journal, yet it has a focus.
         Prompts help you think of things worth recording in your life.

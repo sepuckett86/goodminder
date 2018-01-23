@@ -11,7 +11,7 @@ if($user_home->is_logged_in())
 }
 ?>
 
-<!doctype html>
+
 <html lang="en">
 
 
@@ -58,6 +58,12 @@ if($user_home->is_logged_in())
 				echo '<li class="nav-item"><a class="nav-link" href="settings.php">Settings</a></li>';
 			}
 			?>
+			<li class="nav-item">
+				<button type="button" class="btn btn-goodminder">
+  Points <span class="badge badge-light">9</span>
+
+</button>
+			</li>
     </ul>
   </div>
   </nav>
