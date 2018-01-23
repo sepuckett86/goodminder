@@ -11,7 +11,6 @@ if($user_home->is_logged_in())
 }
 ?>
 
-<!doctype html>
 <html lang="en">
 
 
@@ -65,9 +64,18 @@ if($user_home->is_logged_in())
 
 </header>
 <main>
-  <div class="container" style="text-align:center; font-family: 'Comfortaa', cursive;">
-     <div style="margin: 25px">
-       <h1 style="color: white; text-shadow: 2px 2px 2px black;"><span><img src="logoDark.png" alt="logo" width="auto" height="60px" ></span>Examples</h1>
+	<div class="bgimg-2">
+	<div class="caption">
+		<span class="border comfortaa">Examples</span>
+	</div>
+	</div>
+	<div class="opaque-container" style="text-align:center;">
+	        <div class="container">
+						<br>
+						<img src="example.png" alt="example"/ width="100%">
+						<br><br><br><br><br>
+					</div>
+	</div>
 
 </main>
 <footer class="fixed-bottom">

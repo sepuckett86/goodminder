@@ -70,9 +70,8 @@ if($user_home->is_logged_in())
 <div class="caption">
 	<span class="border comfortaa">About</span>
 </div>
-
 </div>
-<div class="opaque-container" style="text-align:center; padding:0px;">
+<div class="opaque-container" style="text-align:center; ">
         <div class="container">
 					<br>
 				<h1>Why do you live?</h1>
