@@ -11,7 +11,7 @@ if($user_home->is_logged_in())
 }
 ?>
 
-<!doctype html>
+
 <html lang="en">
 
 
@@ -66,20 +66,21 @@ if($user_home->is_logged_in())
 </header>
 
 <main>
-
-      <div class="container" style="text-align:left;">
-           <h1 class="main-header"><span><img src="logoDark.png" alt="logo" width="auto" height="60px" ></span>About</h1>
-
-<div class="box" style="text-align:center;">
-        <h1>Our Philosophy</h1>
-
-        <p>Why do you live?</p>
+<div class="bgimg-2">
+<div class="caption">
+	<span class="border comfortaa">About</span>
+</div>
+</div>
+<div class="opaque-container" style="text-align:center; ">
+        <div class="container">
+					<br>
+				<h1>Why do you live?</h1>
         <p>It is easy to focus on negatives rather than positives.
         And it is easy to succumb to social media and entertainment rather than
         focusing on our own real lives. Here, we aim to help you catalogue the good
         in your life.</p>
 				<hr />
-        <h1>What is goodminder?</h1>
+        <h1>Enter <img src="logoDark.png" alt="logoDark" height="60px" style="padding-bottom:10px"/>goodminder</h1>
 				<p><b>goodminder: Specifically you.</b></p>
         <p>goodminder is a similar to a journal, yet it has a focus.
         Prompts help you think of things worth recording in your life.
@@ -89,6 +90,7 @@ if($user_home->is_logged_in())
         <h1>Inspirations</h1>
         <p><a href="https://www.amazon.com/Mans-Search-Meaning-classic-Holocaust-ebook/dp/B00EKOC0HI">Man's Search for Meaning</a>
 				 by Viktor E. Frankl</p>
+
 				<hr />
         <h1>Who we are</h1>
 
@@ -113,9 +115,11 @@ if($user_home->is_logged_in())
 					</ul>
 			  </div>
 			  <div class="col-sm">
-					<ul title="Tutorials and Help" style="text-align: left;">
+					<ul style="text-align: left;">
 						<lh><b>Tutorials and Help</b></lh>
-						<li><a href="https://www.taniarascia.com/" target="_blank">Tania Rascia</a></li>
+						<li title="Tania Rascia"><a href="https://www.taniarascia.com/" target="_blank">Tania Rascia</a></li>
+						<li><a href="https://www.w3schools.com/" target="_blank">w3schools</a></li>
+
 					</ul>
 			  </div>
 			  <div class="col-sm">
@@ -136,7 +140,7 @@ if($user_home->is_logged_in())
 			  <div class="card card-body">
 					<ul style="text-align: left;">
 						<lh><b>Fonts</b></lh>
-						<li><a class="comfortaa" style="font-size:36px;"href="https://fonts.googleapis.com/css?family=Comfortaa" target="_blank">Comfortaa</a></li>
+						<li><a class="comfortaa" style="font-size:36px;"href="https://fonts.google.com/specimen/Comfortaa" target="_blank">Comfortaa</a></li>
 						<li><a class="lato" style="font-size:36px;"href="https://fonts.google.com/specimen/Lato" target="_blank">Lato</a></li>
 						<li><a class="marker" style="font-size:36px;"href="https://fonts.google.com/specimen/Permanent+Marker" target="_blank">Permanent Marker</a></li>
 						<li><a class="barlow" style="font-size:36px;"href="https://fonts.google.com/specimen/Barlow+Semi+Condensed" target="_blank">Barlow Semi Condensed</a></li>
@@ -149,8 +153,30 @@ if($user_home->is_logged_in())
 			  </div>
 			</div>
 
+
 <hr />
 
+			<h1>Support Us!</h1>
+			<p>The more support we get, the more we will work on this site to improve it.</p>
+			<p>If you'd like to donate, please contact us below. Thanks a lot!</p>
+
+			<p>
+			  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapseExample">
+			    "Secret" Projects!!
+			  </button>
+			</p>
+			<div class="collapse" id="collapse3">
+			  <div class="card card-body">
+					<ul style="list-style-type: none;">
+						<lh><b>Projects for the future</b></lh>
+						<li>Goodminder phone app</li>
+						<li>More layout options</li>
+						<li>Fun rewards for using our site</li>
+					</ul>
+			  </div>
+				</div>
+
+<hr />
 <div class="box">
         <h1 style="text-align: center;">Contact us</h1>
 
@@ -174,8 +200,9 @@ if($user_home->is_logged_in())
    </div>
  </form>
 </div>
-</div>
+
 <br><br><br><br>
+</div></div>
 </main>
 
 <footer class="fixed-bottom">

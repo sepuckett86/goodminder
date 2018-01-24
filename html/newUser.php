@@ -13,7 +13,7 @@ if($reg_user->is_logged_in()!="")
 if(isset($_POST['btn-signup']))
 {
 	$email = trim($_POST['txtemail']);
-    $uname2 = trim($_POST['txtuname2']); 
+    $uname2 = trim($_POST['txtuname2']);
 	$uname = trim($_POST['txtuname']);
 	$upass = trim($_POST['txtpass']);
 	$cpass = trim($_POST['txtcpass']);
@@ -162,7 +162,7 @@ if(isset($_POST['btn-signup']))
         </div>
 
 				<div class="box">
-        <p>Already have an account? <a href="login.php" class='btn btn-outline-primary btn-sm'><i class="fas fa-arrow-circle-right" style="margin-right: 3px;"></i>Log In</a></p>
+        <p>Already have an account? <a href="login.php" class='btn btn-goodminder btn-sm'><i class="fas fa-arrow-circle-right" style="margin-right: 3px;"></i>Log In</a></p>
 				</div>
 			</div>
     </div>

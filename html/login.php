@@ -109,8 +109,8 @@ if(isset($_POST['btn-login']))
 				</form>
         </div>
 				<div class="box">
-        <p>First time here? <a href="newUser.php" class='btn btn-outline-primary btn-sm'><i class="fas fa-arrow-circle-right" style="margin-right: 3px;"></i>Make New User</a></p>
-				<p>Forget your password? <a href="resetPassword.php" class='btn btn-outline-primary btn-sm'><i class="fas fa-arrow-circle-right" style="margin-right: 3px;"></i>Reset Password</a></p>
+        <p>First time here? <a href="newUser.php" class='btn btn-goodminder btn-sm'><i class="fas fa-arrow-circle-right" style="margin-right: 3px;"></i>Make New User</a></p>
+				<p>Forget your password? <a href="resetPassword.php" class='btn btn-goodminder btn-sm'><i class="fas fa-arrow-circle-right" style="margin-right: 3px;"></i>Reset Password</a></p>
 				</div>
 
 			</div></div>

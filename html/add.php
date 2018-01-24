@@ -122,16 +122,21 @@ if($user_home->is_logged_in())
         </div>
         <br>
         <div class="form-group">
-          <label for="author">Author (optional)</label>
+          <label for="author">Author</label>
           <input type="text" class="form-control" id="author" placeholder="Example: J. R. R. Tolkien">
         </div>
       <br>
       <label for="reason">Reason</label>
       <textarea class="form-control" id="reason" rows="3" placeholder="Example: When I was reading this out loud with my husband, we laughed like hyenas"></textarea>
+			<br>
+			<div class="form-group">
+				<label for="q-collection">Collection (optional)</label>
+				<input type="text" class="form-control" id="q-collection" placeholder="Example: Funny">
+			</div>
     </div>
+		<br>
     <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-    <br>
     <br>
   </div>
   <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
