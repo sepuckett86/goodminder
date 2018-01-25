@@ -117,7 +117,7 @@ if($user_home->is_logged_in())
 		      </div>
 
 		    </div>
-    <br>
+
     <p style="color: black;"><a href="#" class='button-standard'><i class="fas fa-arrow-circle-right" style="margin-right: 3px;"></i>Next</a> &nbsp
       <a href="#" class='button-standard'><i class="fas fa-plus-circle" style="margin-right: 3px;"></i>Add</a> &nbsp
     <a href="#" class='button-standard'><i class="fas fa-dot-circle" style="margin-right: 3px;"></i></i>More</a></p>

@@ -112,7 +112,7 @@ if($user_home->is_logged_in())
       </span>
 
         <a href="#" class="button-clear"><i class="fas fa-edit"></i> Edit</a> |
-        <a href="#" class="button-clear"><i class="fas fa-print"></i> Print</a>
+        <a href="print.php" class="button-clear"><i class="fas fa-print"></i> Print</a>
 
       </div>
 

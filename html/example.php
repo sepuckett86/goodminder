@@ -65,35 +65,46 @@ if($user_home->is_logged_in())
 </header>
 <main>
 	<div class="bgimg-2">
-	<div class="caption">
-		<span class="border comfortaa">Examples</span>
+		<div class="caption">
+			<span class="border comfortaa">Examples</span>
+		</div>
 	</div>
+	<div class="opaque-container">
+		<br>
+		<div class="container">
+			<div class="card" style="border:solid 5px;">
+				<div class="card-body">
+				<h5 class="card-title">goodminder <span style="font-size:12px;"><i>noun</i></h5>
+			<p class="card-text">A quote, a prompt response, or a custom entry entered by <b>you</b></p>
+		</div>
 	</div>
-	<div class="opaque-container" style="text-align:center;">
-	        <div class="container">
-						<br>
-						<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img class="d-block w-100" src="example.png" alt="First slide">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="example2.png" alt="Second slide">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="..." alt="Third slide">
-    </div>
-  </div>
-  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-<br><br><br><br><br><br><br>
+		<br>
+		<h5 class="comfortaa">Here's what you can do with your account:</h5>
+			<div class="row">
+				<div class="col">
+					<div class="card" style="height: 32vw;">
+  					<a href="example1.jpg"><img class="card-img-top" src="example1.jpg" alt="example1"></a>
+  				<div class="card-body">
+    				<h5 class="card-title">Print</h5>
+    				<p class="card-text">Easily print out any of your goodminders to hang on your wall or save in a book.</p>
+
+  				</div>
+					</div>
+				</div>
+			<div class="col">
+				<div class="card" style="height: 32vw;">
+  			<a href="example-screen.jpg"><img class="card-img-top" src="example-screen.jpg" alt="example1"></a>
+  			<div class="card-body">
+    			<h5 class="card-title">Read</h5>
+    			<p class="card-text">Enjoy your goodminders on your computer with our appealing layout.</p>
+
+				</div>
+  			</div>
+			</div>
+			</div>
+
+		</div>
+		<br><br><br><br><br><br><br>
 	</div>
 
 </main>
@@ -109,5 +120,10 @@ if($user_home->is_logged_in())
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
 <script src="main.js"></script>
+<script>
+$('.carousel').carousel({
+  interval: false
+})
+</script>
 </body>
 </html>
