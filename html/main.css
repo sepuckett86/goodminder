@@ -28,17 +28,21 @@ footer{
 	font-family: 'Comfortaa', cursive;
   background-color: rgba(255, 255, 255, 0.8);
 	font-size: 14px;
-  text-align: center;
-  margin-bottom: 0;
-  overflow: hidden;
   width: 100%;
+	text-align: center;
   height: 50px;
   line-height: 50px;
   border-top: 2px solid #46B3B3;
 
 }
+/* adjust footer content by screen size */
+.short-text { display: none; }
 
-.submissionfield { width: 300px; height: 16px; border: 1px solid #999999; padding: 5px; }
+/* When resolution <= 1200px, hide short text and show full text*/
+@media (max-width: 768px) {
+    .short-text { display: inline; }
+    .full-text { display: none; }
+}
 
 .box {
     background-color: rgba(255, 255, 255, 0.8);

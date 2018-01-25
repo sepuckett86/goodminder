@@ -113,7 +113,6 @@ if(isset($_POST['btn-signup']))
 <main>
 
     <div style="text-align: left">
-        <div style="margin: 25px">
         <div class="box">
         <h1>Create New Account</h1>
         <?php if(isset($msg)) echo $msg; ?>
@@ -165,7 +164,7 @@ if(isset($_POST['btn-signup']))
         <p>Already have an account? <a href="login.php" class='btn btn-goodminder btn-sm'><i class="fas fa-arrow-circle-right" style="margin-right: 3px;"></i>Log In</a></p>
 				</div>
 			</div>
-    </div>
+  
 <br>
 <br>
 </main>

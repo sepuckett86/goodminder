@@ -96,15 +96,18 @@ if(isset($_POST['btn-login']))
 		?>
 <br>
 				<form id="needs-validation" novalidate>
-				  <div class="form-group">
-				    <label for="exampleInputEmail1">Email address</label>
-				    <input type="email" class="form-control" id="exampleInputEmail1" name="txtemail" placeholder="Enter email" required>
-				  </div>
+				  <div class="form-group row">
+				    <label class="col-sm-2 col-form-label" for="exampleInputEmail1">Email address</label>
+						<div class="col-sm-10">
+						<input type="email" class="form-control" id="exampleInputEmail1" name="txtemail" placeholder="Enter email" required>
+					</div>
+					</div>
 
-				  <div class="form-group">
-				    <label for="exampleInputPassword1">Password</label>
-				    <input type="password" class="form-control" id="exampleInputPassword1" name="txtupass" placeholder="Password" required>
-				  </div>
+				  <div class="form-group row">
+				    <label class="col-sm-2 col-form-label" for="exampleInputPassword1">Password</label>
+						<div class="col-sm-10">
+						<input type="password" class="form-control" id="exampleInputPassword1" name="txtupass" placeholder="Password" required>
+				  </div></div>
 				  <button type="submit" class="btn btn-primary" name="btn-login">Submit</button>
 				</form>
         </div>
