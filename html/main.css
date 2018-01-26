@@ -1,11 +1,9 @@
 body{
 	background-repeat: no-repeat;
   background-image: url(http://res.cloudinary.com/sepuckett86/image/upload/v1515668911/texel_beach_ll16fl.jpg);
-
   background-size:cover;
   background-attachment: fixed;
 	height: 100%;
-
 }
 
 header{
@@ -30,17 +28,21 @@ footer{
 	font-family: 'Comfortaa', cursive;
   background-color: rgba(255, 255, 255, 0.8);
 	font-size: 14px;
-  text-align: center;
-  margin-bottom: 0;
-  overflow: hidden;
   width: 100%;
+	text-align: center;
   height: 50px;
   line-height: 50px;
   border-top: 2px solid #46B3B3;
 
 }
+/* adjust footer content by screen size */
+.short-text { display: none; }
 
-.submissionfield { width: 300px; height: 16px; border: 1px solid #999999; padding: 5px; }
+/* When resolution <= 1200px, hide short text and show full text*/
+@media (max-width: 768px) {
+    .short-text { display: inline; }
+    .full-text { display: none; }
+}
 
 .box {
     background-color: rgba(255, 255, 255, 0.8);
@@ -133,6 +135,23 @@ h5 {
 .left {
     float: left;
 }
+
+.card-img-top {
+    width: 100%;
+    height: 23vw;
+    object-fit: cover;
+}
+
+.card-title {
+	font-family: 'Comfortaa', cursive;
+}
+
+.card-text {
+	font-family: 'Lato', sans-serif;
+	padding-left: 1px;
+}
+
+
 /* btn-goodminder following bootstrap css for btn-primary */
 .btn-goodminder {
   color: #fff;
