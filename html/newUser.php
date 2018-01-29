@@ -37,8 +37,7 @@ if(isset($_POST['btn-signup']))
 				</div>";
 	} elseif($reg_user->register($email,$uname2,$uname,$upass,$code)){
 		$id = $reg_user->lasdID();
-		$key = $code;
-		
+		$key = base64_encode($id);
 
 		$message = "
 			Hello $uname2,
@@ -46,7 +45,7 @@ if(isset($_POST['btn-signup']))
 			Welcome to Goodminder!<br/>
 			To complete your registration, please click the following link:<br/>
 			<br /><br />
-			<a href='http://goodminder.ihostfull.com/verify.php?id=$id&code=$key'>Click HERE to Activate :)</a>
+			<a href='http://goodminder.ihostfull.com/verify.php?id=$key&code=$code'>Click link to Activate.</a>
 			<br /><br />
 			Thanks,";
 

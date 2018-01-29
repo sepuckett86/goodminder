@@ -9,8 +9,8 @@ if(empty($_GET['id']) && empty($_GET['code']))
 
 if(isset($_GET['id']) && isset($_GET['code']))
 {
-	$id = $_GET['id'];
-	$code = base64_decode($_GET['code']);
+	$id = base64_decode($_GET['id']);
+	$code = $_GET['code'];
 
 	$statusY = "Y";
 	$statusN = "N";
@@ -54,8 +54,8 @@ if(isset($_GET['id']) && isset($_GET['code']))
 			   ";
 	}
 }
-
 ?><!DOCTYPE html>
+
 <html lang="en">
 
 
@@ -88,7 +88,7 @@ if(isset($_GET['id']) && isset($_GET['code']))
 
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
-			<?php if($user_home->is_logged_in()){
+			<?php if($user->is_logged_in()) {
 				echo '<li class="nav-item"><a class="nav-link" href="userHome.php">'.$row['userName'].'</a></li>';
 			}
 			?>
@@ -98,7 +98,7 @@ if(isset($_GET['id']) && isset($_GET['code']))
       <li class="nav-item">
         <a class="nav-link" href="example.php">Examples</a>
       </li>
-      <?php if($user_home->is_logged_in()){
+      <?php if($user->is_logged_in()) {
         echo '<li class="nav-item"><a class="nav-link" href="settings.php">Settings</a></li>';
 				echo '<li class="nav-item"><a class="nav-link" href="logout.php">Log Out</a></li>';
 			} else {
