@@ -9,9 +9,7 @@ if($user_home->is_logged_in())
 	$stmt->execute(array(":uid"=>$_SESSION['userSession']));
 	$row = $stmt->fetch(PDO::FETCH_ASSOC);
 }
-?>
-
-<!doctype html>
+?><!DOCTYPE html>
 <html lang="en">
 
 
