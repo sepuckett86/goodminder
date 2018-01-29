@@ -70,7 +70,17 @@ if($user_home->is_logged_in())
   <div class="container" style="text-align:center; font-family: 'Comfortaa', cursive;">
      <div style="margin: 25px">
        <h1 style="color: white; text-shadow: 2px 2px 2px black;">Settings</h1>
-
+			 <div class='box lato' style="text-align:left;">
+				 <ul>
+					 <lh>Planned Settings</lh>
+					 <li>Show points on Goodminder social</li>
+					 <li>Random Goodminders: Include 1,2,3,4, and 5 stars</li>
+					 <li>Theme: Dark, Beach, Flowers</li>
+					 <li>Goodminder collections to choose random from</li>
+					 <li>How many emails? Daily, Weekly, Monthly, Important only</li>
+					 <li>Deactivate my account</li>
+				</ul>
+			 </div>
    </main>
 
 
