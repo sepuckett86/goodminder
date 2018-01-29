@@ -37,7 +37,7 @@ if(isset($_GET['id']) && isset($_GET['code']))
 		else
 		{
 			$msg = "
-		           <div class='alert alert-error'>
+		           <div class='alert alert-success'>
 				   <button class='close' data-dismiss='alert'>&times;</button>
 					  <strong>No worries.</strong>  Your account is already activated. <a href='login.php'>Log in here</a>
 			       </div>
@@ -47,7 +47,7 @@ if(isset($_GET['id']) && isset($_GET['code']))
 	else
 	{
 		$msg = "
-		       <div class='alert alert-error'>
+		       <div class='alert alert-warning'>
 			   <button class='close' data-dismiss='alert'>&times;</button>
 			   <strong>Oops!</strong>  No account found. <a href='newUser.php'>Sign up here</a>
 			   </div>
@@ -119,13 +119,13 @@ if(isset($_GET['id']) && isset($_GET['code']))
 	<body id="login">
 		<div class="container">
 
-		<?php if(isset($msg)) { echo $msg; } ?>
+
 		</div> <!-- /container -->
 
 		<h1 class="main-header">Confirm Account</h1>
 	<div class="container">
 	  <div class="box">
-			<!--Put Green Box Here-->
+			<?php if(isset($msg)) echo $msg; ?>
 	    <p>Thanks for using goodminder!</p>
 	  </div>
 	</div>

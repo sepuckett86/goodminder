@@ -25,13 +25,13 @@ if(isset($_POST['btn-signup']))
 
 	if($stmt->rowCount() > 0) {
 		$msg = "
-		      <div class='alert alert-error'>
+		      <div class='alert alert-warning'>
 				<button class='close' data-dismiss='alert'>&times;</button>
 					<strong>Sorry,</strong> email or user name already exists. Please try another one.
 			  </div>
 			  ";
 	} elseif($cpass !== $upass ) {
-		$msg = "<div class='alert alert-error'>
+		$msg = "<div class='alert alert-warning'>
 				<button class='close' data-dismiss='alert'>&times;</button>
 				<strong>Sorry!</strong> Passwords do not match.
 				</div>";
@@ -43,11 +43,12 @@ if(isset($_POST['btn-signup']))
 			Hello $uname2,
 			<br /><br />
 			Welcome to Goodminder!<br/>
-			To complete your registration, please click the following link:<br/>
+			To complete your registration, please click the following link:
 			<br /><br />
-			<a href='http://goodminder.ihostfull.com/verify.php?id=$key&code=$code'>Click link to Activate.</a>
+			<a href='http://goodminder.ihostfull.com/verify.php?id=$key&code=$code'>Click here to activate.</a>
 			<br /><br />
-			Thanks,";
+			Thanks,
+			The Goodminder Team";
 
 		$subject = "Confirm Registration";
 
@@ -60,7 +61,7 @@ if(isset($_POST['btn-signup']))
 				</div>
 				";
 	} else {
-		echo "Sorry , query could not execute...";
+		echo "Sorry , query could not execute.";
 	}
 }
 ?><!DOCTYPE html>
