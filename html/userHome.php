@@ -9,11 +9,10 @@ if($user_home->is_logged_in())
 	$stmt->execute(array(":uid"=>$_SESSION['userSession']));
 	$row = $stmt->fetch(PDO::FETCH_ASSOC);
 }
-?><!DOCTYPE html>
+?><!DOCTYPE HTML>
 
 
 <html lang="en">
-
 
 <head>
     <meta charset="UTF-8">
@@ -21,12 +20,10 @@ if($user_home->is_logged_in())
     <title>goodminder</title>
 		<link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
-    <link href="main.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-    <script defer src="https://use.fontawesome.com/releases/v5.0.3/js/all.js"></script>
-
-
+    <link href="goodminder.css" rel="stylesheet" type="text/css" />
+		<script defer src="https://use.fontawesome.com/releases/v5.0.3/js/all.js"></script>
 
 </head>
 
@@ -106,9 +103,14 @@ if($user_home->is_logged_in())
         </div>
       <br>
 
-      <div id="rating" data.now = "1" class="container options" style="text-align: right;"><span style="float: left;">
-
-
+      <div id="rating" class="options" style="text-align: right;"><span style="float: left;">
+				<!-- Rating Stars Box -->
+ 		 	 <!-- Note that fas = solid and far = empty-->
+ 		 	 <button class='star-button' onclick="stars('fa1')"><i id="fa1" class="far fa-star"></i></button>
+ 		 	 <button class='star-button' onclick="stars('fa2')"><i id="fa2" class="far fa-star"></i></button>
+ 		 	 <button class='star-button' onclick="stars('fa3')"><i id="fa3" class="far fa-star"></i></button>
+ 		 	 <button class='star-button' onclick="stars('fa4')"><i id="fa4" class="far fa-star"></i></button>
+ 		 	 <button class='star-button' onclick="stars('fa5')"><i id="fa5" class="far fa-star"></i></button>
 
       </span>
 
@@ -127,26 +129,7 @@ if($user_home->is_logged_in())
     </div>
 	<br><br>
    </main>
-	 <!-- Rating Stars Box -->
-<div class='rating-stars text-center'>
-<ul id='stars'>
-<li class='star' title='Poor' data-value='1'>
-	<i class='fa fa-star fa-fw'></i>
-</li>
-<li class='star' title='Fair' data-value='2'>
-	<i class='fa fa-star fa-fw'></i>
-</li>
-<li class='star' title='Good' data-value='3'>
-	<i class='fa fa-star fa-fw'></i>
-</li>
-<li class='star' title='Excellent' data-value='4'>
-	<i class='fa fa-star fa-fw'></i>
-</li>
-<li class='star' title='WOW!!!' data-value='5'>
-	<i class='fa fa-star fa-fw'></i>
-</li>
-</ul>
-</div>
+
 <br><br><br>
 <footer class="fixed-bottom">
  <!--For big screens-->
@@ -161,9 +144,11 @@ if($user_home->is_logged_in())
 </footer>
 
 <!--script below-->
+
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
-<script src="main.js"></script>
+<script src="stars.js"></script>
+
 </body>
 </html>

@@ -342,23 +342,25 @@ h5 {
 /* Star Rating */
 
 .fa-star {
-  font-size: 48px;
-  color: red;
+  color: #5777C0;
+	font-size: 24px;
 }
 
 /* .fa-star:hover does not work in Firefox,
 hence the following: */
 button:hover i svg.fa-star {
-  color:blue;
+  color:#314981
 }
 
 .fa-star:hover {
-  color:blue;
+  color:#314981
 }
 
 /* Remove button border */
 .star-button {
-  border: 0;
+  border: 0px;
+	margin: 0px;
+	padding: 2px;
   outline: none;
   text-decoration: none;
   display: inline-block;
