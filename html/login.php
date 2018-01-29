@@ -18,9 +18,8 @@ if(isset($_POST['btn-login']))
 		$user_login->redirect('userHome.php');
 	}
 }
-?>
+?><!DOCTYPE html>
 
-<!doctype html>
 <html lang="en">
 
 

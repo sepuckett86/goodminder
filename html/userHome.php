@@ -9,7 +9,7 @@ if($user_home->is_logged_in())
 	$stmt->execute(array(":uid"=>$_SESSION['userSession']));
 	$row = $stmt->fetch(PDO::FETCH_ASSOC);
 }
-?>
+?><!DOCTYPE html>
 
 
 <html lang="en">
@@ -42,10 +42,8 @@ if($user_home->is_logged_in())
 
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
-			<?php if($user_home->is_logged_in()){
-				echo '<li class="nav-item active"><a class="nav-link" href="logout.php">Log Out ' . $row['userEmail'] .'<span class="sr-only">(current)</span></a></li>';
-			} else {
-				echo '<li class="nav-item active"><a class="nav-link" href="login.php">Log In<span class="sr-only">(current)</span></a></li>';
+      <?php if($user_home->is_logged_in()){
+				echo '<li class="nav-item active"><a class="nav-link" href="userHome.php">'.$row['userName'].'<span class="sr-only">(current)</span></a></li>';
 			}
 			?>
       <li class="nav-item">
@@ -54,8 +52,11 @@ if($user_home->is_logged_in())
       <li class="nav-item">
         <a class="nav-link" href="example.php">Examples</a>
       </li>
-			<?php if($user_home->is_logged_in()){
-				echo '<li class="nav-item"><a class="nav-link" href="settings.php">Settings</a></li>';
+      <?php if($user_home->is_logged_in()){
+        echo '<li class="nav-item"><a class="nav-link" href="settings.php">Settings</a></li>';
+				echo '<li class="nav-item"><a class="nav-link" href="logout.php">Log Out</a></li>';
+			} else {
+				echo '<li class="nav-item"><a class="nav-link" href="login.php">Log In</a></li>';
 			}
 			?>
 			<li class="nav-item">

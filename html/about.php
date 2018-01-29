@@ -9,7 +9,7 @@ if($user_home->is_logged_in())
 	$stmt->execute(array(":uid"=>$_SESSION['userSession']));
 	$row = $stmt->fetch(PDO::FETCH_ASSOC);
 }
-?>
+?><!DOCTYPE html>
 
 
 <html lang="en">
@@ -44,21 +44,25 @@ if($user_home->is_logged_in())
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
 			<?php if($user_home->is_logged_in()){
-				echo '<li class="nav-item"><a class="nav-link" href="logout.php">Log Out ' . $row['userEmail'] .'</a></li>';
-			} else {
-				echo '<li class="nav-item"><a class="nav-link" href="login.php">Log In</a></li>';
+				echo '<li class="nav-item"><a class="nav-link" href="userHome.php">'.$row['userName'].'</a></li>';
 			}
 			?>
       <li class="nav-item active">
-        <a class="nav-link" href="about.php">About<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="about.php">About</a><span class="sr-only">(current)</span>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="example.php">Examples</a>
       </li>
-			<?php if($user_home->is_logged_in()){
-				echo '<li class="nav-item"><a class="nav-link" href="settings.php">Settings</a></li>';
+      <?php if($user_home->is_logged_in()){
+        echo '<li class="nav-item"><a class="nav-link" href="settings.php">Settings</a></li>';
+				echo '<li class="nav-item"><a class="nav-link" href="logout.php">Log Out</a></li>';
+			} else {
+				echo '<li class="nav-item"><a class="nav-link" href="login.php">Log In</a></li>';
 			}
 			?>
+			<li class="nav-item">
+				<button type="button" class="btn btn-goodminder">Points <span class="badge badge-light">9</span></button>
+			</li>
     </ul>
   </div>
   </nav>

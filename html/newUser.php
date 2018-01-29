@@ -38,7 +38,6 @@ if(isset($_POST['btn-signup']))
 	} elseif($reg_user->register($email,$uname2,$uname,$upass,$code)){
 		$id = $reg_user->lasdID();
 		$key = base64_encode($id);
-		$id = $key;
 
 		$message = "
 			Hello $uname2,
@@ -46,7 +45,7 @@ if(isset($_POST['btn-signup']))
 			Welcome to Goodminder!<br/>
 			To complete your registration, please click the following link:<br/>
 			<br /><br />
-			<a href='http://goodminder.ihostfull.com/verify.php?id=$id&code=$code'>Click HERE to Activate :)</a>
+			<a href='http://goodminder.ihostfull.com/verify.php?id=$key&code=$code'>Click link to Activate.</a>
 			<br /><br />
 			Thanks,";
 
@@ -64,9 +63,8 @@ if(isset($_POST['btn-signup']))
 		echo "Sorry , query could not execute...";
 	}
 }
-?>
+?><!DOCTYPE html>
 
-<!doctype html>
 <html lang="en">
 
 

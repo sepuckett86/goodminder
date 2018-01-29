@@ -8,10 +8,8 @@ if($user->is_logged_in()!="")
 {
 	$user->logout();
 }
-?>
+?><!DOCTYPE html>
 
-
-<!doctype html>
 <html lang="en">
 
 

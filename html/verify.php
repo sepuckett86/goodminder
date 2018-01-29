@@ -39,7 +39,7 @@ if(isset($_GET['id']) && isset($_GET['code']))
 			$msg = "
 		           <div class='alert alert-error'>
 				   <button class='close' data-dismiss='alert'>&times;</button>
-					  <strong>sorry !</strong>  Your Account is allready Activated : <a href='login.php'>Login here</a>
+					  <strong>Sorry!</strong>  Your Account is already Activated : <a href='login.php'>Login here</a>
 			       </div>
 			       ";
 		}
@@ -49,15 +49,13 @@ if(isset($_GET['id']) && isset($_GET['code']))
 		$msg = "
 		       <div class='alert alert-error'>
 			   <button class='close' data-dismiss='alert'>&times;</button>
-			   <strong>sorry !</strong>  No Account Found : <a href='newUser.php'>Signup here</a>
+			   <strong>Sorry!</strong>  No Account Found : <a href='newUser.php'>Signup here</a>
 			   </div>
 			   ";
 	}
 }
+?><!DOCTYPE html>
 
-?>
-
-<!doctype html>
 <html lang="en">
 
 
@@ -90,10 +88,8 @@ if(isset($_GET['id']) && isset($_GET['code']))
 
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
-			<?php if($user_home->is_logged_in()){
-				echo '<li class="nav-item active"><a class="nav-link" href="logout.php">Log Out ' . $row['userEmail'] .'<span class="sr-only">(current)</span></a></li>';
-			} else {
-				echo '<li class="nav-item active"><a class="nav-link" href="login.php">Log In<span class="sr-only">(current)</span></a></li>';
+			<?php if($user->is_logged_in()) {
+				echo '<li class="nav-item"><a class="nav-link" href="userHome.php">'.$row['userName'].'</a></li>';
 			}
 			?>
       <li class="nav-item">
@@ -102,10 +98,16 @@ if(isset($_GET['id']) && isset($_GET['code']))
       <li class="nav-item">
         <a class="nav-link" href="example.php">Examples</a>
       </li>
-			<?php if($user_home->is_logged_in()){
-				echo '<li class="nav-item"><a class="nav-link" href="settings.php">Settings</a></li>';
+      <?php if($user->is_logged_in()) {
+        echo '<li class="nav-item"><a class="nav-link" href="settings.php">Settings</a></li>';
+				echo '<li class="nav-item"><a class="nav-link" href="logout.php">Log Out</a></li>';
+			} else {
+				echo '<li class="nav-item"><a class="nav-link" href="login.php">Log In</a></li>';
 			}
 			?>
+			<li class="nav-item">
+				<button type="button" class="btn btn-goodminder">Points <span class="badge badge-light">9</span></button>
+			</li>
     </ul>
   </div>
   </nav>

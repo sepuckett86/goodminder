@@ -51,9 +51,8 @@ if(isset($_POST['btn-submit'])) {
 			    </div>";
 	}
 }
-?>
+?><!DOCTYPE html>
 
-<!doctype html>
 <html lang="en">
 
 
