@@ -57,7 +57,7 @@ if($user_home->is_logged_in())
 			}
 			?>
 			<li class="nav-item">
-				<button type="button" class="btn btn-goodminder">Points <span class="badge badge-light">9</span></button>
+				<button type="button" class="btn btn-goodminder" data-toggle="popover" title="Goodminder Points" data-content="Earn points by daily log-in and writing entries. These will come in handy later :) ">Points <span class="badge badge-light">9</span></button>
 			</li>
     </ul>
   </div>
@@ -149,6 +149,11 @@ if($user_home->is_logged_in())
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
 <script src="stars.js"></script>
-
+<!--initialize popovers-->
+<script>
+$(function () {
+  $('[data-toggle="popover"]').popover()
+})
+</script>
 </body>
 </html>
