@@ -61,7 +61,7 @@ if(isset($_POST['btn-signup']))
 				</div>
 				";
 	} else {
-		echo "Sorry , query could not execute.";
+		$msg = "Sorry , query could not execute.";
 	}
 }
 ?><!DOCTYPE html>

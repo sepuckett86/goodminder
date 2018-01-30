@@ -9,6 +9,24 @@ if($user_home->is_logged_in())
 	$stmt->execute(array(":uid"=>$_SESSION['userSession']));
 	$row = $stmt->fetch(PDO::FETCH_ASSOC);
 }
+
+if(isset($_POST['btn-faq'])){
+    $email = trim($_POST['email']);
+    $firstName = trim($_POST['firstName']);
+    $lastName = trim($_POST['lastName']);
+    $question = trim($_POST['question']);
+    $emailBody = "Question from: " . $firstName . " " . $lastName . " (" . $email . "):<br><br>" . $question;
+    $emailSubject = "Question from " . $email;
+    $recipientEmail = "goodminder.site@gmail.com";
+    $user_home->send_mail($recipientEmail, $emailBody, $emailSubject);
+
+    $msg = "
+        <div class='alert alert-success'>
+            <button class='close' data-dismiss='alert'>&times;</button>
+            <strong>Success!</strong> Your email has been sent to the Goodminder site admins.
+        </div>
+    ";
+}
 ?><!DOCTYPE html>
 
 <html lang="en">
@@ -78,26 +96,31 @@ if($user_home->is_logged_in())
 
 			 <h1 class="main-header">Have a question? Contact us here:</h1>
 			 <div class="box">
-			 <form>
-  <div class="form-group" style="text-align: left;">
-    <label for="exampleFormControlInput1">Email address</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-		<br>
-<label for="firstname">Name: </label><br>
-	<div class="row">
-
-	    <div class="col">
-	      <input type="text" class="form-control" placeholder="First">
-	    </div>
-	    <div class="col">
-	      <input type="text" class="form-control" placeholder="Last">
-	    </div>
-	  </div>
-		<br>
-    <label for="exampleFormControlTextarea1">Enter question here:</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-  </div>
-</form>
+			<form method="post">
+				<div class="form-group" style="text-align: left;">
+					<?php if(isset($msg)) echo $msg; ?>
+                    <label for="exampleFormControlInput1">Email address</label>
+					<input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name="email">
+					<br>
+				<label for="firstname">Name: </label><br>
+				<div class="row">
+						<div class="col">
+							<input type="text" class="form-control" placeholder="First" name="firstName">
+						</div>
+						<div class="col">
+							<input type="text" class="form-control" placeholder="Last" name="lastName">
+						</div>
+				</div>
+				<br>
+				<label for="exampleFormControlTextarea1">Enter question here:</label>
+				<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="question"></textarea>
+				</div>
+				<div class="form-group row">
+					<div class="col-sm-10">
+						<button type="submit" class="btn btn-primary" name="btn-faq">Submit</button>
+					</div>
+				</div>
+			</form>
 </div>
 </div>
 <br><br>
