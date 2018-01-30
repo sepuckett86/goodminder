@@ -78,7 +78,7 @@ if($user_home->is_logged_in())
 			<div class="card" style="border:solid 5px;">
 				<div class="card-body">
 				<h5 class="card-title">goodminder <span style="font-size:12px;"><i>noun</i></h5>
-			<p class="card-text">A quote, a prompt response, or a custom entry entered by <b>you</b></p>
+			<p class="card-text">A quote, a prompt response, or a custom entry crafted by <b>you</b></p>
 		</div>
 	</div>
 		<br>
