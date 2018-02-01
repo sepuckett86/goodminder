@@ -36,7 +36,7 @@ To shut down the server, type:
 $ vagrant halt
 ```
 
-To enter the server with command line:
+To enter the server with command line (not necessary for testing website):
 ```
 $ vagrant ssh
 ```
