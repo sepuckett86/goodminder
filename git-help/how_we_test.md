@@ -8,7 +8,8 @@ https://www.taniarascia.com/what-are-vagrant-and-virtualbox-and-how-do-i-use-the
 ## Clone your git repository
 On GitHub, go to the project you want to work on. Find the "Clone or download" button to copy the URL of your project. 
 
-Once you have a directory with www/ and Vagrantfile
+You should have a directory with www/ and Vagrantfile
+
 Navigate to www/html
 ```
 git clone <projectURL>
@@ -16,6 +17,7 @@ git clone <projectURL>
 
 ## Commands for running the server
 Navigate to the directory which contains www/ and Vagrantfile
+
 Then type:
 ```
 $ vagrant up
