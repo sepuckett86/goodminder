@@ -30,3 +30,18 @@ Or directly into your project:
 ```
 http://192.168.33.10/html/<directory>
 ```
+
+To shut down the server, type:
+```
+$ vagrant halt
+```
+
+To enter the server with command line:
+```
+$ vagrant ssh
+```
+
+To exit server in command line:
+```
+~$ exit
+```
