@@ -23,6 +23,10 @@ Then type:
 $ vagrant up
 ```
 Now your site will be accessible by the following URL: 
+```
 http://192.168.33.10/html/
+```
 Or directly into your project:
+```
 http://192.168.33.10/html/<directory>
+```
