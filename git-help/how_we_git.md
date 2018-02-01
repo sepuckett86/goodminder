@@ -100,3 +100,10 @@ Revert back:
 $ git checkout <commit> <path/to/file>
 ```
 The file in your local directory will now be the old version.
+
+## Update your local directory
+
+Navigate to be inside your local directory. Then:
+```
+$ git pull origin master
+```
