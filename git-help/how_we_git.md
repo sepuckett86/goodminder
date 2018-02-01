@@ -89,10 +89,11 @@ Same as add new file
 
 ## Revert a file back to previous commit
 
-Find and copy the name of the commit you want to revert back to:
+Find the name of the commit you want to revert back to:
 ```
 $ git log <path/to/file>
 ```
+Copy it.
 
 Revert back:
 ```
