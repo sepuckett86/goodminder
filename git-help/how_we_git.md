@@ -86,3 +86,16 @@ $ git push origin <branch name>
 ## Change an existing code file
 
 Same as add new file
+
+## Revert a file back to previous commit
+
+Find and copy the name of the commit you want to revert back to:
+```
+$ git log <path/to/filename>
+```
+
+Revert back:
+```
+$ git checkout <commit> <path/to/file>
+```
+The file in your local directory will now be the old version.
