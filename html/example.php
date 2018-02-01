@@ -85,7 +85,7 @@ if($user_home->is_logged_in())
 		<h5 class="comfortaa">Here's what you can do with your account:</h5>
 			<div class="row">
 				<div class="col">
-					<div class="card" style="height: 32vw;">
+					<div class="card">
   					<a href="example1.jpg"><img class="card-img-top" src="example1.jpg" alt="example1"></a>
   				<div class="card-body">
     				<h5 class="card-title">Print</h5>
@@ -95,7 +95,7 @@ if($user_home->is_logged_in())
 					</div>
 				</div>
 			<div class="col">
-				<div class="card" style="height: 32vw;">
+				<div class="card">
   			<a href="example-screen.jpg"><img class="card-img-top" src="example-screen.jpg" alt="example1"></a>
   			<div class="card-body">
     			<h5 class="card-title">Read</h5>
