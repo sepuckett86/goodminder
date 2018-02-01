@@ -91,7 +91,7 @@ Same as add new file
 
 Find and copy the name of the commit you want to revert back to:
 ```
-$ git log <path/to/filename>
+$ git log <path/to/file>
 ```
 
 Revert back:
