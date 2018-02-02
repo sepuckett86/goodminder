@@ -85,7 +85,7 @@ if($user_home->is_logged_in())
 		<h5 class="comfortaa">Here's what you can do with your account:</h5>
 			<div class="row">
 				<div class="col">
-					<div class="card" style="height: 32vw;">
+					<div class="card">
   					<a href="example1.jpg"><img class="card-img-top" src="example1.jpg" alt="example1"></a>
   				<div class="card-body">
     				<h5 class="card-title">Print</h5>
@@ -95,7 +95,7 @@ if($user_home->is_logged_in())
 					</div>
 				</div>
 			<div class="col">
-				<div class="card" style="height: 32vw;">
+				<div class="card">
   			<a href="example-screen.jpg"><img class="card-img-top" src="example-screen.jpg" alt="example1"></a>
   			<div class="card-body">
     			<h5 class="card-title">Read</h5>
@@ -114,7 +114,7 @@ if($user_home->is_logged_in())
 <footer class="fixed-bottom">
 	<!--For big screens-->
 	<p class="full-text"><span style="float: left">&nbsp&nbsp&nbsp&nbsp <a href="#" class="button-clear"><i class="fab fa-facebook"></i>
-		 Visit us on facebook</a></span>Copyright 2018 | <a href="https://github.com/sepuckett86" class="button-clear">sepuckett86</a> and
+		 Visit us on facebook</a></span>Copyright &copy 2018 | <a href="https://github.com/sepuckett86" class="button-clear">sepuckett86</a> and
 		 <a href="https://github.com/codegold79" class="button-clear">codegold79</a><span style="float: right"> Questions?
 			 <a href="faq.php" class="button-clear">Click Here</a>&nbsp&nbsp&nbsp&nbsp</span></p>
 	<!--For small screens-->

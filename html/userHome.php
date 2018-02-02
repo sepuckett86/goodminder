@@ -40,25 +40,32 @@ if($user_home->is_logged_in())
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
       <?php if($user_home->is_logged_in()){
-				echo '<li class="nav-item active"><a class="nav-link" href="userHome.php">'.$row['userName'].'<span class="sr-only">(current)</span></a></li>';
-			}
-			?>
-      <li class="nav-item">
-        <a class="nav-link" href="about.php">About</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="example.php">Examples</a>
-      </li>
-      <?php if($user_home->is_logged_in()){
-        echo '<li class="nav-item"><a class="nav-link" href="settings.php">Settings</a></li>';
-				echo '<li class="nav-item"><a class="nav-link" href="logout.php">Log Out</a></li>';
+				echo '<li class="nav-item active dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						'.$row['userName'].'<span class="sr-only">(current)</span>
+					</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item" href="userHome.php">User Home</a>
+						<a class="dropdown-item" href="settings.php">Settings</a>
+						<hr>
+						<a class="dropdown-item" href="about.php">About</a>
+						<a class="dropdown-item" href="example.php">Examples</a>
+						<hr>
+						<a class="dropdown-item" href="logout.php">Log out</a>
+					</div>
+				</li>';
 			} else {
 				echo '<li class="nav-item"><a class="nav-link" href="login.php">Log In</a></li>';
+				echo '<li class="nav-item"><a class="nav-link" href="about.php">About</a></li>';
+				echo '<li class="nav-item"><a class="nav-link" href="example.php">Examples</a></li>';
 			}
 			?>
+      
+
 			<li class="nav-item">
 				<button type="button" class="btn btn-goodminder" data-toggle="popover" title="Goodminder Points" data-content="Earn points by daily log-in and writing entries. These will come in handy later :) ">Points <span class="badge badge-light">9</span></button>
 			</li>
+
     </ul>
   </div>
   </nav>
@@ -134,7 +141,7 @@ if($user_home->is_logged_in())
 <footer class="fixed-bottom">
  <!--For big screens-->
  <p class="full-text"><span style="float: left">&nbsp&nbsp&nbsp&nbsp <a href="#" class="button-clear"><i class="fab fa-facebook"></i>
-		Visit us on facebook</a></span>Copyright 2018 | <a href="https://github.com/sepuckett86" class="button-clear">sepuckett86</a> and
+		Visit us on facebook</a></span>Copyright &copy 2018 | <a href="https://github.com/sepuckett86" class="button-clear">sepuckett86</a> and
 		<a href="https://github.com/codegold79" class="button-clear">codegold79</a><span style="float: right"> Questions?
 			<a href="faq.php" class="button-clear">Click Here</a>&nbsp&nbsp&nbsp&nbsp</span></p>
  <!--For small screens-->
