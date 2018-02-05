@@ -39,16 +39,10 @@ if(isset($_POST['btn-signup']))
 		$id = $reg_user->lasdID();
 		$key = base64_encode($id);
 
-		$message = "
-			Hello $uname2,
-			<br /><br />
-			Welcome to Goodminder!<br/>
-			To complete your registration, please click the following link:
-			<br /><br />
-			<a href='http://goodminder.ihostfull.com/verify.php?id=$key&code=$code'>Click here to activate.</a>
-			<br /><br />
-			Thanks,
-			The Goodminder Team";
+        $emailTemplate = file_get_contents("mailer/confirmEmailInline.html",true);
+        $originals = array( "{{ user }}", "{{ confirm }}", "{{ browserPost }}" );
+        $replacements = array( $uname2, "http://goodminder.ihostfull.com/verify.php?id=$key&code=$code", "?email=$email&id=$key&code=$code&user=$uname2" );
+        $message = str_replace($originals, $replacements, $emailTemplate);
 
 		$subject = "Confirm Registration";
 
@@ -73,7 +67,7 @@ if(isset($_POST['btn-signup']))
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>goodminder</title>
-		<link rel="icon" type="image/png" href="favicon.png">
+		<link rel="icon" type="images/png" href="favicon.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
     <link href="main.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet"/>
