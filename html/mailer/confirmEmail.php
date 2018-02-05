@@ -1,12 +1,20 @@
-<!DOCTYPE html>
+<?php
+session_start();
+
+$email = trim($_POST['email']);
+$key = trim($POST['id']);
+$code = trim($POST['code']);
+$user = trim($POST['user']);
+
+?><!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Confirm</title>
-    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"/>
     <link rel="icon" type="image/png" href="favicon.png">
     <style type="text/css">
 
@@ -344,51 +352,54 @@ img.img-responsive {
 }
 </style>
  </head>
-<body style="padding: 15px;background-color: #FFF;margin: 0!important;">
-    <div class="wrapper" style="width: 100%;table-layout: fixed;">
-    	<div class="wrapper-inner" style="width: 100%;background-color: #eee;max-width: 670px;margin: 0 auto;">
-    		<table class="outer-table" style="border-spacing: 0;font-family: sans-serif;color: black;width: 100%;max-width: 670px;margin: 0 auto;background-color: #FFF;">
+<body>
+    <div class="wrapper">
+    	<div class="wrapper-inner">
+    		<table class="outer-table">
     			<tr>
-    				<td class="header" style="padding: 0;background-color: #C2C1C1;border-bottom: 3px solid #46B3B3;">
-    					<p style="margin: 0;text-align: center;padding: 1%;font-weight: 500;font-size: 12px;text-transform: uppercase;font-family: 'Lato', sans-serif;"><a href="confirmEmail.html" style="color: #F1F1F1;text-decoration: none;">Click to view this email in your browser</a></p>
+    				<td class="header">
+    					<p></p>
     				</td>
     			</tr> <!--- End Header -->
             </table> <!--- End Outer Table -->
 
-            <table class="main-table" style="border-spacing: 0;font-family: sans-serif;color: black;width: 100%;max-width: 610px;margin: 0 auto;background-color: #FFF;border-radius: 6px;">
+            <table class="main-table">
               <br>
     			<tr>
-    				<td class="one-column" style="padding: 0;">
-    					<table width="100%" style="border-spacing: 0;font-family: sans-serif;color: black;">
+    				<td class="one-column">
+    					<table width="100%">
     						<tr>
-    							<td class="inner-td" style="padding: 10px;font-size: 16px;line-height: 20px;text-align: justify;">
-                    <img src="logoDark.png" style="padding: 15px;text-align: center;border: 0;float: left;margin-left: 5%;max-width: 200px!important;" class="logo">
-    								<p class="h2" style="margin: 12px;text-align: center;font-size: 23px;font-weight: 600;line-height: 45px;color: #4A4A4A;font-family: 'Comfortaa', cursive;">Welcome to Goodminder</p>
-    								<p class="center" style="margin: 0 auto;display: table;text-align: center;max-width: 580px;line-height: 24px;font-family: 'Lato', sans-serif;">We're excited that you created an account!</p>
-                    <p class="center" style="margin: 0 auto;display: table;text-align: center;max-width: 580px;line-height: 24px;font-family: 'Lato', sans-serif;">Once you confirm it, you'll be ready to go.</p>
-    								<p class="button-holder-center" style="margin: 5% 2% 3% 0;text-align: center;">
-    									<a class="btn" href="#" style="color: #FFF;text-decoration: none;font-size: 15px;font-weight: 600;background: #46B3B3;padding: 9px 16px;border-radius: 28px;">Click here to confirm account</a>
+    							<td class="inner-td">
+                    <img src="image/logoDark.png" style="padding:15px; text-align:center;" class="logo">
+    								<p class="h2">
+                                        <?php echo "Welcome to Goodminder, $user" ?>    
+                                    </p>
+    								<p class="center">We're excited that you created an account!</p>
+                    <p class="center">Once you confirm it, you'll be ready to go.</p>
+    								<p class="button-holder-center">
+                                        <?php echo '<a class="btn" href="http://goodminder.ihostfull.com/verify.php?id=' . $key . '&code=' . $code . '">Click here to confirm account</a>'
+                                        ?>
     								</p><br>
-                    <p class="center" style="margin: 0 auto;display: table;text-align: center;max-width: 580px;line-height: 24px;font-family: 'Lato', sans-serif;">Thanks! ~The Goodminder Team.</p>
+                    <p class="center">Thanks! ~The Goodminder Team.</p>
     							</td>
     						</tr>
     					</table>
     				</td>
     			</tr> <!--- End Heading, Paragraph & Button Section -->
 
-
-    			 <!--- End Two Column Section -->
+    				</td>
+    			</tr> <!--- End Two Column Section -->
             </table> <!--- End Main Table -->
 
-            <table class="outer-table-3" style="border-spacing: 0;font-family: sans-serif;color: black;width: 100%;max-width: 670px;margin: 22px auto;background-color: #C2C1C1;border-top: 3px solid #81B9C3;">
+            <table class="outer-table-3">
     			<tr>
-    				<td class="one-column" style="padding: 0;">
-    					<table width="100%" style="border-spacing: 0;font-family: sans-serif;color: black;">
+    				<td class="one-column">
+    					<table width="100%">
     						<tr>
-    							<td class="footer" style="padding: 0;width: 100%;font-family: 'Lato', sans-serif;background-color: #C2C1C1;margin: 0 auto;color: #FFF;">
+    							<td class="footer">
 
-    								<p class="footer" style="margin: 0 auto;width: 100%;font-family: 'Lato', sans-serif;background-color: #C2C1C1;color: #FFF;text-align: center;line-height: 30px;">Copyright &copy; 2018 | <a href="https://github.com/sepuckett86" class="button-clear" style="color: #5777C0;text-decoration: none;border: none;text-align: center;font-family: 'Comfortaa', cursive;display: inline-block;">sepuckett86</a> and
-               		 <a href="https://github.com/codegold79" class="button-clear" style="color: #5777C0;text-decoration: none;border: none;text-align: center;font-family: 'Comfortaa', cursive;display: inline-block;">codegold79</a><br></p>
+    								<p class="footer">Copyright &copy; 2018 | <a href="https://github.com/sepuckett86" class="button-clear">sepuckett86</a> and
+               		 <a href="https://github.com/codegold79" class="button-clear">codegold79</a><br></p>
     							</td>
     						</tr>
     					</table>
