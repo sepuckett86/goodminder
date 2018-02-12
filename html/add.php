@@ -11,8 +11,6 @@ if($user_home->is_logged_in())
 }
 ?><!DOCTYPE html>
 <html lang="en">
-
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,7 +21,8 @@ if($user_home->is_logged_in())
     <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <script defer src="https://use.fontawesome.com/releases/v5.0.3/js/all.js"></script>
-
+    <script src="serverReq/jquery-3.3.1.min.js"></script>
+    <script src="serverReq/serverExchange.js"></script>
 
 </head>
 
@@ -84,77 +83,78 @@ if($user_home->is_logged_in())
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 <br>
-<form>
-    <div class="form-group">
-      <p>From Prompt Collection: <a href='#' class="button-clear">Happy</a></p>
-      <h4 class="lato" style="color:black; font-size: 36px;">Who is your favorite celebrity?</h4>
-      <br>
-        <p><span style="text-align: right;">Next prompt from:
-        <a href="#" class="button-clear"><i class="fas fa-arrow-circle-right"></i> Same collection</a> |
-        <a href="#" class="button-clear"><i class="fas fa-arrow-circle-right"></i> All collections</a></span></p>
-  <label for="answer">Answer</label>
-  <textarea class="form-control" id="answer" rows="3"></textarea>
-  <br>
-  <label for="reason">Reason</label>
-  <textarea class="form-control" id="reason" rows="3"></textarea>
-</div>
-  <button type="submit" class="btn btn-primary">Submit</button>
 
-</form>
-
+    <form>
+        <div class="form-group">
+            <p class="paragraph-prompt" id="promptId_4">From Prompt Collection: <a href='#' class="button-clear">Happy</a></p>
+            <h4 class="lato" style="color:black; font-size: 36px;">Who is your favorite celebrity?</h4>
+            <br>
+            <p><span style="text-align: right;">Next prompt from:
+            <a href="#" class="button-clear"><i class="fas fa-arrow-circle-right"></i> Same collection</a> |
+            <a href="#" class="button-clear"><i class="fas fa-arrow-circle-right"></i> All collections</a></span></p>
+            <label for="answer">Answer</label>
+            <textarea class="form-control" id="answer" rows="3"></textarea>
+            <br>
+            <label for="reason">Reason</label>
+            <textarea class="form-control" id="reason" rows="3"></textarea>
+        </div>
+        <button id="btn-prompt-submit" type="submit" class="btn btn-primary">Submit</button>
+    </form>
 
   </div>
   <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
     <br>
+
     <form>
         <div class="form-group">
-
-      <label for="answer">Quote</label>
-      <textarea class="form-control" id="answer" rows="3" placeholder="Example: May your beer be laid under an enchantment of surpassing excellence for seven years!"></textarea>
-      <br>
-
-        <div class="form-group">
-          <label for="who">Who said it (optional)</label>
-          <input type="text" class="form-control" id="who" placeholder="Example: Gandalf">
+            <label for="answer">Quote</label>
+            <textarea class="form-control" id="answer" rows="3" placeholder="Example: May your beer be laid under an enchantment of surpassing excellence for seven years!"></textarea>
+            <br>
+            <div class="form-group">
+                <label for="who">Who said it (optional)</label>
+                <input type="text" class="form-control" id="who" placeholder="Example: Gandalf">
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="source">Source (optional)</label>
+                <input type="text" class="form-control" id="source" placeholder="Example: The Fellowship of the Ring">
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="author">Author</label>
+                <input type="text" class="form-control" id="author" placeholder="Example: J. R. R. Tolkien">
+            </div>
+            <br>
+            <label for="reason">Reason</label>
+            <textarea class="form-control" id="reason" rows="3" placeholder="Example: When I was reading this out loud with my husband, we laughed like hyenas"></textarea>
+            <br>
+            <div class="form-group">
+                <label for="q-collection">Collection (optional)</label>
+                <input type="text" class="form-control" id="q-collection" placeholder="Example: Funny">
+            </div>
         </div>
         <br>
-        <div class="form-group">
-          <label for="source">Source (optional)</label>
-          <input type="text" class="form-control" id="source" placeholder="Example: The Fellowship of the Ring">
-        </div>
-        <br>
-        <div class="form-group">
-          <label for="author">Author</label>
-          <input type="text" class="form-control" id="author" placeholder="Example: J. R. R. Tolkien">
-        </div>
-      <br>
-      <label for="reason">Reason</label>
-      <textarea class="form-control" id="reason" rows="3" placeholder="Example: When I was reading this out loud with my husband, we laughed like hyenas"></textarea>
-			<br>
-			<div class="form-group">
-				<label for="q-collection">Collection (optional)</label>
-				<input type="text" class="form-control" id="q-collection" placeholder="Example: Funny">
-			</div>
-    </div>
-		<br>
-    <button type="submit" class="btn btn-primary">Submit</button>
+        <button id="btn-quote-submit" type="submit" class="btn btn-primary">Submit</button>
     </form>
+
     <br>
   </div>
   <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+    
     <form>
         <div class="form-group">
-          <br>
-      <label for="x">Enter Anything</label>
-      <textarea class="form-control" id="x" rows="3"></textarea>
-      <br>
-      <div class="form-group">
-        <label for="category">Custom Category</label>
-        <input type="text" class="form-control" id="category" placeholder="Example: Affirmations">
-      </div>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+            <br>
+            <label for="x">Enter Anything</label>
+            <textarea class="form-control" id="x" rows="3"></textarea>
+            <br>
+            <div class="form-group">
+                <label for="category">Custom Category</label>
+                <input type="text" class="form-control" id="category" placeholder="Example: Affirmations">
+            </div>
+        </div>
+        <button id="btn-custom-submit" type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
 </div>
 </div>
 
@@ -182,8 +182,6 @@ if($user_home->is_logged_in())
 </footer>
 
 <!--script below-->
-
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
 <script src="main.js"></script>

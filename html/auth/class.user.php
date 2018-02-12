@@ -90,7 +90,8 @@ class USER
 	{
 		if(isset($_SESSION['userSession'])) {
 			return true;
-		} 
+        } 
+        return false;
 	}
 	
 	public function redirect($url)
