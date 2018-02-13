@@ -66,7 +66,7 @@
   <p>Made with care<a href="#" class="button-clear"> </a></p>
   </div>
   <div class="col" style="text-align: center; padding:0px;">
-  <p>Printed with <img src="logoDark.png" alt=" " style="height:1em"/><a href="index.php" class="button-clear">goodminder</a></p>
+  <p>Printed with <img src="favicon.png" alt=" " style="height:1em"/><a href="index.php" class="button-clear">goodminder</a></p>
   </div>
   <div class="col" style="text-align: right; padding-left:0px;">
   <div id="date"></div>
