@@ -93,10 +93,10 @@ if($user_home->is_logged_in())
             <a href="#" class="button-clear"><i class="fas fa-arrow-circle-right"></i> Same collection</a> |
             <a href="#" class="button-clear"><i class="fas fa-arrow-circle-right"></i> All collections</a></span></p>
             <label for="answer">Answer</label>
-            <textarea class="form-control" id="answer" rows="3"></textarea>
+            <textarea class="form-control" id="prompt-answer" rows="3"></textarea>
             <br>
             <label for="reason">Reason</label>
-            <textarea class="form-control" id="reason" rows="3"></textarea>
+            <textarea class="form-control" id="prompt-reason" rows="3"></textarea>
         </div>
         <button id="btn-prompt-submit" type="submit" class="btn btn-primary">Submit</button>
     </form>
@@ -108,29 +108,29 @@ if($user_home->is_logged_in())
     <form>
         <div class="form-group">
             <label for="answer">Quote</label>
-            <textarea class="form-control" id="answer" rows="3" placeholder="Example: May your beer be laid under an enchantment of surpassing excellence for seven years!"></textarea>
+            <textarea class="form-control" id="quote" rows="3" placeholder="Example: May your beer be laid under an enchantment of surpassing excellence for seven years!"></textarea>
             <br>
             <div class="form-group">
                 <label for="who">Who said it (optional)</label>
-                <input type="text" class="form-control" id="who" placeholder="Example: Gandalf">
+                <input type="text" class="form-control" id="quote-who" placeholder="Example: Gandalf">
             </div>
             <br>
             <div class="form-group">
                 <label for="source">Source (optional)</label>
-                <input type="text" class="form-control" id="source" placeholder="Example: The Fellowship of the Ring">
+                <input type="text" class="form-control" id="quote-source" placeholder="Example: The Fellowship of the Ring">
             </div>
             <br>
             <div class="form-group">
                 <label for="author">Author</label>
-                <input type="text" class="form-control" id="author" placeholder="Example: J. R. R. Tolkien">
+                <input type="text" class="form-control" id="quote-author" placeholder="Example: J. R. R. Tolkien">
             </div>
             <br>
             <label for="reason">Reason</label>
-            <textarea class="form-control" id="reason" rows="3" placeholder="Example: When I was reading this out loud with my husband, we laughed like hyenas"></textarea>
+            <textarea class="form-control" id="quote-reason" rows="3" placeholder="Example: When I was reading this out loud with my husband, we laughed like hyenas"></textarea>
             <br>
             <div class="form-group">
                 <label for="q-collection">Collection (optional)</label>
-                <input type="text" class="form-control" id="q-collection" placeholder="Example: Funny">
+                <input type="text" class="form-control" id="quote-category" placeholder="Example: Funny">
             </div>
         </div>
         <br>
@@ -145,11 +145,11 @@ if($user_home->is_logged_in())
         <div class="form-group">
             <br>
             <label for="x">Enter Anything</label>
-            <textarea class="form-control" id="x" rows="3"></textarea>
+            <textarea class="form-control" id="customText" rows="3"></textarea>
             <br>
             <div class="form-group">
                 <label for="category">Custom Category</label>
-                <input type="text" class="form-control" id="category" placeholder="Example: Affirmations">
+                <input type="text" class="form-control" id="custom-category" placeholder="Example: Affirmations">
             </div>
         </div>
         <button id="btn-custom-submit" type="submit" class="btn btn-primary">Submit</button>
