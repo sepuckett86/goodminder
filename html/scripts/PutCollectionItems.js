@@ -16,7 +16,7 @@ $(document).ready(function () {
 
         $.ajax({
             method: "POST",
-            url: "serverReq/dbRequests.php",
+            url: "scripts/PutDbCollectionItems.php",
             data: postData
           })
             .done(function( msg ) {
@@ -45,7 +45,7 @@ $(document).ready(function () {
 
         $.ajax({
             method: "POST",
-            url: "serverReq/dbRequests.php",
+            url: "scripts/PutDbCollectionItems.php",
             data: postData
           })
             .done(function( msg ) {
@@ -65,7 +65,7 @@ $(document).ready(function () {
 
         $.ajax({
             method: "POST",
-            url: "serverReq/dbRequests.php",
+            url: "scripts/PutDbCollectionItems.php",
             data: postData
           })
             .done(function( msg ) {

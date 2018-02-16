@@ -21,8 +21,8 @@ if($user_home->is_logged_in())
     <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <script defer src="https://use.fontawesome.com/releases/v5.0.3/js/all.js"></script>
-    <script src="serverReq/jquery-3.3.1.min.js"></script>
-    <script src="serverReq/serverExchange.js"></script>
+    <script src="scripts/jquery-3.3.1.min.js"></script>
+    <script src="scripts/PutCollectionItems.js"></script>
 
 </head>
 
