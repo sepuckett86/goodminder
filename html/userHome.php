@@ -115,13 +115,13 @@ if($user_home->is_logged_in())
       <br>
 
       <div id="rating" class="options" style="text-align: right;"><span style="float: left;">
-				<!-- Rating Stars Box -->
- 		 	 <!-- Note that fas = solid and far = empty-->
- 		 	 <button class='star-button' onclick="stars('fa1')"><i id="fa1" class="far fa-star"></i></button>
- 		 	 <button class='star-button' onclick="stars('fa2')"><i id="fa2" class="far fa-star"></i></button>
- 		 	 <button class='star-button' onclick="stars('fa3')"><i id="fa3" class="far fa-star"></i></button>
- 		 	 <button class='star-button' onclick="stars('fa4')"><i id="fa4" class="far fa-star"></i></button>
- 		 	 <button class='star-button' onclick="stars('fa5')"><i id="fa5" class="far fa-star"></i></button>
+        <!-- Rating Stars Box -->
+        <!-- Note that fas = solid and far = empty-->
+        <button class='star-button' onclick="stars('fa1')"><i id="fa1" class="far fa-star"></i></button>
+        <button class='star-button' onclick="stars('fa2')"><i id="fa2" class="far fa-star"></i></button>
+        <button class='star-button' onclick="stars('fa3')"><i id="fa3" class="far fa-star"></i></button>
+        <button class='star-button' onclick="stars('fa4')"><i id="fa4" class="far fa-star"></i></button>
+        <button class='star-button' onclick="stars('fa5')"><i id="fa5" class="far fa-star"></i></button>
 
       </span>
 

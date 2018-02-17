@@ -5,13 +5,14 @@ require_once '../auth/class.user.php';
 $userId = $_SESSION['userSession'];
 $collectionId = trim($_POST['collectionId']);
 $getQuote = new GetQuote($userId, $collectionId);
-$getQuote->addQuoteToDatabase();
+$getQuote->getQuoteFromDatabase();
 
 class GetQuote
 {   
     protected $userId;
     protected $collectionType;
     protected $prevCollectionId;
+    protected $rating;
     private $conn;
     
     public function __construct($userId, $collectionId)
@@ -25,7 +26,7 @@ class GetQuote
         $this->conn = $db;
     }
 
-    public function addQuoteToDatabase()
+    public function getQuoteFromDatabase()
     {
         try {							
             $stmt = $this->conn->prepare('SELECT collectionId, recordedDate, category, mainResponse, who, source, author, reason, rating FROM collectionItemsTbl WHERE userId=:user_id AND collectionType=:collection_type ORDER BY RAND()');
