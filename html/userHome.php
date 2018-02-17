@@ -23,8 +23,12 @@ if($user_home->is_logged_in())
     <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link href="goodminder.css" rel="stylesheet" type="text/css" />
-		<script defer src="https://use.fontawesome.com/releases/v5.0.3/js/all.js"></script>
-
+	
+    <script defer src="https://use.fontawesome.com/releases/v5.0.3/js/all.js"></script>
+    <script src="scripts/jquery-3.3.1.min.js"></script>
+    <script src="http://www.datejs.com/build/date.js" type="text/javascript"></script>
+    <script src="scripts/GetCollectionItems.js"></script>
+    
 </head>
 
 <body>
@@ -84,7 +88,7 @@ if($user_home->is_logged_in())
 			</div>
 
     <div class="box">
-      <p style="text-align: right;">Quote added <a href="#">Month Day, Year</a> to <a href="#">
+      <p style="text-align: right;" id="quote-add-date-collection">Quote added <a href="#">Month Day, Year</a> to <a href="#">
         Quote Collection: Inspirational</a></p>
       <div class="media answer" style="position: relative;">
       <i class="fas fa-quote-left" style="font-size: 64px; margin-right: 20px;"></i>
@@ -92,8 +96,8 @@ if($user_home->is_logged_in())
 
       <br>
 
-      <h4 class="lato" style="text-align: left; margin-right: 100px;">
-        May your beer be laid under an enchantment of surpassing excellence for seven years!</h4><p class="lato" style="text-align: right; margin-right: 100px;">-- Gandalf, from <i>The Fellowship of the Ring</i> by J.R.R. Tolkien</p>
+      <h4 class="lato" style="text-align: left; margin-right: 100px;" id="quote-random_0">
+        May your beer be laid under an enchantment of surpassing excellence for seven years!</h4><p class="lato" style="text-align: right; margin-right: 100px;" id="quote-who-source-author">-- Gandalf, from <i>The Fellowship of the Ring</i> by J.R.R. Tolkien</p>
         <br>
       </div>
 
@@ -104,7 +108,7 @@ if($user_home->is_logged_in())
       <div class="media reason">
       <i class="fas fa-lightbulb" style="font-size: 64px; margin-left: 15px; margin-right: 20px;"></i>
 
-      <div class="media-body lato" style="margin-right: 100px;">
+      <div class="media-body lato" style="margin-right: 100px;" id="quote-reason">
     Will and I were reading Tolkien out loud and this was the best line in the entire book.
       </div>
         </div>
@@ -130,9 +134,9 @@ if($user_home->is_logged_in())
 
 
 
-    <p style="color: black;"><a href="userHome2.php" class='button-standard'><i class="fas fa-arrow-circle-right" style="margin-right: 3px;"></i>Next</a> &nbsp
-      <a href="add.php" class='button-standard'><i class="fas fa-plus-circle" style="margin-right: 3px;"></i>Add</a> &nbsp
-    <a href="more.php" class='button-standard'><i class="fas fa-dot-circle" style="margin-right: 3px;"></i></i>More</a></p>
+    <p style="color: black;"><span class='button-standard' id="btn-next"><i class="fas fa-arrow-circle-right" style="margin-right: 3px;"></i>Next</span> &nbsp
+      <a href="add.php" class='button-standard'><i class="fas fa-plus-circle" style="margin-right: 3px;" id="btn-add"></i>Add</a> &nbsp
+    <a href="more.php" class='button-standard'><i class="fas fa-dot-circle" style="margin-right: 3px;" id="btn-more"></i></i>More</a></p>
     </div>
 	<br><br>
    </main>
@@ -151,8 +155,6 @@ if($user_home->is_logged_in())
 </footer>
 
 <!--script below-->
-
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
 <script src="stars.js"></script>
