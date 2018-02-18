@@ -1,2 +1,4 @@
 .vscode
 sh.exe.stackdump
+.DS_Store
+html/.DS_Store
