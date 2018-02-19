@@ -83,9 +83,22 @@ if($user_home->is_logged_in())
         <?php echo "Welcome, " . $row['userNameFamiliar'];
         ?>
       </h1>
-      <p style="text-align: left; color: white; text-shadow: 1px 2px 1px black; ">
+		</div>
+
+<!--IF USER HAS EMPTY DATABASE-->
+<div id="noData" style="display:none">
+	<div class="box">
+		<p>This is your own home page! Looks like your database is empty, so it's time to add some content.</p>
+		<a href="add.php" class='button-standard' style="text-align: center"><i class="fas fa-plus-circle" style="margin-right: 3px;" id="btn-add"></i>Add</a> &nbsp
+	</div>
+</div>
+<!--END IF USER HAS EMPTY DATABASE-->
+
+<!--IF USER HAS GOODMINDER ENTRIES IN DATABASE-->
+<div id="yesData" style="display:none">
+      <p style="text-align: left; color: white; text-shadow: 1px 2px 1px black; margin: 25px">
         Here is your dailyminder:</p>
-			</div>
+
 
     <div class="box">
 			<!--BEGIN TEMPLATE EMPTY-->
@@ -119,7 +132,6 @@ if($user_home->is_logged_in())
 					</div>
 
 				<i class="fas fa-quote-right" style="font-size: 64px; margin-left: 20px; position: absolute; bottom: 10px; right: 10px;"></i>
-				</div
 				</div>
 		<br>
 
@@ -210,10 +222,13 @@ if($user_home->is_logged_in())
     <p style="color: black;"><span class='button-standard' id="btn-next" ><i class="fas fa-arrow-circle-right" style="margin-right: 3px;"></i>Next</span> &nbsp
       <a href="add.php" class='button-standard'><i class="fas fa-plus-circle" style="margin-right: 3px;" id="btn-add"></i>Add</a> &nbsp
     <a href="more.php" class='button-standard'><i class="fas fa-dot-circle" style="margin-right: 3px;" id="btn-more"></i></i>More</a></p>
-    </div>
-	<br><br>
-   </main>
 
+	<br><br>
+</div>
+
+<!--END IF USER HAS GOODMINDER ENTRIES IN DATABASE-->
+   </main>
+</div>
 <br><br><br>
 <footer class="fixed-bottom">
  <!--For big screens-->
