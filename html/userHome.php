@@ -9,6 +9,11 @@ if($user_home->is_logged_in())
 	$stmt->execute(array(":uid"=>$_SESSION['userSession']));
 	$row = $stmt->fetch(PDO::FETCH_ASSOC);
 }
+
+if($user_home->is_logged_in()=="")
+{
+	$user_home->redirect('login.php');
+}
 ?><!DOCTYPE HTML>
 
 
@@ -57,6 +62,9 @@ if($user_home->is_logged_in())
 						<hr>
 						<a class="dropdown-item" href="logout.php">Log out</a>
 					</div>
+				</li>
+				<li class="nav-item">
+					<button type="button" class="btn btn-goodminder" data-toggle="popover" title="Goodminder Points" data-content="Earn points by daily log-in and writing entries. These will come in handy later :) ">Points <span class="badge badge-light">9</span></button>
 				</li>';
 			} else {
 				echo '<li class="nav-item"><a class="nav-link" href="login.php">Log In</a></li>';
@@ -66,9 +74,7 @@ if($user_home->is_logged_in())
 			?>
 
 
-			<li class="nav-item">
-				<button type="button" class="btn btn-goodminder" data-toggle="popover" title="Goodminder Points" data-content="Earn points by daily log-in and writing entries. These will come in handy later :) ">Points <span class="badge badge-light">9</span></button>
-			</li>
+
 
     </ul>
   </div>
