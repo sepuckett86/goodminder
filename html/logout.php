@@ -49,10 +49,7 @@ if($user->is_logged_in()!="")
       <li class="nav-item">
         <a class="nav-link" href="example.php">Examples</a>
       </li>
-			<?php if($user->is_logged_in()){
-				echo '<li class="nav-item"><a class="nav-link" href="settings.php">Settings</a></li>';
-			}
-			?>
+
     </ul>
   </div>
   </nav>
