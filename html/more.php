@@ -71,7 +71,7 @@ if($user_home->is_logged_in())
       <h1 style="color: white; text-shadow: 2px 2px 2px black;">More</h1>
       <p style="text-align: left; color: white; text-shadow: 1px 2px 1px black; ">
         Other things to do:</p>
-
+</div>
 <div class="box">
 <h4>Export your data</h4>
 <h4>Make a PDF</h4>
@@ -80,7 +80,7 @@ if($user_home->is_logged_in())
   <p style="color: black;"><a href="userHome.php" class='button-standard'><i class="fas fa-arrow-circle-left" style="margin-right: 3px;"></i>Home</a> &nbsp
   <a href="add.php" class='button-standard'><i class="fas fa-dot-circle" style="margin-right: 3px;"></i></i>Add</a></p>
 </div>
-</div>
+
    </main>
 <br><br>
 
