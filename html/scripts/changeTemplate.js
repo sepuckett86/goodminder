@@ -1,7 +1,8 @@
 /* Assign possible template ids here */
 /* These must be represented in html as div ids */
 var templateList = ["prompt", "quote", "custom", "empty"];
-/* Assign desired template id here */
+
+/* Upon clicking "Next" button, sssign desired template id here */
 var myTemplate = "quote";
 
 function switchTemplate(template) {
@@ -14,6 +15,10 @@ function switchTemplate(template) {
     htmlTemplate.style.display = "block";
   }
 }
+
+// Upon page load, immediately load this template
+window.onload = switchTemplate("empty");
+
 
 /* In html, example button code:
 <button id="button1" onclick="switchTemplate(myTemplate)" type="button" class="btn btn-info">
