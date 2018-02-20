@@ -9,6 +9,11 @@ if($user_home->is_logged_in())
 	$stmt->execute(array(":uid"=>$_SESSION['userSession']));
 	$row = $stmt->fetch(PDO::FETCH_ASSOC);
 }
+
+if($user_home->is_logged_in()=="")
+{
+	$user_home->redirect('login.php');
+}
 ?><!DOCTYPE HTML>
 
 
@@ -23,12 +28,12 @@ if($user_home->is_logged_in())
     <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link href="goodminder.css" rel="stylesheet" type="text/css" />
-	
+
     <script defer src="https://use.fontawesome.com/releases/v5.0.3/js/all.js"></script>
     <script src="scripts/jquery-3.3.1.min.js"></script>
     <script src="http://www.datejs.com/build/date.js" type="text/javascript"></script>
     <script src="scripts/GetCollectionItems.js"></script>
-    
+
 </head>
 
 <body>
@@ -57,6 +62,9 @@ if($user_home->is_logged_in())
 						<hr>
 						<a class="dropdown-item" href="logout.php">Log out</a>
 					</div>
+				</li>
+				<li class="nav-item">
+					<button type="button" class="btn btn-goodminder" data-toggle="popover" title="Goodminder Points" data-content="Earn points by daily log-in and writing entries. These will come in handy later :) ">Points <span class="badge badge-light">9</span></button>
 				</li>';
 			} else {
 				echo '<li class="nav-item"><a class="nav-link" href="login.php">Log In</a></li>';
@@ -64,11 +72,9 @@ if($user_home->is_logged_in())
 				echo '<li class="nav-item"><a class="nav-link" href="example.php">Examples</a></li>';
 			}
 			?>
-      
 
-			<li class="nav-item">
-				<button type="button" class="btn btn-goodminder" data-toggle="popover" title="Goodminder Points" data-content="Earn points by daily log-in and writing entries. These will come in handy later :) ">Points <span class="badge badge-light">9</span></button>
-			</li>
+
+
 
     </ul>
   </div>
@@ -83,13 +89,103 @@ if($user_home->is_logged_in())
         <?php echo "Welcome, " . $row['userNameFamiliar'];
         ?>
       </h1>
-      <p style="text-align: left; color: white; text-shadow: 1px 2px 1px black; ">
+		</div>
+
+<!--IF USER HAS EMPTY DATABASE-->
+<div id="noData" style="display:none">
+	<div class="box">
+		<p>This is your own home page! Looks like your database is empty, so it's time to add some content.</p>
+		<a href="add.php" class='button-standard' style="text-align: center"><i class="fas fa-plus-circle" style="margin-right: 3px;" id="btn-add"></i>Add</a> &nbsp
+	</div>
+</div>
+<!--END IF USER HAS EMPTY DATABASE-->
+
+<!--IF USER HAS GOODMINDER ENTRIES IN DATABASE-->
+<div id="yesData" style="display:none">
+      <p style="text-align: left; color: white; text-shadow: 1px 2px 1px black; margin: 25px">
         Here is your dailyminder:</p>
-			</div>
+
 
     <div class="box">
-      <p style="text-align: right;" id="quote-add-date-collection">Quote added <a href="#">Month Day, Year</a> to <a href="#">
-        Quote Collection: Inspirational</a></p>
+			<!--BEGIN TEMPLATE EMPTY-->
+			<div id="empty" style="display:block">
+      <p>Loading...</p>
+		</div>
+			<!--END TEMPLATE EMPTY-->
+
+			<!--BEGIN TEMPLATE PROMPT-->
+			<div id="prompt" style="display:none">
+				<p style="text-align: right;">Added <a href="#">Month Day, Year</a> from <a href="#">Prompt Collection Media</a></p>
+
+				 <div class="media prompt">
+				 <i class="fas fa-question-circle" style="font-size: 64px; margin-right: 20px;"></i>
+
+				 <div class="media-body">
+	 <span style="float: right;"><a href="#" class="button-clear" style="font-size: 16px;"><i class="fas fa-plus"></i> Respond Again</a></span>
+
+				 <p class="lato" style="text-align: center; margin-right: 100px;">What is a song that made you smile in the past month?</p>
+				</div>
+				</div>
+				<br>
+
+				<div class="media answer" style="position: relative;">
+				<i class="fas fa-quote-left" style="font-size: 64px; margin-right: 20px;"></i>
+				<div class="media-body">
+
+				<br>
+				<h4 class="lato" style="text-align: center; margin-right: 100px;">Legend of Kyrandia Emerald Room Song by Frank Klepacki</h4><br>
+
+					</div>
+
+				<i class="fas fa-quote-right" style="font-size: 64px; margin-left: 20px; position: absolute; bottom: 10px; right: 10px;"></i>
+				</div>
+		<br>
+
+				<div class="media reason">
+				<i class="fas fa-lightbulb" style="font-size: 64px; margin-left: 15px; margin-right: 20px;"></i>
+
+				<div class="media-body lato" style="margin-right: 100px;">
+
+			After wandering through endless caves in the game with repetitive music, the music changes for only one scene to a complex, long, cool song. It reminds me of all that is great about old school adventure games.
+				</div>
+					</div>
+			</div>
+			<!--END TEMPLATE PROMPT-->
+
+			<!--BEGIN TEMPLATE QUOTE-->
+			<div id="quote" style="display:none">
+			<p style="text-align: right;" id="quote-add-date-collection">Quote added <a href="#">Month Day, Year</a> to <a href="#">
+				Quote Collection: Inspirational</a></p>
+			<div class="media answer" style="position: relative;">
+			<i class="fas fa-quote-left" style="font-size: 64px; margin-right: 20px;"></i>
+			<div class="media-body">
+
+			<br>
+
+			<h4 class="lato" style="text-align: left; margin-right: 100px;" id="quote-random_0">
+				May your beer be laid under an enchantment of surpassing excellence for seven years!</h4><p class="lato" style="text-align: right; margin-right: 100px;" id="quote-who-source-author">-- Gandalf, from <i>The Fellowship of the Ring</i> by J.R.R. Tolkien</p>
+				<br>
+			</div>
+
+			<i class="fas fa-quote-right" style="font-size: 64px; margin-left: 20px; position: absolute; bottom: 10px; right: 10px;"></i>
+			</div>
+			<br>
+
+			<div class="media reason">
+			<i class="fas fa-lightbulb" style="font-size: 64px; margin-left: 15px; margin-right: 20px;"></i>
+
+			<div class="media-body lato" style="margin-right: 100px;" id="quote-reason">
+		Will and I were reading Tolkien out loud and this was the best line in the entire book.
+			</div>
+				</div>
+
+			</div>
+			<!--END TEMPLATE QUOTE-->
+
+			<!--BEGIN TEMPLATE CUSTOM-->
+			<div id="custom" style="display:none">
+      <p style="text-align: right;" id="quote-add-date-collection">Custom entry added <a href="#">Month Day, Year</a> to <a href="#">
+        Custom Collection: Affirmations</a></p>
       <div class="media answer" style="position: relative;">
       <i class="fas fa-quote-left" style="font-size: 64px; margin-right: 20px;"></i>
       <div class="media-body">
@@ -97,7 +193,7 @@ if($user_home->is_logged_in())
       <br>
 
       <h4 class="lato" style="text-align: left; margin-right: 100px;" id="quote-random_0">
-        May your beer be laid under an enchantment of surpassing excellence for seven years!</h4><p class="lato" style="text-align: right; margin-right: 100px;" id="quote-who-source-author">-- Gandalf, from <i>The Fellowship of the Ring</i> by J.R.R. Tolkien</p>
+        Breathe! Drink water. Smile at your thoughts.</h4>
         <br>
       </div>
 
@@ -105,13 +201,8 @@ if($user_home->is_logged_in())
       </div>
       <br>
 
-      <div class="media reason">
-      <i class="fas fa-lightbulb" style="font-size: 64px; margin-left: 15px; margin-right: 20px;"></i>
-
-      <div class="media-body lato" style="margin-right: 100px;" id="quote-reason">
-    Will and I were reading Tolkien out loud and this was the best line in the entire book.
-      </div>
-        </div>
+			</div>
+			<!--END TEMPLATE CUSTOM-->
       <br>
 
       <div id="rating" class="options" style="text-align: right;"><span style="float: left;">
@@ -133,14 +224,17 @@ if($user_home->is_logged_in())
     </div>
 
 
-
-    <p style="color: black;"><span class='button-standard' id="btn-next"><i class="fas fa-arrow-circle-right" style="margin-right: 3px;"></i>Next</span> &nbsp
+		<button onclick="switchTemplate(myTemplate)" type="button">Next Template</button>
+    <p style="color: black;"><span class='button-standard' id="btn-next" ><i class="fas fa-arrow-circle-right" style="margin-right: 3px;"></i>Next</span> &nbsp
       <a href="add.php" class='button-standard'><i class="fas fa-plus-circle" style="margin-right: 3px;" id="btn-add"></i>Add</a> &nbsp
     <a href="more.php" class='button-standard'><i class="fas fa-dot-circle" style="margin-right: 3px;" id="btn-more"></i></i>More</a></p>
-    </div>
-	<br><br>
-   </main>
 
+	<br><br>
+</div>
+
+<!--END IF USER HAS GOODMINDER ENTRIES IN DATABASE-->
+   </main>
+</div>
 <br><br><br>
 <footer class="fixed-bottom">
  <!--For big screens-->
@@ -157,7 +251,8 @@ if($user_home->is_logged_in())
 <!--script below-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
-<script src="stars.js"></script>
+<script src="scripts/stars.js"></script>
+<script src="scripts/changeTemplate.js"></script>
 <!--initialize popovers-->
 <script>
 $(function () {
