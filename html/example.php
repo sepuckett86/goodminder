@@ -7,8 +7,17 @@ if($user_home->is_logged_in())
 {
 	$stmt = $user_home->runQuery("SELECT * FROM usersTbl WHERE userID=:uid");
 	$stmt->execute(array(":uid"=>$_SESSION['userSession']));
-	$row = $stmt->fetch(PDO::FETCH_ASSOC);
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    $stmt = $user_home->runQuery("SELECT points FROM socialTbl WHERE userID=:uid");
+    $stmt->execute(array(":uid"=>$_SESSION['userSession']));
+    $socialRow = $stmt->fetch(PDO::FETCH_ASSOC);
+    $points = $socialRow['points'];
+    if ($points === null) {
+        $points = 0;
+    }
 }
+
 ?>
 
 <html lang="en"><!DOCTYPE html>
@@ -57,7 +66,7 @@ if($user_home->is_logged_in())
 					</div>
 				</li>
 				<li class="nav-item">
-					<button type="button" class="btn btn-goodminder" data-toggle="popover" title="Goodminder Points" data-content="Earn points by daily log-in and writing entries. These will come in handy later :) ">Points <span class="badge badge-light">9</span></button>
+					<button type="button" class="btn btn-goodminder" data-toggle="popover" title="Goodminder Points" data-content="Earn points by daily log-in and writing entries. These will come in handy later :) ">Points <span class="badge badge-light">' . $points . '</span></button>
 				</li>';
 			} else {
 				echo '<li class="nav-item"><a class="nav-link" href="login.php">Log In</a></li>';
