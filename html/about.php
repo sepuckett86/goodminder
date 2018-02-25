@@ -17,11 +17,6 @@ if($user_home->is_logged_in())
         $points = 0;
     }
 }
-
-if($user_home->is_logged_in()=="")
-{
-	$user_home->redirect('login.php');
-}
 ?><!DOCTYPE html>
 
 
