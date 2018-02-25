@@ -107,7 +107,7 @@ class USER
 	
 	function send_mail($email,$message,$subject)
 	{						
-		require_once('mailer/class.phpmailer.php');
+		require_once('../mailer/class.phpmailer.php');
 		$mail = new PHPMailer();
 		$mail->IsSMTP(); 
 		$mail->SMTPDebug  = 0;                     
@@ -122,6 +122,7 @@ class USER
 		$mail->AddReplyTo("goodminder.site@gmail.com","Goodminder");
 		$mail->Subject = $subject;
 		$mail->MsgHTML($message);
-		$mail->Send();
+        $mail->Send();
+        return true;
 	}	
 }

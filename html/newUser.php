@@ -8,60 +8,9 @@ if($reg_user->is_logged_in()!="")
 {
 	$reg_user->redirect('userHome.php');
 }
-
-
-if(isset($_POST['btn-signup']))
-{
-	$email = trim($_POST['txtemail']);
-    $uname2 = trim($_POST['txtuname2']);
-	$uname = trim($_POST['txtuname']);
-	$upass = trim($_POST['txtpass']);
-	$cpass = trim($_POST['txtcpass']);
-	$code = md5(uniqid(rand()));
-
-	$stmt = $reg_user->runQuery("SELECT * FROM usersTbl WHERE userEmail=:email_id or userName=:user_name");
-	$stmt->execute(array(":email_id"=>$email, ":user_name"=>$uname));
-	$row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-	if($stmt->rowCount() > 0) {
-		$msg = "
-		      <div class='alert alert-warning'>
-				<button class='close' data-dismiss='alert'>&times;</button>
-					<strong>Sorry,</strong> email or user name already exists. Please try another one.
-			  </div>
-			  ";
-	} elseif($cpass !== $upass ) {
-		$msg = "<div class='alert alert-warning'>
-				<button class='close' data-dismiss='alert'>&times;</button>
-				<strong>Sorry!</strong> Passwords do not match.
-				</div>";
-	} elseif($reg_user->register($email,$uname2,$uname,$upass,$code)){
-		$id = $reg_user->lasdID();
-		$key = base64_encode($id);
-
-        $emailTemplate = file_get_contents("mailer/confirmEmailInline.html",true);
-        $originals = array( "{{ user }}", "{{ confirm }}", "{{ browserPost }}" );
-        $replacements = array( $uname2, "http://goodminder.ihostfull.com/verify.php?id=$key&code=$code", "?email=$email&id=$key&code=$code&user=$uname2" );
-        $message = str_replace($originals, $replacements, $emailTemplate);
-
-		$subject = "Confirm Registration";
-
-		$reg_user->send_mail($email,$message,$subject);
-		$msg = "
-				<div class='alert alert-success'>
-					<button class='close' data-dismiss='alert'>&times;</button>
-					<strong>Success!</strong>  We've sent an email to $email.
-				Please click on the confirmation link in the email to create your account.
-				</div>
-				";
-	} else {
-		$msg = "Sorry , query could not execute.";
-	}
-}
 ?><!DOCTYPE html>
 
 <html lang="en">
-
 
 <head>
     <meta charset="UTF-8">
@@ -75,6 +24,8 @@ if(isset($_POST['btn-signup']))
 		<link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet"/>
 		<link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed" rel="stylesheet"/>
     <script defer src="https://use.fontawesome.com/releases/v5.0.3/js/all.js"></script>
+    <script src="scripts/jquery-3.3.1.min.js"></script>
+    <script src = "scripts/validateAndCreateUser.js"></script>
 </head>
 
 <body>
@@ -99,16 +50,14 @@ if(isset($_POST['btn-signup']))
 			</ul>
 		</div>
 		</nav>
-
 	</header>
 
-
 <main>
-
     <div style="text-align: left">
         <div class="box">
         <h1>Create New Account</h1>
         <?php if(isset($msg)) echo $msg; ?>
+            <div class="alert alert-warning" style="display:none"></div>
 				<br>
 				<form id="needs-validation" method="post">
 					<div class="form-group row">
@@ -147,7 +96,7 @@ if(isset($_POST['btn-signup']))
 				    </div>
 				    <div class="form-group row">
 				        <div class="col-sm-10">
-				            <button type="submit" class="btn btn-primary" name="btn-signup">Submit</button>
+				            <button type="submit" class="btn btn-primary" id="btn-signup" name="btn-signup">Submit</button>
 				        </div>
 				    </div>
 				</form>
@@ -175,8 +124,6 @@ if(isset($_POST['btn-signup']))
 </footer>
 
 <!--script below-->
-
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
 <script src="main.js"></script>
