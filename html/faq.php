@@ -109,7 +109,7 @@ if(isset($_POST['btn-faq'])){
 		<br />
 <h1>FAQ</h1>
 <br />
-			 <p><b>Q</b>: What is different about goodminder compared to other quote websites?</p>
+			 <p><b>Q</b>: What is different about Goodminder compared to other quote websites?</p>
 			 <p><b>A1</b>: Prompts inspire you to remember the positive moments.</p>
 			 <p><b>A2</b>: All of your goodminders are private by default.
 			 Self-honesty and your well-being are the focuses here.</p>
