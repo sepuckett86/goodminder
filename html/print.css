@@ -8,6 +8,39 @@ header{
 	font-family: 'Comfortaa', cursive;
 }
 
+/* Star Rating */
+
+.fa-star {
+  color: #5777C0;
+	font-size: 20px;
+}
+
+/* .fa-star:hover does not work in Firefox,
+hence the following: */
+button:hover i svg.fa-star {
+  color:#314981
+}
+
+.fa-star:hover {
+  color:#314981
+}
+
+/* Remove button border */
+.star-button {
+  border: 0px;
+	margin: 0px;
+	padding: 2px;
+  outline: none;
+  text-decoration: none;
+  /* For Firefox */
+  background: transparent;
+}
+
+/* Remove button border */
+button:focus {outline:0;}
+
+/* End star rating */
+
 .box {
     background-color: rgba(255, 255, 255, 0.8);
     border: 1px solid black;

@@ -95,32 +95,65 @@ if($user_home->is_logged_in())
 			<div class="card" style="border:solid 5px;">
 				<div class="card-body">
 				<h5 class="card-title">goodminder <span style="font-size:12px;"><i>noun</i></h5>
-			<p class="card-text">A quote, a prompt response, or a custom entry crafted by <b>you</b></p>
+			<p class="card-text">A prompt response, quote or custom entry crafted by <b>you</b>.</p>
+			<p>Purpose -- to <b>remind</b> you of the <b>good</b> in your life.</p>
 		</div>
 	</div>
 		<br>
 		<h5 class="comfortaa">Here's what you can do with your account:</h5>
+
 			<div class="row">
-				<div class="col">
+
+				<div class="col col-6">
 					<div class="card">
   					<a href="example1.jpg"><img class="card-img-top" src="example1.jpg" alt="example1"></a>
   				<div class="card-body">
     				<h5 class="card-title">Print</h5>
-    				<p class="card-text">Easily print out any of your goodminders to hang on your wall or save in a book.</p>
+    				<p class="card-text">Print out your goodminders to hang on your wall or save in a book.</p>
 
   				</div>
 					</div>
 				</div>
-			<div class="col">
+				<br />
+			<div class="col col-6">
 				<div class="card">
   			<a href="example-screen.jpg"><img class="card-img-top" src="example-screen.jpg" alt="example1"></a>
   			<div class="card-body">
     			<h5 class="card-title">Read</h5>
     			<p class="card-text">Enjoy your goodminders on your computer with our appealing layout.</p>
-
 				</div>
   			</div>
+				<br />
 			</div>
+
+			<div class="col col-6">
+				<div class="card">
+					<br />
+					<div style="text-align: center; font-size: 10vw;">
+					<i class="fas fa-save"></i>
+					</div>
+				<div class="card-body">
+					<h5 class="card-title">Export</h5>
+					<p class="card-text">Save all of your hard work to your desktop with the click of a button.</p>
+				</div>
+				</div>
+				<br />
+			</div>
+
+			<div class="col col-6">
+				<div class="card">
+					<br />
+					<div style="text-align: center; font-size: 10vw;">
+					<i class="fas fa-envelope-square"></i>
+				</div>
+				<div class="card-body">
+					<h5 class="card-title">Email</h5>
+					<p class="card-text">Choose to receive a goodminder by email daily, weekly, or never</p>
+				</div>
+				</div>
+				<br />
+			</div>
+
 			</div>
 
 		</div>
