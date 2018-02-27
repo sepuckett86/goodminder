@@ -92,7 +92,7 @@ if($user_home->is_logged_in())
 </div>
 <div class="opaque-container" style="text-align:center; ">
         <div class="container">
-					<br>
+					<br />
 				<h1>Living in a digital age</h1>
         <p>
         It is easy to succumb to social media and entertainment rather than

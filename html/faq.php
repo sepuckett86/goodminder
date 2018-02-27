@@ -99,22 +99,22 @@ if(isset($_POST['btn-faq'])){
 <main>
 	<div class="bgimg-2">
 	<div class="caption">
-		<span class="border comfortaa">Frequently Asked Questions</span>
+		<span class="border comfortaa">Questions/Contact</span>
 	</div>
 	</div>
 	<div class="opaque-container">
 
 
   <div class="container">
+		<br />
+<h1>FAQ</h1>
 <br />
+			 <p><b>Q</b>: What is different about goodminder compared to other quote websites?</p>
+			 <p><b>A1</b>: Prompts inspire you to remember the positive moments.</p>
+			 <p><b>A2</b>: All of your goodminders are private by default.
+			 Self-honesty and your well-being are the focuses here.</p>
 
-		<div style="margin: 25px;">
 
-
-			 <p>Q: What is different about goodminder compared to other quote websites?</p>
-			 <p>A: Prompt collections or user inputted prompts that allow for a more personal experience.</p>
-
-</div>
 <hr />
 <br />
 			 <h2 style="text-align: center">Have another question? Want to donate, comment, or make a suggestion?</h2>
@@ -147,7 +147,7 @@ if(isset($_POST['btn-faq'])){
 				</div>
 			</form>
 </div>
-</div>
+
 <br><br>
 </div>
 </main>
