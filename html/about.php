@@ -92,22 +92,30 @@ if($user_home->is_logged_in())
 </div>
 <div class="opaque-container" style="text-align:center; ">
         <div class="container">
-					<br>
-				<h1>Why do you live?</h1>
-        <p>It is easy to focus on negatives rather than positives.
-        And it is easy to succumb to social media and entertainment rather than
-        focusing on our own real lives. Here, we aim to help you catalogue the good
-        in your life.</p>
+					<br />
+				<h1>Living in a digital age</h1>
+        <p>
+        It is easy to succumb to social media and entertainment rather than
+        focusing on our own real lives. While we are connected more than ever,
+				anxiety is becoming more prevalent. How can we remember to focus on the positive
+			  things in our day-to-day reality while continuing to participate in this digital age?</p>
 				<hr />
         <h1>Enter <img src="favicon.png" alt="logoDark" height="60px" style="padding-bottom:10px"/>goodminder</h1>
-				<p><b>goodminder: Specifically you.</b></p>
-        <p>goodminder is a similar to a journal, yet it has a focus.
+				<p><b>Goodminder: Specifically you.</b></p>
+        <p>How many times have you laughed or smiled,
+					only to forget that happy event days later?
+					Goodminder is a similar to a journal, yet it has a focus.
         Prompts help you think of things worth recording in your life.
-        There is also an element of randomness that reminds you of ideas or events
-        in your past.</p>
+				You can also save quotes or custom text that is meaningful to you.
+				Having a bad day? Log into Goodminder and read a randomly chosen memory --
+				a <b>reminder</b> of the <b>good</b> in your life.</p>
 				<hr />
         <h1>Inspirations</h1>
-        <p><a href="https://www.amazon.com/Mans-Search-Meaning-classic-Holocaust-ebook/dp/B00EKOC0HI">Man's Search for Meaning</a>
+				<p>
+				 "A human being is not one in pursuit of happiness but rather in search
+				 of a reason to be happy."
+				</p>
+        <p><a href="https://www.amazon.com/Mans-Search-Meaning-classic-Holocaust-ebook/dp/B00EKOC0HI">--Man's Search for Meaning</a>
 				 by Viktor E. Frankl</p>
 
 				<hr />
@@ -115,9 +123,13 @@ if($user_home->is_logged_in())
 
       <p>  <a href="https://github.com/sepuckett86">sepuckett86</a> and
     <a href="https://github.com/codegold79">codegold79</a></p>
+		<p>
+			We are two friends who met in college and majored in something other
+			than computer science. We both currenty share a passion for learning
+			coding and web development.
+		</p>
 <hr />
 			<h1>Resources</h1>
-			<p>We are new to web development and goodminder is helping us learn.</p>
 				 <p>A big thanks go to all of the great resources available online for free listed here:
 				</p>
 
@@ -138,7 +150,11 @@ if($user_home->is_logged_in())
 						<lh><b>Tutorials and Help</b></lh>
 						<li title="Tania Rascia"><a href="https://www.taniarascia.com/" target="_blank">Tania Rascia</a></li>
 						<li><a href="https://www.w3schools.com/" target="_blank">w3schools</a></li>
-
+						<li><a href="https://www.freecodecamp.org/" target="_blank">freeCodeCamp</a></li>
+						<li><a href="https://www.codecademy.com/" target="_blank">codecademy</a></li>
+						<li>
+							<a href="https://stackoverflow.com/" target="_blank">stack overflow</a>
+						</li>
 					</ul>
 			  </div>
 			  <div class="col-sm">
@@ -177,7 +193,7 @@ if($user_home->is_logged_in())
 
 			<h1>Support Us!</h1>
 			<p>The more support we get, the more we will work on this site to improve it.</p>
-			<p>If you'd like to donate, please contact us below. Thanks a lot!</p>
+			<p>If you'd like to donate, please contact us <a href="faq.php#contact">here</a>. Thanks a lot!</p>
 
 			<p>
 			  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapseExample">
@@ -196,29 +212,7 @@ if($user_home->is_logged_in())
 				</div>
 
 <hr />
-<div class="box">
-        <h1 style="text-align: center;">Contact us</h1>
 
- 			 <form>
-   <div class="form-group" style="text-align: left;">
-     <label for="exampleFormControlInput1">Email address</label>
-     <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
- 		<br>
- <label for="firstname">Name: </label><br>
- 	<div class="row">
- 	    <div class="col">
- 	      <input type="text" class="form-control" placeholder="First">
- 	    </div>
- 	    <div class="col">
- 	      <input type="text" class="form-control" placeholder="Last">
- 	    </div>
- 	  </div>
- 		<br>
-     <label for="exampleFormControlTextarea1">Enter comment here:</label>
-     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-   </div>
- </form>
-</div>
 
 <br><br><br><br>
 </div></div>

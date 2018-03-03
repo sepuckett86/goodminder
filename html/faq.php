@@ -97,20 +97,34 @@ if(isset($_POST['btn-faq'])){
 
 </header>
 <main>
+	<div class="bgimg-2">
+	<div class="caption">
+		<span class="border comfortaa">Questions/Contact</span>
+	</div>
+	</div>
+	<div class="opaque-container">
+
+
   <div class="container">
-       <h1 class="main-header">Frequently Asked Questions</h1>
+		<br />
+<h1>FAQ</h1>
+<br />
+			 <p><b>Q</b>: What is different about Goodminder compared to other quote websites?</p>
+			 <p><b>A1</b>: Prompts inspire you to remember the positive moments.</p>
+			 <p><b>A2</b>: All of your goodminders are private by default.
+			 Self-honesty and your well-being are the focuses here.</p>
 
-			 <div class="box">
-			 <p>Q: What is different about goodminder compared to other quote websites?</p>
-			 <p>A: Prompt collections or user inputted prompts that allow for a more personal experience.</p>
-		 </div>
 
-			 <h1 class="main-header">Have a question? Contact us here:</h1>
-			 <div class="box">
+<hr />
+<br />
+			 <h2 style="text-align: center">Have another question? Want to donate, comment, or make a suggestion?</h2>
+			 <br />
+				 <h1>Contact us here:</h1>
+			 <div id="contact" class="box">
 			<form method="post">
 				<div class="form-group" style="text-align: left;">
 					<?php if(isset($msg)) echo $msg; ?>
-                    <label for="exampleFormControlInput1">Email address</label>
+                    <label for="exampleFormControlInput1">Email address:</label>
 					<input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name="email">
 					<br>
 				<label for="firstname">Name: </label><br>
@@ -123,7 +137,7 @@ if(isset($_POST['btn-faq'])){
 						</div>
 				</div>
 				<br>
-				<label for="exampleFormControlTextarea1">Enter question here:</label>
+				<label for="exampleFormControlTextarea1">What would you like to say?</label>
 				<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="question"></textarea>
 				</div>
 				<div class="form-group row">
@@ -133,8 +147,9 @@ if(isset($_POST['btn-faq'])){
 				</div>
 			</form>
 </div>
-</div>
+
 <br><br>
+</div>
 </main>
 <footer class="fixed-bottom">
 	<!--For big screens-->
