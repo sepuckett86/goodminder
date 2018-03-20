@@ -1,7 +1,9 @@
 <?php
 session_start();
 require_once 'auth/class.user.php';
+require_once 'scripts/SocialPoints.php';
 $user_login = new USER();
+$dailyPoint = new SocialPoints();
 
 if($user_login->is_logged_in()!="")
 {
@@ -15,7 +17,8 @@ if(isset($_POST['btn-login']))
 
 	if($user_login->login($email,$upass))
 	{
-		$user_login->redirect('userHome.php');
+        $dailyPoint->addDailyLogInPoint($_SESSION['userSession']);
+        $user_login->redirect('userHome.php');      
 	}
 }
 ?><!DOCTYPE html>

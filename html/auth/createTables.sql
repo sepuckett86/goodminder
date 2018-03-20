@@ -57,6 +57,8 @@ CREATE TABLE IF NOT EXISTS socialTbl (
 	socialId int(11) NOT NULL AUTO_INCREMENT,
 	userId int(11),
 	points int(11) DEFAULT NULL,
+    lastLogin int(25) NULL,
+    lastUpdated int(25) NULL,
 	PRIMARY KEY (socialId),
     FOREIGN KEY (userId) REFERENCES usersTbl(userId)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
