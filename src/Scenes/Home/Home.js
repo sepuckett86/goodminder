@@ -9,6 +9,7 @@ import Random from './Scenes/Random/Random';
 import Edit from './Scenes/Edit/Edit';
 import Print from './Scenes/Print/Print';
 import Manager from './Scenes/Manager/Manager'
+import Login from './Scenes/Login/Login';
 //
 
 class Home extends Component {
@@ -29,6 +30,14 @@ class Home extends Component {
     this.setPrompts = this.setPrompts.bind(this);
     this.setCollection = this.setCollection.bind(this);
     this.changeDisplay = this.changeDisplay.bind(this);
+  }
+
+  componentDidMount() {
+    if (this.props.token === '') {
+      console.log('Props token: ' + this.props.token);
+    } else {
+      console.log('Props do not work');
+    }
   }
 
   changeDisplay(display) {
@@ -147,6 +156,12 @@ class Home extends Component {
         collection={this.state.collection}/>
     }
 
+    if (this.state.display === 'login') {
+      return <Login
+        changeDisplay={this.changeDisplay}
+        />
+    }
+
     if (this.state.display === 'none') {
       return <div></div>
     }
@@ -163,6 +178,7 @@ class Home extends Component {
       </div>)
     }
   }
+  
   render() {
     return (
       <div className="gminder">
