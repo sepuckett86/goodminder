@@ -1,0 +1,16 @@
+.card {
+
+}
+
+.top {
+  text-align: left;
+  border:solid 5px;
+}
+
+span .noun {
+  font-size: 12px;
+}
+
+.icon {
+  font-size: 10vw;
+}

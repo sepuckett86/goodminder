@@ -1,0 +1,13 @@
+ul {
+  list-style-type: none;
+}
+
+li {
+  margin: 5px;
+}
+
+.center-section {
+  text-shadow: 3px 3px 3px #5777C0;
+  margin: 25px;
+  text-align:center;
+}
