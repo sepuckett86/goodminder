@@ -20,7 +20,7 @@ class About extends Component {
           <hr/>
           <br />
           <h1>Enter
-            <img src="favicon.png" alt="logoDark" height="60px"/>goodminder</h1>
+            <img src="/favicon.png" alt="logoDark" height="60px"/>goodminder</h1>
           <p>
             <b>Goodminder: Specifically you.</b>
           </p>
@@ -168,7 +168,6 @@ class About extends Component {
           </div>
 <br />
           <hr/>
-
           <br/><br/><br/><br/>
         </div>
       </div>
