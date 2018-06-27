@@ -32,10 +32,12 @@ class PDF extends React.Component {
       finalGminderContent: [],
       checkboxTitle: false,
       checkboxAuthor: false,
+      radioFont: 'font1'
     }
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
+    this.handleRadio = this.handleRadio.bind(this);
     this.calculateTotalPages = this.calculateTotalPages.bind(this);
   }
 
@@ -79,6 +81,12 @@ class PDF extends React.Component {
     }
     if (event.target.id === "checkboxAuthor") {
       this.setState({checkboxAuthor: !this.state.checkboxAuthor});
+    }
+  }
+
+  handleRadio(event) {
+    if (event.target.name === 'fontRadio') {
+      this.setState({radioFont: event.target.value});
     }
   }
 
@@ -126,9 +134,24 @@ class PDF extends React.Component {
     var verticalOffset = margin;
     var text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id eros turpis. Vivamus tempor urna vitae sapien mollis molestie. Vestibulum in lectus non enim bibendum laoreet at at libero. Etiam malesuada erat sed sem blandit in varius orci porttitor. Sed at sapien urna. Fusce augue ipsum, molestie et adipiscing at, varius quis enim. Morbi sed magna est, vel vestibulum urna. Sed tempor ipsum vel mi pretium at elementum urna tempor. Nulla faucibus consectetur felis, elementum venenatis mi mollis gravida. Aliquam mi ante, accumsan eu tempus vitae, viverra quis justo.\n\nProin feugiat augue in augue rhoncus eu cursus tellus laoreet. Pellentesque eu sapien at diam porttitor venenatis nec vitae velit. Donec ultrices volutpat lectus eget vehicula. Nam eu erat mi, in pulvinar eros. Mauris viverra porta orci, et vehicula lectus sagittis id. Nullam at magna vitae nunc fringilla posuere. Duis volutpat malesuada ornare. Nulla in eros metus. Vivamus a posuere libero.'
 
+    // Assign font
+    switch(this.state.radioFont) {
+      case 'font1':
+        font = 'Times';
+        break;
+      case 'font2':
+        font = 'Helvetica';
+        break;
+      case 'font3':
+        font = 'Courier';
+        break;
+      default:
+        font = 'Times';
+        break;
+    }
+
     // Insert title page
     if (this.state.checkboxTitle || this.state.checkboxAuthor) {
-      font = fonts[0]
       size = 24;
       if (this.state.checkboxTitle) {
         text = this.state.inputTitle;
@@ -145,7 +168,7 @@ class PDF extends React.Component {
       if (this.state.checkboxAuthor) {
         size = 16;
         text = this.state.inputAuthor;
-        lines = doc.setFont(font[0]).setFontSize(size).splitTextToSize(text, 11);
+        lines = doc.setFont(font).setFontSize(size).splitTextToSize(text, 11);
         verticalOffset += (lines.length * 4) * size / 72;
         doc.text(1, verticalOffset + size / 72, lines);
       }
@@ -158,7 +181,7 @@ class PDF extends React.Component {
       const gminder = this.state.gminders[j];
       for (var i in fonts) {
         if (fonts.hasOwnProperty(i)) {
-          font = fonts[i]
+
           size = sizes[i]
 
 
@@ -173,7 +196,7 @@ class PDF extends React.Component {
               }
             }
             text = promptText;
-            lines = doc.setFont(font[0]).setFontSize(size).splitTextToSize(text, 11);
+            lines = doc.setFont(font).setFontSize(size).splitTextToSize(text, 11);
             // This code puts the text on the document.
             doc.text(1, verticalOffset + size / 72, lines);
             // This code adjusts vertical placement of next text to prevent overlapping
@@ -181,7 +204,7 @@ class PDF extends React.Component {
 
           // Main Response
             text = gminder.mainResponse;
-            lines = doc.setFont(font[0]).setFontSize(size).splitTextToSize(text, 11);
+            lines = doc.setFont(font).setFontSize(size).splitTextToSize(text, 11);
             // This code puts the text on the document.
             doc.text(1, verticalOffset + size / 72, lines)
             // This code adjusts vertical placement of next text to prevent overlapping
@@ -189,7 +212,7 @@ class PDF extends React.Component {
 
           // Reason
             text = gminder.reason;
-            lines = doc.setFont(font[0]).setFontSize(size).splitTextToSize(text, 11);
+            lines = doc.setFont(font).setFontSize(size).splitTextToSize(text, 11);
             // This code puts the text on the document.
             doc.text(1, verticalOffset + size / 72, lines)
             // Reset vertical Offset for next page
@@ -198,13 +221,13 @@ class PDF extends React.Component {
           if (gminder.category === 'quote') {
             // Main Response
             text = '"' + gminder.mainResponse + '"';
-            lines = doc.setFont(font[0]).setFontSize(size).splitTextToSize(text, 11)
+            lines = doc.setFont(font).setFontSize(size).splitTextToSize(text, 11)
             // This code puts the text on the document.
             doc.text(1, verticalOffset + size / 72, lines)
             verticalOffset += (lines.length * 4) * size / 72;
             // Credit
             text = this.makeCredit(gminder);
-            lines = doc.setFont(font[0]).setFontSize(size).splitTextToSize(text, 11)
+            lines = doc.setFont(font).setFontSize(size).splitTextToSize(text, 11)
             // This code puts the text on the document.
             doc.text(1, verticalOffset + size / 72, lines)
             // Reset vertical Offset for next page
@@ -212,7 +235,7 @@ class PDF extends React.Component {
           }
           if (gminder.category === 'custom') {
             text = gminder.mainResponse;
-            lines = doc.setFont(font[0]).setFontSize(size).splitTextToSize(text, 11);
+            lines = doc.setFont(font).setFontSize(size).splitTextToSize(text, 11);
             // This code puts the text on the document.
             doc.text(1, verticalOffset + size / 72, lines)
             // Reset vertical Offset for next page
@@ -286,7 +309,7 @@ class PDF extends React.Component {
             <div className='col col-12 col-md-4'>
               <h4>Page Size</h4>
               <div className="form-check">
-                <input className="form-check-input" type="radio" name="sizeRadio" id="sizeRadio1" value="option1" disabled/>
+                <input className="form-check-input" type="radio" name="sizeRadio" id="sizeRadio1" value="option1" defaultChecked/>
                 <label className="form-check-label" htmlFor="inlineRadio1">5×8 in, 13×20 cm</label>
               </div>
               <div className="form-check">
@@ -298,7 +321,7 @@ class PDF extends React.Component {
                 <label className="form-check-label" htmlFor="inlineRadio3">8×10 in, 20×25 cm</label>
               </div>
               <div className="form-check">
-                <input className="form-check-input" type="radio" name="sizeRadio" id="sizeRadio4" value="option4" defaultChecked/>
+                <input className="form-check-input" type="radio" name="sizeRadio" id="sizeRadio4" value="option4" disabled/>
                 <label className="form-check-label" htmlFor="inlineRadio4">8.5×11 in, 21.59×27.94 cm</label>
               </div>
               <br/>
@@ -306,15 +329,15 @@ class PDF extends React.Component {
             <div className='col col-12 col-md-4'>
               <h4>Font</h4>
               <div className="form-check">
-                <input className="form-check-input" type="radio" name="fontRadio" id="fontRadio1" value="font1" defaultChecked="defaultChecked"/>
+                <input className="form-check-input" type="radio" name="fontRadio" id="fontRadioTimes" value="font1" onChange={this.handleRadio} checked={this.state.radioFont === 'font1'}/>
                 <label className="form-check-label" htmlFor="inlineRadio1" style={times}>Times</label>
               </div>
               <div className="form-check">
-                <input className="form-check-input" type="radio" name="fontRadio" id="fontRadio2" value="font2"/>
+                <input className="form-check-input" type="radio" name="fontRadio" id="fontRadioHelvetica" value="font2" onChange={this.handleRadio} checked={this.state.radioFont === 'font2'}/>
                 <label className="form-check-label" htmlFor="inlineRadio2" style={helvetica}>Helvetica</label>
               </div>
               <div className="form-check">
-                <input className="form-check-input" type="radio" name="fontRadio" id="fontRadio3" value="font3"/>
+                <input className="form-check-input" type="radio" name="fontRadio" id="fontRadioCourier" value="font3" onChange={this.handleRadio} checked={this.state.radioFont === 'font3'}/>
                 <label className="form-check-label" htmlFor="inlineRadio3" style={courier}>Courier</label>
               </div>
               <br/>
