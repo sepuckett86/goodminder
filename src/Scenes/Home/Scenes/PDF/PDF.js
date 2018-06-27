@@ -27,11 +27,15 @@ class PDF extends React.Component {
       prompts: [],
       inputPageSize: '',
       inputTitle: '',
+      inputAuthor: '',
       totalPages: 0,
-      finalGminderContent: []
+      finalGminderContent: [],
+      checkboxTitle: false,
+      checkboxAuthor: false,
     }
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleCheck = this.handleCheck.bind(this);
     this.calculateTotalPages = this.calculateTotalPages.bind(this);
   }
 
@@ -52,7 +56,29 @@ class PDF extends React.Component {
 
   handleChange(event) {
     if (event.target.id === "title") {
-      this.setState({inputTitle: event.target.value});
+      this.setState({inputTitle: event.target.value})
+      if (event.target.value) {
+        this.setState({checkboxTitle: true})
+      } else {
+        this.setState({checkboxTitle: false})
+      }
+    }
+    if (event.target.id === "author") {
+      this.setState({inputAuthor: event.target.value});
+      if (event.target.value) {
+        this.setState({checkboxAuthor: true})
+      } else {
+        this.setState({checkboxAuthor: false})
+      }
+    }
+  }
+
+  handleCheck(event) {
+    if (event.target.id === "checkboxTitle") {
+      this.setState({checkboxTitle: !this.state.checkboxTitle});
+    }
+    if (event.target.id === "checkboxAuthor") {
+      this.setState({checkboxAuthor: !this.state.checkboxAuthor});
     }
   }
 
@@ -99,6 +125,33 @@ class PDF extends React.Component {
     var margin = 4;
     var verticalOffset = margin;
     var text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id eros turpis. Vivamus tempor urna vitae sapien mollis molestie. Vestibulum in lectus non enim bibendum laoreet at at libero. Etiam malesuada erat sed sem blandit in varius orci porttitor. Sed at sapien urna. Fusce augue ipsum, molestie et adipiscing at, varius quis enim. Morbi sed magna est, vel vestibulum urna. Sed tempor ipsum vel mi pretium at elementum urna tempor. Nulla faucibus consectetur felis, elementum venenatis mi mollis gravida. Aliquam mi ante, accumsan eu tempus vitae, viverra quis justo.\n\nProin feugiat augue in augue rhoncus eu cursus tellus laoreet. Pellentesque eu sapien at diam porttitor venenatis nec vitae velit. Donec ultrices volutpat lectus eget vehicula. Nam eu erat mi, in pulvinar eros. Mauris viverra porta orci, et vehicula lectus sagittis id. Nullam at magna vitae nunc fringilla posuere. Duis volutpat malesuada ornare. Nulla in eros metus. Vivamus a posuere libero.'
+
+    // Insert title page
+    if (this.state.checkboxTitle || this.state.checkboxAuthor) {
+      font = fonts[0]
+      size = 24;
+      if (this.state.checkboxTitle) {
+        text = this.state.inputTitle;
+      } else {
+        text = '';
+      }
+
+      lines = doc.setFont(font[0]).setFontSize(size).splitTextToSize(text, 11);
+      // This code puts the text on the document.
+      doc.text(1, verticalOffset + size / 72, lines);
+
+
+      // Check for author
+      if (this.state.checkboxAuthor) {
+        size = 16;
+        text = this.state.inputAuthor;
+        lines = doc.setFont(font[0]).setFontSize(size).splitTextToSize(text, 11);
+        verticalOffset += (lines.length * 4) * size / 72;
+        doc.text(1, verticalOffset + size / 72, lines);
+      }
+      doc.addPage();
+      verticalOffset = margin;
+    }
 
     // Cycle through all gminders
     for (let j = 0; j < this.state.gminders.length; j++) {
@@ -199,6 +252,7 @@ class PDF extends React.Component {
     };
 
     return (<div>
+      {console.log(this.state)}
       <div className='container box alignL'>
         <div className="alert alert-danger" role="alert">
           Only PDF button works now, none of the customizations are functional
@@ -210,29 +264,41 @@ class PDF extends React.Component {
             <div className="input-group mb-3">
               <div className="input-group-prepend">
                 <div className="input-group-text">
-                  <input type="checkbox" aria-label="Checkbox for following text input"/>
+
+                  <input id='checkboxTitle' type="checkbox" onClick={this.handleCheck} checked={this.state.checkboxTitle} aria-label="Checkbox for following text input"/>
                 </div>
               </div>
               <input type="text" value={this.state.inputTitle} onChange={this.handleChange} className="form-control" id="title" placeholder="optional - this creates a title page"/>
+            </div>
+          </div>
+          <div className="form-group">
+            <h4>Author</h4>
+            <div className="input-group mb-3">
+              <div className="input-group-prepend">
+                <div className="input-group-text">
+                  <input id='checkboxAuthor' type="checkbox" onClick={this.handleCheck} checked={this.state.checkboxAuthor} aria-label="Checkbox for following text input"/>
+                </div>
+              </div>
+              <input type="text" value={this.state.inputAuthor} onChange={this.handleChange} className="form-control" id="author" placeholder="optional - this creates an author on the title page"/>
             </div>
           </div>
           <div className='row'>
             <div className='col col-12 col-md-4'>
               <h4>Page Size</h4>
               <div className="form-check">
-                <input className="form-check-input" type="radio" name="sizeRadio" id="sizeRadio1" value="option1" defaultChecked="defaultChecked"/>
+                <input className="form-check-input" type="radio" name="sizeRadio" id="sizeRadio1" value="option1" disabled/>
                 <label className="form-check-label" htmlFor="inlineRadio1">5×8 in, 13×20 cm</label>
               </div>
               <div className="form-check">
-                <input className="form-check-input" type="radio" name="sizeRadio" id="sizeRadio2" value="option2"/>
+                <input className="form-check-input" type="radio" name="sizeRadio" id="sizeRadio2" value="option2" disabled/>
                 <label className="form-check-label" htmlFor="inlineRadio2">6×9 in, 15×23 cm</label>
               </div>
               <div className="form-check">
-                <input className="form-check-input" type="radio" name="sizeRadio" id="sizeRadio3" value="option3"/>
+                <input className="form-check-input" type="radio" name="sizeRadio" id="sizeRadio3" value="option3" disabled/>
                 <label className="form-check-label" htmlFor="inlineRadio3">8×10 in, 20×25 cm</label>
               </div>
               <div className="form-check">
-                <input className="form-check-input" type="radio" name="sizeRadio" id="sizeRadio4" value="option4"/>
+                <input className="form-check-input" type="radio" name="sizeRadio" id="sizeRadio4" value="option4" defaultChecked/>
                 <label className="form-check-label" htmlFor="inlineRadio4">8.5×11 in, 21.59×27.94 cm</label>
               </div>
               <br/>
