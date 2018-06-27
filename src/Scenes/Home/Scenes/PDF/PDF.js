@@ -63,6 +63,28 @@ class PDF extends React.Component {
     })
   }
 
+  makeCredit(gminder) {
+    const quote = gminder;
+    if (quote.who && quote.source && quote.author) {
+      return `-- ${quote.who}, from ${quote.source} by ${quote.author}`
+    }
+    if (!quote.who && quote.source && quote.author) {
+      return `-- ${quote.author}, ${quote.source}`;
+    }
+    if (!quote.who && !quote.source && quote.author) {
+      return `-- ${quote.author}`;
+    }
+    if (!quote.who && !quote.source && !quote.author) {
+      return null;
+    }
+    if (quote.who && !quote.source && quote.author) {
+      return `-- ${quote.who}, from a work by ${quote.author}`;
+    }
+    if (quote.who && !quote.source && !quote.author) {
+      return `-- ${quote.who}`;
+    }
+  }
+
   makePDF() {
     const jsPDF = require('jspdf');
 
@@ -76,18 +98,73 @@ class PDF extends React.Component {
     var lines;
     var margin = 4;
     var verticalOffset = margin;
-    var loremipsum = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id eros turpis. Vivamus tempor urna vitae sapien mollis molestie. Vestibulum in lectus non enim bibendum laoreet at at libero. Etiam malesuada erat sed sem blandit in varius orci porttitor. Sed at sapien urna. Fusce augue ipsum, molestie et adipiscing at, varius quis enim. Morbi sed magna est, vel vestibulum urna. Sed tempor ipsum vel mi pretium at elementum urna tempor. Nulla faucibus consectetur felis, elementum venenatis mi mollis gravida. Aliquam mi ante, accumsan eu tempus vitae, viverra quis justo.\n\nProin feugiat augue in augue rhoncus eu cursus tellus laoreet. Pellentesque eu sapien at diam porttitor venenatis nec vitae velit. Donec ultrices volutpat lectus eget vehicula. Nam eu erat mi, in pulvinar eros. Mauris viverra porta orci, et vehicula lectus sagittis id. Nullam at magna vitae nunc fringilla posuere. Duis volutpat malesuada ornare. Nulla in eros metus. Vivamus a posuere libero.'
+    var text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id eros turpis. Vivamus tempor urna vitae sapien mollis molestie. Vestibulum in lectus non enim bibendum laoreet at at libero. Etiam malesuada erat sed sem blandit in varius orci porttitor. Sed at sapien urna. Fusce augue ipsum, molestie et adipiscing at, varius quis enim. Morbi sed magna est, vel vestibulum urna. Sed tempor ipsum vel mi pretium at elementum urna tempor. Nulla faucibus consectetur felis, elementum venenatis mi mollis gravida. Aliquam mi ante, accumsan eu tempus vitae, viverra quis justo.\n\nProin feugiat augue in augue rhoncus eu cursus tellus laoreet. Pellentesque eu sapien at diam porttitor venenatis nec vitae velit. Donec ultrices volutpat lectus eget vehicula. Nam eu erat mi, in pulvinar eros. Mauris viverra porta orci, et vehicula lectus sagittis id. Nullam at magna vitae nunc fringilla posuere. Duis volutpat malesuada ornare. Nulla in eros metus. Vivamus a posuere libero.'
 
+    // Cycle through all gminders
     for (let j = 0; j < this.state.gminders.length; j++) {
+      const gminder = this.state.gminders[j];
       for (var i in fonts) {
         if (fonts.hasOwnProperty(i)) {
           font = fonts[i]
           size = sizes[i]
-          loremipsum = this.state.gminders[j].mainResponse;
-          lines = doc.setFont(font[0]).setFontSize(size).splitTextToSize(loremipsum, 11)
-          // This code puts the text on the document.
-          // (horizontal, vertical, text)
-          doc.text(1, verticalOffset + size / 72, lines)
+
+
+          // Determine output based on category
+          if (gminder.category === 'prompt') {
+          // Prompt
+            // get prompt text
+            let promptText;
+            for (let i = 0; i < this.state.prompts.length; i++) {
+              if (this.state.prompts[i].id === gminder.promptID) {
+                promptText = this.state.prompts[i].promptText;
+              }
+            }
+            text = promptText;
+            lines = doc.setFont(font[0]).setFontSize(size).splitTextToSize(text, 11);
+            // This code puts the text on the document.
+            doc.text(1, verticalOffset + size / 72, lines);
+            // This code adjusts vertical placement of next text to prevent overlapping
+            verticalOffset += (lines.length * 4) * size / 72;
+
+          // Main Response
+            text = gminder.mainResponse;
+            lines = doc.setFont(font[0]).setFontSize(size).splitTextToSize(text, 11);
+            // This code puts the text on the document.
+            doc.text(1, verticalOffset + size / 72, lines)
+            // This code adjusts vertical placement of next text to prevent overlapping
+            verticalOffset += (lines.length * 4) * size / 72;
+
+          // Reason
+            text = gminder.reason;
+            lines = doc.setFont(font[0]).setFontSize(size).splitTextToSize(text, 11);
+            // This code puts the text on the document.
+            doc.text(1, verticalOffset + size / 72, lines)
+            // Reset vertical Offset for next page
+            verticalOffset = margin;
+          }
+          if (gminder.category === 'quote') {
+            // Main Response
+            text = '"' + gminder.mainResponse + '"';
+            lines = doc.setFont(font[0]).setFontSize(size).splitTextToSize(text, 11)
+            // This code puts the text on the document.
+            doc.text(1, verticalOffset + size / 72, lines)
+            verticalOffset += (lines.length * 4) * size / 72;
+            // Credit
+            text = this.makeCredit(gminder);
+            lines = doc.setFont(font[0]).setFontSize(size).splitTextToSize(text, 11)
+            // This code puts the text on the document.
+            doc.text(1, verticalOffset + size / 72, lines)
+            // Reset vertical Offset for next page
+            verticalOffset = margin;
+          }
+          if (gminder.category === 'custom') {
+            text = gminder.mainResponse;
+            lines = doc.setFont(font[0]).setFontSize(size).splitTextToSize(text, 11);
+            // This code puts the text on the document.
+            doc.text(1, verticalOffset + size / 72, lines)
+            // Reset vertical Offset for next page
+            verticalOffset = margin;
+          }
 
         }
       }
