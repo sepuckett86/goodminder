@@ -25,6 +25,7 @@ class PDF extends React.Component {
     this.state = {
       gminders: [],
       prompts: [],
+      gmindersToPDF: [],
       inputPageSize: '',
       inputTitle: '',
       inputAuthor: '',
@@ -32,13 +33,23 @@ class PDF extends React.Component {
       finalGminderContent: [],
       checkboxTitle: false,
       checkboxAuthor: false,
-      radioFont: 'font1'
+      radioFont: 'font1',
+      checkboxRating1: false,
+      checkboxRating2: false,
+      checkboxRating3: false,
+      checkboxRating4: false,
+      checkboxRating5: false,
+      checkboxRating0: false,
+      checkboxTypePrompt: false,
+      checkboxTypeQuote: false,
+      checkboxTypeCustom: false
     }
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
     this.handleRadio = this.handleRadio.bind(this);
     this.calculateTotalPages = this.calculateTotalPages.bind(this);
+    this.makeGminderList = this.makeGminderList.bind(this);
   }
 
   componentWillMount() {
@@ -53,6 +64,48 @@ class PDF extends React.Component {
   handleClick(event) {
     if (event.target.id === "make-PDF") {
       this.makePDF();
+    }
+    if (event.target.id === "checkAllRatings") {
+      if (this.state.checkboxRating1 && this.state.checkboxRating2 &&
+        this.state.checkboxRating3 && this.state.checkboxRating4 &&
+        this.state.checkboxRating5 && this.state.checkboxRating0) {
+          this.setState({
+            checkboxRating1: false,
+            checkboxRating2: false,
+            checkboxRating3: false,
+            checkboxRating4: false,
+            checkboxRating5: false,
+            checkboxRating0: false,
+          })
+
+        } else {
+          this.setState({
+            checkboxRating1: true,
+            checkboxRating2: true,
+            checkboxRating3: true,
+            checkboxRating4: true,
+            checkboxRating5: true,
+            checkboxRating0: true,
+          })
+        }
+    }
+    if (event.target.id === "checkAllTypes") {
+      if (this.state.checkboxTypePrompt && this.state.checkboxTypeQuote &&
+        this.state.checkboxTypeCustom) {
+          this.setState({
+            checkboxTypePrompt: false,
+            checkboxTypeQuote: false,
+            checkboxTypeCustom: false,
+          })
+
+        } else {
+          this.setState({
+            checkboxTypePrompt: true,
+            checkboxTypeQuote: true,
+            checkboxTypeCustom: true,
+          })
+        }
+
     }
   }
 
@@ -78,9 +131,47 @@ class PDF extends React.Component {
   handleCheck(event) {
     if (event.target.id === "checkboxTitle") {
       this.setState({checkboxTitle: !this.state.checkboxTitle});
+
     }
     if (event.target.id === "checkboxAuthor") {
       this.setState({checkboxAuthor: !this.state.checkboxAuthor});
+
+    }
+    if (event.target.id === "ratingCheck1") {
+      this.setState({checkboxRating1: !this.state.checkboxRating1});
+
+    }
+    if (event.target.id === "ratingCheck2") {
+      this.setState({checkboxRating2: !this.state.checkboxRating2});
+
+    }
+    if (event.target.id === "ratingCheck3") {
+      this.setState({checkboxRating3: !this.state.checkboxRating3});
+
+    }
+    if (event.target.id === "ratingCheck4") {
+      this.setState({checkboxRating4: !this.state.checkboxRating4});
+
+    }
+    if (event.target.id === "ratingCheck5") {
+      this.setState({checkboxRating5: !this.state.checkboxRating5});
+
+    }
+    if (event.target.id === "ratingCheck0") {
+      this.setState({checkboxRating0: !this.state.checkboxRating0});
+
+    }
+    if (event.target.id === "typeCheck1") {
+      this.setState({checkboxTypePrompt: !this.state.checkboxTypePrompt});
+
+    }
+    if (event.target.id === "typeCheck2") {
+      this.setState({checkboxTypeQuote: !this.state.checkboxTypeQuote});
+
+    }
+    if (event.target.id === "typeCheck3") {
+      this.setState({checkboxTypeCustom: !this.state.checkboxTypeCustom});
+
     }
   }
 
@@ -90,7 +181,52 @@ class PDF extends React.Component {
     }
   }
 
+  makeGminderList() {
+    // Define gminder list to be used in PDF based on options selected
+    let gminderList = this.state.gminders;
+    let newGminderList = [];
+    console.log(gminderList)
+    // Check rating
+    for (let j = 0; j < gminderList.length; j++) {
+      if (this.state.checkboxRating5 && gminderList[j].rating === 5) {
+          newGminderList.push(gminderList[j])
+      }
+      if (this.state.checkboxRating4 && gminderList[j].rating === 4) {
+          newGminderList.push(gminderList[j])
+      }
+      if (this.state.checkboxRating3 && gminderList[j].rating === 3) {
+          newGminderList.push(gminderList[j])
+      }
+      if (this.state.checkboxRating2 && gminderList[j].rating === 2) {
+          newGminderList.push(gminderList[j])
+      }
+      if (this.state.checkboxRating1 && gminderList[j].rating === 1) {
+          newGminderList.push(gminderList[j])
+      }
+      if (this.state.checkboxRating0 && gminderList[j].rating === 0) {
+          newGminderList.push(gminderList[j])
+      }
+    }
+    // reset lists
+    gminderList = newGminderList;
+    newGminderList = [];
+    // Check type
+    for (let j = 0; j < gminderList.length; j++) {
+      if (this.state.checkboxTypePrompt && gminderList[j].category === 'prompt') {
+          newGminderList.push(gminderList[j])
+      }
+      if (this.state.checkboxTypeQuote && gminderList[j].category === 'quote') {
+          newGminderList.push(gminderList[j])
+      }
+      if (this.state.checkboxTypeCustom && gminderList[j].category === 'custom') {
+          newGminderList.push(gminderList[j])
+      }
+    }
+    return newGminderList;
+  }
+
   calculateTotalPages() {
+    this.setState({gmindersToPDF: this.makeGminderList()})
     const length = this.state.gminders.length;
     this.setState({
       totalPages: length
@@ -121,7 +257,6 @@ class PDF extends React.Component {
 
   makePDF() {
     const jsPDF = require('jspdf');
-
     var doc = new jsPDF('p', 'cm', [13, 20])
     var sizes = [15]
     var fonts = [
@@ -159,7 +294,7 @@ class PDF extends React.Component {
         text = '';
       }
 
-      lines = doc.setFont(font[0]).setFontSize(size).splitTextToSize(text, 11);
+      lines = doc.setFont(font).setFontSize(size).splitTextToSize(text, 11);
       // This code puts the text on the document.
       doc.text(1, verticalOffset + size / 72, lines);
 
@@ -176,15 +311,13 @@ class PDF extends React.Component {
       verticalOffset = margin;
     }
 
+
     // Cycle through all gminders
     for (let j = 0; j < this.state.gminders.length; j++) {
       const gminder = this.state.gminders[j];
       for (var i in fonts) {
         if (fonts.hasOwnProperty(i)) {
-
           size = sizes[i]
-
-
           // Determine output based on category
           if (gminder.category === 'prompt') {
           // Prompt
@@ -345,15 +478,15 @@ class PDF extends React.Component {
             <div className='col col-12 col-md-4'>
               <h4>Font Size</h4>
               <div className="form-check">
-                <input className="form-check-input" type="radio" name="fontSizeRadio" id="fontSizeRadio1" value="fontSize1" defaultChecked="defaultChecked"/>
+                <input className="form-check-input" type="radio" name="fontSizeRadio" id="fontSizeRadio1" value="fontSize1" disabled/>
                 <label className="form-check-label" htmlFor="inlineRadio1" style={small}>Small</label>
               </div>
               <div className="form-check">
-                <input className="form-check-input" type="radio" name="fontSizeRadio" id="fontSizeRadio2" value="fontSize2"/>
+                <input className="form-check-input" type="radio" name="fontSizeRadio" id="fontSizeRadio2" value="fontSize2" defaultChecked="defaultChecked"/>
                 <label className="form-check-label" htmlFor="inlineRadio2" style={medium}>Medium</label>
               </div>
               <div className="form-check">
-                <input className="form-check-input" type="radio" name="fontSizeRadio" id="fontSizeRadio3" value="fontSize3"/>
+                <input className="form-check-input" type="radio" name="fontSizeRadio" id="fontSizeRadio3" value="fontSize3" disabled/>
                 <label className="form-check-label" htmlFor="inlineRadio3" style={large}>Large</label>
               </div>
               <br/>
@@ -365,40 +498,40 @@ class PDF extends React.Component {
           <div className='row'>
             <div className='col col-12 col-md-4'>
               <h4>By Rating</h4>
-              <button className=''>Check All
+              <button type="button" id="checkAllRatings" onClick={this.handleClick} className='btn btn-small'>Check All
               </button>
               <div className="form-check">
-                <input className="form-check-input" type="checkbox" value="" id="ratingCheck1"/>
+                <input className="form-check-input" onChange={this.handleCheck} type="checkbox" value="" id="ratingCheck1" checked={this.state.checkboxRating1}/>
                 <label className="form-check-label" htmlFor="ratingCheck1">
                   5 stars
                 </label>
               </div>
               <div className="form-check">
-                <input className="form-check-input" type="checkbox" value="" id="ratingCheck2"/>
+                <input className="form-check-input" onChange={this.handleCheck} type="checkbox" value="" id="ratingCheck2" checked={this.state.checkboxRating2}/>
                 <label className="form-check-label" htmlFor="ratingCheck2">
                   4 stars
                 </label>
               </div>
               <div className="form-check">
-                <input className="form-check-input" type="checkbox" value="" id="ratingCheck3"/>
+                <input className="form-check-input" onChange={this.handleCheck} type="checkbox" value="" id="ratingCheck3" checked={this.state.checkboxRating3}/>
                 <label className="form-check-label" htmlFor="ratingCheck3">
                   3 stars
                 </label>
               </div>
               <div className="form-check">
-                <input className="form-check-input" type="checkbox" value="" id="ratingCheck4"/>
+                <input className="form-check-input" onChange={this.handleCheck} type="checkbox" value="" id="ratingCheck4" checked={this.state.checkboxRating4}/>
                 <label className="form-check-label" htmlFor="ratingCheck4">
                   2 stars
                 </label>
               </div>
               <div className="form-check">
-                <input className="form-check-input" type="checkbox" value="" id="ratingCheck5"/>
+                <input className="form-check-input" onChange={this.handleCheck} type="checkbox" value="" id="ratingCheck5" checked={this.state.checkboxRating5}/>
                 <label className="form-check-label" htmlFor="ratingCheck5">
                   1 stars
                 </label>
               </div>
               <div className="form-check">
-                <input className="form-check-input" type="checkbox" value="" id="ratingCheck0"/>
+                <input className="form-check-input" onChange={this.handleCheck} type="checkbox" value="" id="ratingCheck0" checked={this.state.checkboxRating0}/>
                 <label className="form-check-label" htmlFor="ratingCheck0">
                   0 stars
                 </label>
@@ -407,22 +540,22 @@ class PDF extends React.Component {
             </div>
             <div className='col col-12 col-md-4'>
               <h4>By Type</h4>
-              <button className=''>Check All
+              <button type="button" id='checkAllTypes' onClick={this.handleClick} className='btn btn-small'>Check All
               </button>
               <div className="form-check">
-                <input className="form-check-input" type="checkbox" value="" id="typeCheck1"/>
+                <input className="form-check-input" onChange={this.handleCheck} type="checkbox" value="" id="typeCheck1" checked={this.state.checkboxTypePrompt}/>
                 <label className="form-check-label" htmlFor="typeCheck1">
                   Prompt
                 </label>
               </div>
               <div className="form-check">
-                <input className="form-check-input" type="checkbox" value="" id="typeCheck2"/>
+                <input className="form-check-input" onChange={this.handleCheck} type="checkbox" value="" id="typeCheck2" checked={this.state.checkboxTypeQuote}/>
                 <label className="form-check-label" htmlFor="typeCheck2">
                   Quote
                 </label>
               </div>
               <div className="form-check">
-                <input className="form-check-input" type="checkbox" value="" id="typeCheck3"/>
+                <input className="form-check-input" onChange={this.handleCheck} type="checkbox" value="" id="typeCheck3" checked={this.state.checkboxTypeCustom}/>
                 <label className="form-check-label" htmlFor="typeCheck3">
                   Custom
                 </label>
