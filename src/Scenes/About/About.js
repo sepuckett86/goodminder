@@ -24,7 +24,8 @@ class About extends Component {
           <p>
             <b>Goodminder: Specifically you.</b>
           </p>
-          <p>How many times have you laughed or smiled, only to forget that happy event days later? Goodminder is a similar to a journal, yet it has a focus. Prompts help you think of things worth recording in your life. You can also save quotes or custom text that is meaningful to you. Having a bad day? Log into Goodminder and read a randomly chosen memory -- a
+          <p>Goodminder is a similar to a journal, yet it more focused. Prompts help you think of things worth recording in your life. You can also save quotes or custom text that is meaningful to you. </p>
+          <p>Having a bad day? Log into Goodminder and read a randomly chosen memory -- a
             <b> reminder </b>
             of the
             <b> good </b>
@@ -147,7 +148,7 @@ class About extends Component {
           <h1>Support Us!</h1>
           <p>The more support we get, the more we will work on this site to improve it.</p>
           <p>If you'd like to donate, please contact us
-            {' '}<a href="/">here</a>. Thanks a lot!</p>
+            {' '}<a href="/contact">here</a>. Thanks a lot!</p>
 
           <p>
             <button className="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapseExample">

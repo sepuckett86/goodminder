@@ -7,7 +7,8 @@ import About from '../Scenes/About/About';
 import Intro from '../Scenes/Intro/Intro';
 import Settings from '../Scenes/Settings/Settings';
 import Examples from '../Scenes/Examples/Examples';
-import Faq from '../Scenes/Faq/Faq'
+import Faq from '../Scenes/Faq/Faq';
+import Contact from '../Scenes/Contact/Contact';
 //
 
 import './App.css';
@@ -50,6 +51,7 @@ class App extends Component {
                       <a className="dropdown-item" href="/about">About</a>
                       <a className="dropdown-item" href="/examples">Examples</a>
                       <a className="dropdown-item" href="/faq">FAQ</a>
+                      <a className="dropdown-item" href="/contact">Contact</a>
                       <div className="dropdown-divider"></div>
                       <a className="dropdown-item" href="/logout">Log out</a>
                     </div>
@@ -71,6 +73,7 @@ class App extends Component {
           <Route path="/settings" render={() => (<Settings token={this.state.token}/>)}/>
           <Route path="/examples" render={() => (<Examples token={this.state.token}/>)}/>
           <Route path="/faq" render={() => (<Faq token={this.state.token}/>)}/>
+          <Route path="/contact" render={() => (<Contact token={this.state.token}/>)}/>
 
         </div>
       </Router>
