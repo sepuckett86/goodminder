@@ -411,7 +411,7 @@ class PDF extends React.Component {
       {console.log(this.state)}
       <div className='container box alignL'>
         <div className="alert alert-danger" role="alert">
-          Only PDF button works now, none of the customizations are functional
+          PDF button works, but not all customizations are functional
         </div>
         <h1>Customize PDF</h1>
         <form>
