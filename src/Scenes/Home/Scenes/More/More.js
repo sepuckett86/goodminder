@@ -1,7 +1,6 @@
 import React from 'react';
 import './More.css';
 import Button from '../../Components/Button/Button';
-import PDF from './Components/PDF/PDF'
 
 
 //Add CSVDownload to import if want to use it
@@ -167,6 +166,11 @@ class More extends React.Component {
         id="manager"
         />
 
+        <Button
+        name="Create PDF"
+        onClick={this.props.changeDisplay}
+        id="PDF"
+        />
 
         <br />
         <Button
@@ -177,7 +181,6 @@ class More extends React.Component {
 
         <br />
         <br />
-        <PDF />
         <br />
       </div>)
   }

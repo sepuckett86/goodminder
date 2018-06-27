@@ -1,5 +1,6 @@
 import React from 'react';
-import Gminder from '../../../../../../Utils/Gminder'
+import Gminder from '../../../../Utils/Gminder';
+import Button from '../../Components/Button/Button'
 
 /*
 Blurb requirements
@@ -121,7 +122,7 @@ class PDF extends React.Component {
     };
 
     return (<div>
-      <div className='box alignL'>
+      <div className='container box alignL'>
         <div className="alert alert-danger" role="alert">
           Only PDF button works now, none of the customizations are functional
         </div>
@@ -303,7 +304,13 @@ class PDF extends React.Component {
         <button id="make-PDF" className='btn btn-small' onClick={this.handleClick}>Make PDF</button>
         {' '}Total pages (not including title page): {this.state.totalPages}
       </div>
-
+      <br />
+      <br />
+      <Button
+        id='random'
+      name="Back"
+      onClick={this.props.changeDisplay}
+      />
     </div>)
   }
 }

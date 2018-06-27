@@ -10,6 +10,7 @@ import Edit from './Scenes/Edit/Edit';
 import Print from './Scenes/Print/Print';
 import Manager from './Scenes/Manager/Manager'
 import Login from './Scenes/Login/Login';
+import PDF from './Scenes/PDF/PDF'
 //
 
 class Home extends Component {
@@ -34,7 +35,7 @@ class Home extends Component {
 
   componentDidMount() {
     if (this.props.token === '') {
-      console.log('Props token: ' + this.props.token);
+      return
     } else {
       console.log('Props do not work');
     }
@@ -74,6 +75,12 @@ class Home extends Component {
     if (display === 'print') {
       if (this.state.display !== 'print') {
         this.setState({display: 'print'})
+      }
+    }
+
+    if (display === 'PDF') {
+      if (this.state.display !== 'PDF') {
+        this.setState({display: 'PDF'})
       }
     }
   }
@@ -139,7 +146,8 @@ class Home extends Component {
       return <Edit
         changeDisplay={this.changeDisplay}
         gminder={this.state.currentGminder}
-        prompt={this.state.currentPrompt}/>
+        prompt={this.state.currentPrompt}
+        prompts={this.state.prompts}/>
     }
     if (this.state.display === 'print') {
       return <Print
@@ -154,6 +162,12 @@ class Home extends Component {
         gminder={this.state.currentGminder}
         prompt={this.state.currentPrompt}
         collection={this.state.collection}/>
+    }
+
+    if (this.state.display === 'PDF') {
+      return <PDF
+        changeDisplay={this.changeDisplay}
+        />
     }
 
     if (this.state.display === 'login') {
@@ -178,7 +192,7 @@ class Home extends Component {
       </div>)
     }
   }
-  
+
   render() {
     return (
       <div className="gminder">
