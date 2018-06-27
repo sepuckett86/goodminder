@@ -132,7 +132,7 @@ db.serialize(() => {
             $author: 'Jostein Gaarder',
             $promptID: null,
             $reason: null,
-            $source: 'Sophie’s World: A Novel About the History of Philosophy',
+            $source: "Sophie's World: A Novel About the History of Philosophy",
             $who: '',
             $rating: 5,
             $recordedDate: '6/20/18',
