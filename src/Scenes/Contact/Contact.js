@@ -75,9 +75,6 @@ class Contact extends Component {
   				<label htmlFor="exampleFormControlTextarea1">What would you like to say?</label>
   				<textarea id="comment" value={this.state.inputComment} onChange={this.handleChange} className="form-control" rows="3" name="comment"></textarea>
 
-
-
-
         </div>
 
         </form>

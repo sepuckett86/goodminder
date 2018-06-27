@@ -26,6 +26,11 @@ class Faq extends Component {
          <br />
         </div>
   <br /><br />
+    <br /><br />
+      <br /><br />
+        <br /><br />
+          <br /><br />
+          
 </div>
   </main>
 
