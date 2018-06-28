@@ -39,7 +39,8 @@ class PDF extends React.Component {
       checkboxRating0: true,
       checkboxTypePrompt: true,
       checkboxTypeQuote: true,
-      checkboxTypeCustom: true
+      checkboxTypeCustom: true,
+      radioOrder: 'chronological'
     }
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -174,6 +175,25 @@ class PDF extends React.Component {
     if (event.target.name === 'fontRadio') {
       this.setState({radioFont: event.target.value});
     }
+    if (event.target.name === 'orderRadio') {
+      this.setState({radioOrder: event.target.value});
+    }
+  }
+
+  // From Stack Overflow
+  // https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+  /**
+   * Randomize array element order in-place.
+   * Using Durstenfeld shuffle algorithm.
+   */
+  shuffleArray(array) {
+      for (var i = array.length - 1; i > 0; i--) {
+          var j = Math.floor(Math.random() * (i + 1));
+          var temp = array[i];
+          array[i] = array[j];
+          array[j] = temp;
+      }
+      return array;
   }
 
   makeSelectedGminders() {
@@ -191,6 +211,71 @@ class PDF extends React.Component {
         selectedGminders.push(gminder);
       }
     })
+    // Sort
+    // Order: Chronological
+    if (this.state.radioOrder === 'chronological') {
+      //
+    }
+    // Order: random
+    if (this.state.radioOrder === 'random') {
+      const shuffledArray = this.shuffleArray(selectedGminders);
+      selectedGminders = shuffledArray;
+    }
+    // Order: by type, then chronological
+    if (this.state.radioOrder === 'byTypeChronological') {
+      let promptArray = [];
+      let quoteArray = [];
+      let customArray = [];
+      let sortedArray = [];
+      selectedGminders.forEach(gminder => {
+        switch(gminder.category) {
+          case 'prompt':
+            promptArray.push(gminder);
+            break;
+          case 'quote':
+            quoteArray.push(gminder);
+            break;
+          case 'custom':
+            customArray.push(gminder);
+            break;
+          default:
+            sortedArray.push(gminder);
+        }
+      })
+      sortedArray = sortedArray.concat(promptArray);
+      sortedArray = sortedArray.concat(quoteArray);
+      sortedArray = sortedArray.concat(customArray);
+      selectedGminders = sortedArray;
+    }
+    // Order: by type, then random
+    if (this.state.radioOrder === 'byTypeRandom') {
+      let promptArray = [];
+      let quoteArray = [];
+      let customArray = [];
+      let sortedArray = [];
+      selectedGminders.forEach(gminder => {
+        switch(gminder.category) {
+          case 'prompt':
+            promptArray.push(gminder);
+            break;
+          case 'quote':
+            quoteArray.push(gminder);
+            break;
+          case 'custom':
+            customArray.push(gminder);
+            break;
+          default:
+            sortedArray.push(gminder);
+        }
+      })
+      promptArray = this.shuffleArray(promptArray);
+      quoteArray = this.shuffleArray(quoteArray);
+      customArray = this.shuffleArray(customArray);
+      sortedArray = sortedArray.concat(promptArray);
+      sortedArray = sortedArray.concat(quoteArray);
+      sortedArray = sortedArray.concat(customArray);
+      selectedGminders = sortedArray;
+    }
     return selectedGminders;
   }
 
@@ -219,7 +304,7 @@ class PDF extends React.Component {
   makePDF() {
     const jsPDF = require('jspdf');
     var doc = new jsPDF('p', 'cm', [13, 20])
-    var sizes = [15]
+    var sizes = [16]
     var fonts = [
       ['Helvetica', '']
     ];
@@ -369,11 +454,8 @@ class PDF extends React.Component {
     };
 
     return (<div>
-      {console.log(this.state)}
+      <br />
       <div className='container box alignL'>
-        <div className="alert alert-danger" role="alert">
-          PDF button works, but not all customizations are functional
-        </div>
         <h1>Customize PDF</h1>
         <form>
           <div className="form-group">
@@ -526,17 +608,26 @@ class PDF extends React.Component {
             <div className='col col-12 col-md-4'>
               <h4>Order</h4>
               <div className="form-check">
-                <input className="form-check-input" type="radio" name="orderRadio" id="orderRadio1" value="option1" defaultChecked="defaultChecked"/>
-                <label className="form-check-label" htmlFor="orderRadio1">Chronological - by date added</label>
+                <input className="form-check-input" type="radio" name="orderRadio" id="orderRadio1" value="chronological" onChange={this.handleRadio} checked={this.state.radioOrder === 'chronological'} />
+                <label className="form-check-label" htmlFor="orderRadio1">Chronological</label>
               </div>
               <div className="form-check">
-                <input className="form-check-input" type="radio" name="orderRadio" id="orderRadio2" value="option2"/>
+                <input className="form-check-input" type="radio" name="orderRadio" id="orderRadio2" value="random" onChange={this.handleRadio} checked={this.state.radioOrder === 'random'}/>
                 <label className="form-check-label" htmlFor="orderRadio2">Random</label>
+              </div>
+              <div className="form-check">
+                <input className="form-check-input" type="radio" name="orderRadio" id="orderRadio3" value="byTypeChronological" onChange={this.handleRadio} checked={this.state.radioOrder === 'byTypeChronological'}/>
+                <label className="form-check-label" htmlFor="orderRadio3">By type, chronological within</label>
+              </div>
+              <div className="form-check">
+                <input className="form-check-input" type="radio" name="orderRadio" id="orderRadio4" value="byTypeRandom" onChange={this.handleRadio} checked={this.state.radioOrder === 'byTypeRandom'}/>
+                <label className="form-check-label" htmlFor="orderRadio4">By type, random within</label>
               </div>
               <br/>
             </div>
           </div>
           <br/>
+          { /*
           <div className='row'>
             <div className='col col-12 col-md-4'>
               <h4>Max Pages</h4>
@@ -559,10 +650,12 @@ class PDF extends React.Component {
               <h4>Y</h4>
             </div>
           </div>
+          */}
         </form>
-        <br/>
-        <button id="make-PDF" className='btn btn-small' onClick={this.handleClick}>Make PDF</button>
-        {' '}Total pages (not including title page): {this.makeSelectedGminders().length}
+        <div style={{textAlign:'center'}}>
+        <p>{' '}Total pages (not including title page): <b>{this.makeSelectedGminders().length}</b></p>
+        <button id="make-PDF"  className='btn btn-small' onClick={this.handleClick}>Make PDF</button>
+      </div>
       </div>
       <br />
       <br />
