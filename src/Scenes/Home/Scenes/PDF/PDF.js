@@ -25,38 +25,33 @@ class PDF extends React.Component {
     this.state = {
       gminders: [],
       prompts: [],
-      gmindersToPDF: [],
       inputPageSize: '',
       inputTitle: '',
       inputAuthor: '',
-      totalPages: 0,
-      finalGminderContent: [],
       checkboxTitle: false,
       checkboxAuthor: false,
       radioFont: 'font1',
-      checkboxRating1: false,
-      checkboxRating2: false,
-      checkboxRating3: false,
-      checkboxRating4: false,
-      checkboxRating5: false,
-      checkboxRating0: false,
-      checkboxTypePrompt: false,
-      checkboxTypeQuote: false,
-      checkboxTypeCustom: false
+      checkboxRating1: true,
+      checkboxRating2: true,
+      checkboxRating3: true,
+      checkboxRating4: true,
+      checkboxRating5: true,
+      checkboxRating0: true,
+      checkboxTypePrompt: true,
+      checkboxTypeQuote: true,
+      checkboxTypeCustom: true
     }
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
     this.handleRadio = this.handleRadio.bind(this);
-    this.calculateTotalPages = this.calculateTotalPages.bind(this);
-    this.makeGminderList = this.makeGminderList.bind(this);
   }
 
   componentWillMount() {
     // Get data from database
     Gminder.getGminders().then(res => this.setState({gminders: res.express})).catch(err => console.log(err)).then(() => {
       Gminder.getPrompts().then(res => this.setState({prompts: res.express})).catch(err => console.log(err)).then(() => {
-        this.calculateTotalPages();
+        return
       })
     })
   }
@@ -181,56 +176,22 @@ class PDF extends React.Component {
     }
   }
 
-  makeGminderList() {
-    // Define gminder list to be used in PDF based on options selected
-    let gminderList = this.state.gminders;
-    let newGminderList = [];
-    console.log(gminderList)
-    // Check rating
-    for (let j = 0; j < gminderList.length; j++) {
-      if (this.state.checkboxRating5 && gminderList[j].rating === 5) {
-          newGminderList.push(gminderList[j])
+  makeSelectedGminders() {
+    const gminders = this.state.gminders;
+    const ratings = [this.state.checkboxRating0, this.state.checkboxRating1, this.state.checkboxRating2,
+    this.state.checkboxRating3, this.state.checkboxRating4, this.state.checkboxRating5];
+    const types = {
+      prompt: this.state.checkboxTypePrompt,
+      quote: this.state.checkboxTypeQuote,
+      custom: this.state.checkboxTypeCustom
+    };
+    let selectedGminders = [];
+    gminders.forEach(gminder => {
+      if (ratings[gminder.rating] && types[gminder.category]) {
+        selectedGminders.push(gminder);
       }
-      if (this.state.checkboxRating4 && gminderList[j].rating === 4) {
-          newGminderList.push(gminderList[j])
-      }
-      if (this.state.checkboxRating3 && gminderList[j].rating === 3) {
-          newGminderList.push(gminderList[j])
-      }
-      if (this.state.checkboxRating2 && gminderList[j].rating === 2) {
-          newGminderList.push(gminderList[j])
-      }
-      if (this.state.checkboxRating1 && gminderList[j].rating === 1) {
-          newGminderList.push(gminderList[j])
-      }
-      if (this.state.checkboxRating0 && gminderList[j].rating === 0) {
-          newGminderList.push(gminderList[j])
-      }
-    }
-    // reset lists
-    gminderList = newGminderList;
-    newGminderList = [];
-    // Check type
-    for (let j = 0; j < gminderList.length; j++) {
-      if (this.state.checkboxTypePrompt && gminderList[j].category === 'prompt') {
-          newGminderList.push(gminderList[j])
-      }
-      if (this.state.checkboxTypeQuote && gminderList[j].category === 'quote') {
-          newGminderList.push(gminderList[j])
-      }
-      if (this.state.checkboxTypeCustom && gminderList[j].category === 'custom') {
-          newGminderList.push(gminderList[j])
-      }
-    }
-    return newGminderList;
-  }
-
-  calculateTotalPages() {
-    this.setState({gmindersToPDF: this.makeGminderList()})
-    const length = this.state.gminders.length;
-    this.setState({
-      totalPages: length
     })
+    return selectedGminders;
   }
 
   makeCredit(gminder) {
@@ -311,10 +272,10 @@ class PDF extends React.Component {
       verticalOffset = margin;
     }
 
-
+    const myGminderList = this.makeSelectedGminders();
     // Cycle through all gminders
-    for (let j = 0; j < this.state.gminders.length; j++) {
-      const gminder = this.state.gminders[j];
+    for (let j = 0; j < myGminderList.length; j++) {
+      const gminder = myGminderList[j];
       for (var i in fonts) {
         if (fonts.hasOwnProperty(i)) {
           size = sizes[i]
@@ -377,7 +338,7 @@ class PDF extends React.Component {
 
         }
       }
-      if (j < this.state.gminders.length - 1) {
+      if (j < myGminderList.length - 1) {
         // make new page if not last gminder
         doc.addPage();
       }
@@ -501,13 +462,13 @@ class PDF extends React.Component {
               <button type="button" id="checkAllRatings" onClick={this.handleClick} className='btn btn-small'>Check All
               </button>
               <div className="form-check">
-                <input className="form-check-input" onChange={this.handleCheck} type="checkbox" value="" id="ratingCheck1" checked={this.state.checkboxRating1}/>
+                <input className="form-check-input" onChange={this.handleCheck} type="checkbox" value="" id="ratingCheck5" checked={this.state.checkboxRating5}/>
                 <label className="form-check-label" htmlFor="ratingCheck1">
                   5 stars
                 </label>
               </div>
               <div className="form-check">
-                <input className="form-check-input" onChange={this.handleCheck} type="checkbox" value="" id="ratingCheck2" checked={this.state.checkboxRating2}/>
+                <input className="form-check-input" onChange={this.handleCheck} type="checkbox" value="" id="ratingCheck4" checked={this.state.checkboxRating4}/>
                 <label className="form-check-label" htmlFor="ratingCheck2">
                   4 stars
                 </label>
@@ -519,13 +480,13 @@ class PDF extends React.Component {
                 </label>
               </div>
               <div className="form-check">
-                <input className="form-check-input" onChange={this.handleCheck} type="checkbox" value="" id="ratingCheck4" checked={this.state.checkboxRating4}/>
+                <input className="form-check-input" onChange={this.handleCheck} type="checkbox" value="" id="ratingCheck2" checked={this.state.checkboxRating2}/>
                 <label className="form-check-label" htmlFor="ratingCheck4">
                   2 stars
                 </label>
               </div>
               <div className="form-check">
-                <input className="form-check-input" onChange={this.handleCheck} type="checkbox" value="" id="ratingCheck5" checked={this.state.checkboxRating5}/>
+                <input className="form-check-input" onChange={this.handleCheck} type="checkbox" value="" id="ratingCheck1" checked={this.state.checkboxRating1}/>
                 <label className="form-check-label" htmlFor="ratingCheck5">
                   1 stars
                 </label>
@@ -601,7 +562,7 @@ class PDF extends React.Component {
         </form>
         <br/>
         <button id="make-PDF" className='btn btn-small' onClick={this.handleClick}>Make PDF</button>
-        {' '}Total pages (not including title page): {this.state.totalPages}
+        {' '}Total pages (not including title page): {this.makeSelectedGminders().length}
       </div>
       <br />
       <br />

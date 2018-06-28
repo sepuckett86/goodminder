@@ -339,7 +339,246 @@ db.serialize(() => {
               gmindersAdded++;
             }
   });
-
+  db.run(`INSERT INTO Gminder (userID, category, mainResponse, author, promptID, reason, source, who, rating, recordedDate, eventDate, updatedDate, collection, publicFlag)
+          VALUES ($userID, $category, $mainResponse, $author, $promptID, $reason, $source, $who, $rating, $recordedDate, $eventDate, $updatedDate, $collection, $publicFlag)`,
+          {
+            $userID: 1,
+            $category: 'quote',
+            $mainResponse: "Recall the experiment of Pavlov's dogs, who are tricked into salivating on a bell they heard before getting a steak.  In a similar way, we risk salivating on money and not on happiness.  This leads to too much thinking on where money comes from, and not enough thinking on where happiness comes from.",
+            $author: 'Will',
+            $promptID: '',
+            $reason: '',
+            $source: '',
+            $who: '',
+            $rating: 5,
+            $recordedDate: '6/28/18',
+            $eventDate: '',
+            $updatedDate: '6/28/18',
+            $collection: 'Wili',
+            $publicFlag: 0,
+          }, (err) => {
+            if (err) {
+              throw err;
+            } else {
+              gmindersAdded++;
+            }
+  });
+  db.run(`INSERT INTO Gminder (userID, category, mainResponse, author, promptID, reason, source, who, rating, recordedDate, eventDate, updatedDate, collection, publicFlag)
+          VALUES ($userID, $category, $mainResponse, $author, $promptID, $reason, $source, $who, $rating, $recordedDate, $eventDate, $updatedDate, $collection, $publicFlag)`,
+          {
+            $userID: 1,
+            $category: 'quote',
+            $mainResponse: "We still like to eat food when we are hungry, to drink water, to poo and pee, to find shelter, to grow plants and smell flowers, to sound a fart, build a fire, make babies and sleep in a warm bed.  These things are the most reliable sources of happiness in life.  Don't underestimate them.",
+            $author: 'Will',
+            $promptID: '',
+            $reason: '',
+            $source: '',
+            $who: '',
+            $rating: 5,
+            $recordedDate: '6/28/18',
+            $eventDate: '',
+            $updatedDate: '6/28/18',
+            $collection: 'Wili',
+            $publicFlag: 0,
+          }, (err) => {
+            if (err) {
+              throw err;
+            } else {
+              gmindersAdded++;
+            }
+  });
+  db.run(`INSERT INTO Gminder (userID, category, mainResponse, author, promptID, reason, source, who, rating, recordedDate, eventDate, updatedDate, collection, publicFlag)
+          VALUES ($userID, $category, $mainResponse, $author, $promptID, $reason, $source, $who, $rating, $recordedDate, $eventDate, $updatedDate, $collection, $publicFlag)`,
+          {
+            $userID: 1,
+            $category: 'quote',
+            $mainResponse: '...if you happen to find a vein of pure metallic happiness in your life, this is a very special moment.  It best to occupy yourself with mining its depths.',
+            $author: 'Will',
+            $promptID: '',
+            $reason: '',
+            $source: '',
+            $who: '',
+            $rating: 5,
+            $recordedDate: '6/28/18',
+            $eventDate: '',
+            $updatedDate: '6/28/18',
+            $collection: 'Wili',
+            $publicFlag: 0,
+          }, (err) => {
+            if (err) {
+              throw err;
+            } else {
+              gmindersAdded++;
+            }
+  });
+  db.run(`INSERT INTO Gminder (userID, category, mainResponse, author, promptID, reason, source, who, rating, recordedDate, eventDate, updatedDate, collection, publicFlag)
+          VALUES ($userID, $category, $mainResponse, $author, $promptID, $reason, $source, $who, $rating, $recordedDate, $eventDate, $updatedDate, $collection, $publicFlag)`,
+          {
+            $userID: 1,
+            $category: 'quote',
+            $mainResponse: 'I am a fan of finding happiness through tranquility and occupation.',
+            $author: 'Will',
+            $promptID: '',
+            $reason: '',
+            $source: '',
+            $who: '',
+            $rating: 5,
+            $recordedDate: '6/28/18',
+            $eventDate: '',
+            $updatedDate: '6/28/18',
+            $collection: 'Wili',
+            $publicFlag: 0,
+          }, (err) => {
+            if (err) {
+              throw err;
+            } else {
+              gmindersAdded++;
+            }
+  });
+  db.run(`INSERT INTO Gminder (userID, category, mainResponse, author, promptID, reason, source, who, rating, recordedDate, eventDate, updatedDate, collection, publicFlag)
+          VALUES ($userID, $category, $mainResponse, $author, $promptID, $reason, $source, $who, $rating, $recordedDate, $eventDate, $updatedDate, $collection, $publicFlag)`,
+          {
+            $userID: 1,
+            $category: 'quote',
+            $mainResponse: "When I meditate, sometimes instead of clearing my mind of thought I have more diverse thoughts. They are my own thoughts, rather than someone else's, or influenced by a show or video that I am watching. Because they are my own, I find them more meaningful. It is an opportunity to know myself better. I can ask myself, what thoughts am I having now? And not dwell on any one thought for too long.",
+            $author: 'Susan',
+            $promptID: '',
+            $reason: '',
+            $source: '',
+            $who: '',
+            $rating: 5,
+            $recordedDate: '6/28/18',
+            $eventDate: '',
+            $updatedDate: '6/28/18',
+            $collection: 'Suzi',
+            $publicFlag: 0,
+          }, (err) => {
+            if (err) {
+              throw err;
+            } else {
+              gmindersAdded++;
+            }
+  });
+  db.run(`INSERT INTO Gminder (userID, category, mainResponse, author, promptID, reason, source, who, rating, recordedDate, eventDate, updatedDate, collection, publicFlag)
+          VALUES ($userID, $category, $mainResponse, $author, $promptID, $reason, $source, $who, $rating, $recordedDate, $eventDate, $updatedDate, $collection, $publicFlag)`,
+          {
+            $userID: 1,
+            $category: 'quote',
+            $mainResponse: "Imagine what it would be to be that bird up there. So easy, to just take flight and observe us earth-bound humans, going about our daily lives. So easy, to fly over us, finding patches of green and bodies of water.",
+            $author: 'Susan',
+            $promptID: '',
+            $reason: '',
+            $source: '',
+            $who: '',
+            $rating: 5,
+            $recordedDate: '6/28/18',
+            $eventDate: '',
+            $updatedDate: '6/28/18',
+            $collection: 'Suzi',
+            $publicFlag: 0,
+          }, (err) => {
+            if (err) {
+              throw err;
+            } else {
+              gmindersAdded++;
+            }
+  });
+  db.run(`INSERT INTO Gminder (userID, category, mainResponse, author, promptID, reason, source, who, rating, recordedDate, eventDate, updatedDate, collection, publicFlag)
+          VALUES ($userID, $category, $mainResponse, $author, $promptID, $reason, $source, $who, $rating, $recordedDate, $eventDate, $updatedDate, $collection, $publicFlag)`,
+          {
+            $userID: 1,
+            $category: 'quote',
+            $mainResponse: "To walk, without a hurry, in nature -- I glorify this.",
+            $author: 'Susan',
+            $promptID: '',
+            $reason: '',
+            $source: '',
+            $who: '',
+            $rating: 5,
+            $recordedDate: '6/28/18',
+            $eventDate: '',
+            $updatedDate: '6/28/18',
+            $collection: 'Suzi',
+            $publicFlag: 0,
+          }, (err) => {
+            if (err) {
+              throw err;
+            } else {
+              gmindersAdded++;
+            }
+  });
+  db.run(`INSERT INTO Gminder (userID, category, mainResponse, author, promptID, reason, source, who, rating, recordedDate, eventDate, updatedDate, collection, publicFlag)
+          VALUES ($userID, $category, $mainResponse, $author, $promptID, $reason, $source, $who, $rating, $recordedDate, $eventDate, $updatedDate, $collection, $publicFlag)`,
+          {
+            $userID: 1,
+            $category: 'quote',
+            $mainResponse: "If facts don't care about my feelings, I'd be wary of worshipping the facts. They are useful tools, but don't expect to find purpose there.",
+            $author: 'Susan',
+            $promptID: '',
+            $reason: '',
+            $source: '',
+            $who: '',
+            $rating: 5,
+            $recordedDate: '6/28/18',
+            $eventDate: '',
+            $updatedDate: '6/28/18',
+            $collection: 'Suzi',
+            $publicFlag: 0,
+          }, (err) => {
+            if (err) {
+              throw err;
+            } else {
+              gmindersAdded++;
+            }
+  });
+  db.run(`INSERT INTO Gminder (userID, category, mainResponse, author, promptID, reason, source, who, rating, recordedDate, eventDate, updatedDate, collection, publicFlag)
+          VALUES ($userID, $category, $mainResponse, $author, $promptID, $reason, $source, $who, $rating, $recordedDate, $eventDate, $updatedDate, $collection, $publicFlag)`,
+          {
+            $userID: 1,
+            $category: 'quote',
+            $mainResponse: "Media can trick us into believing we are connected, while being lacking in physical interaction that facilitates connections. It satiates one social urge, but too often does not deliver the desired outcome -- the reason why we have that urge.",
+            $author: 'Susan',
+            $promptID: '',
+            $reason: '',
+            $source: '',
+            $who: '',
+            $rating: 5,
+            $recordedDate: '6/28/18',
+            $eventDate: '',
+            $updatedDate: '6/28/18',
+            $collection: 'Suzi',
+            $publicFlag: 0,
+          }, (err) => {
+            if (err) {
+              throw err;
+            } else {
+              gmindersAdded++;
+            }
+  });
+  db.run(`INSERT INTO Gminder (userID, category, mainResponse, author, promptID, reason, source, who, rating, recordedDate, eventDate, updatedDate, collection, publicFlag)
+          VALUES ($userID, $category, $mainResponse, $author, $promptID, $reason, $source, $who, $rating, $recordedDate, $eventDate, $updatedDate, $collection, $publicFlag)`,
+          {
+            $userID: 1,
+            $category: 'quote',
+            $mainResponse: 'A human being is not one in pursuit of happiness but rather in search of a reason to be happy.',
+            $author: 'Viktor E. Frankl',
+            $promptID: '',
+            $reason: '',
+            $source: "Man's Search for Meaning",
+            $who: '',
+            $rating: 5,
+            $recordedDate: '6/28/18',
+            $eventDate: '',
+            $updatedDate: '6/28/18',
+            $collection: 'Inspirational',
+            $publicFlag: 0,
+          }, (err) => {
+            if (err) {
+              throw err;
+            } else {
+              gmindersAdded++;
+            }
+  });
 
 // Template
 /*
@@ -350,13 +589,13 @@ db.serialize(() => {
             $category: 'quote',
             $mainResponse: '',
             $author: '',
-            $promptID: null,
-            $reason: null,
+            $promptID: '',
+            $reason: '',
             $source: '',
             $who: '',
             $rating: 5,
             $recordedDate: '6/20/18',
-            $eventDate: null,
+            $eventDate: '',
             $updatedDate: '6/20/18',
             $collection: 'Present',
             $publicFlag: 0,
