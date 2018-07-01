@@ -18,6 +18,7 @@ class Home extends Component {
     super(props);
     this.state = {
       display: 'random',
+      previousDisplay: 'random',
       currentGminder: {},
       currentPrompt: {},
       gminders: [],
@@ -44,43 +45,43 @@ class Home extends Component {
   changeDisplay(display) {
     if (display === 'add') {
       if (this.state.display !== 'add') {
-        this.setState({display: 'add'})
+        this.setState({display: 'add', previousDisplay: this.state.display})
       }
     }
     if (display === 'more') {
       if (this.state.display !== 'more') {
-        this.setState({display: 'more'})
+        this.setState({display: 'more', previousDisplay: this.state.display})
       }
     }
     if (display === 'random') {
       if (this.state.display !== 'random') {
-        this.setState({display: 'random'})
+        this.setState({display: 'random', previousDisplay: this.state.display})
       }
     }
     if (display === 'none') {
       if (this.state.display !== 'none') {
-        this.setState({display: 'none'})
+        this.setState({display: 'none', previousDisplay: this.state.display})
       }
     }
     if (display === 'manager') {
       if (this.state.display !== 'manager') {
-        this.setState({display: 'manager'})
+        this.setState({display: 'manager', previousDisplay: this.state.display})
       }
     }
     if (display === 'edit') {
       if (this.state.display !== 'edit') {
-        this.setState({display: 'edit'})
+        this.setState({display: 'edit', previousDisplay: this.state.display})
       }
     }
     if (display === 'print') {
       if (this.state.display !== 'print') {
-        this.setState({display: 'print'})
+        this.setState({display: 'print', previousDisplay: this.state.display})
       }
     }
 
     if (display === 'PDF') {
       if (this.state.display !== 'PDF') {
-        this.setState({display: 'PDF'})
+        this.setState({display: 'PDF', previousDisplay: this.state.display})
       }
     }
   }
@@ -111,6 +112,9 @@ class Home extends Component {
   //
 
   renderWhat() {
+    if (this.state.display === 'back') {
+      this.changeDisplay(this.state.previousDisplay);
+    }
     if (this.state.display === 'random') {
       if (this.state.current !== 'empty') {
         return <Random
@@ -161,7 +165,8 @@ class Home extends Component {
         changeDisplay={this.changeDisplay}
         gminder={this.state.currentGminder}
         prompt={this.state.currentPrompt}
-        collection={this.state.collection}/>
+        collection={this.state.collection}
+        setGminder={this.setGminder}/>
     }
 
     if (this.state.display === 'PDF') {
@@ -175,6 +180,8 @@ class Home extends Component {
         changeDisplay={this.changeDisplay}
         />
     }
+
+
 
     if (this.state.display === 'none') {
       return <div></div>
@@ -196,6 +203,7 @@ class Home extends Component {
   render() {
     return (
       <div className="gminder">
+        {console.log(this.state.previousDisplay)}
         {this.renderWhat()}
       </div>
     )
