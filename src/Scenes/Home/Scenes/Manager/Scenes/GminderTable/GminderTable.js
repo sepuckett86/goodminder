@@ -33,13 +33,14 @@ class GminderTable extends React.Component {
   }
 
   handleClick(event) {
-    console.log(event.currentTarget.getAttribute('value'));
+    const myID = event.currentTarget.getAttribute('value');
     for (let i = 0; i < this.state.gminders.length; i++) {
-      if (event.currentTarget.getAttribute('value') === this.state.gminders[i].id) {
+      if (myID == this.state.gminders[i].id) {
         this.props.setGminder(this.state.gminders[i]);
+        this.props.changeDisplay('edit');
       }
     }
-    this.props.changeDisplay('edit');
+
   }
 
   generateKey(index) {
