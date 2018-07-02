@@ -1,4 +1,5 @@
 import React from 'react';
+import StarsSimple from '../../../../Components/StarsSimple/StarsSimple';
 
 
 class EditPrompt extends React.Component {
@@ -14,6 +15,7 @@ class EditPrompt extends React.Component {
 
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.changeRating = this.changeRating.bind(this);
 
   }
 
@@ -27,6 +29,11 @@ class EditPrompt extends React.Component {
         }
       }
   }
+
+  changeRating(stars) {
+    this.setState({inputRating: stars})
+  }
+
 
   handleClick(event) {
     if (event.target.id === "update-goodminder") {
@@ -113,6 +120,11 @@ class EditPrompt extends React.Component {
         </div>
 
       </form>
+      <StarsSimple
+        gminder={this.props.gminder}
+        changeRating={this.changeRating}
+        stars={this.state.inputRating}
+        />
       {/* Button trigger modal */}
       <button id="update-goodminder" type="button" className="btn btn-small" data-toggle="modal" onClick={this.handleClick} data-target="#editModal">
         Update Goodminder

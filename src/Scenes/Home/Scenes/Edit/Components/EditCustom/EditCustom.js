@@ -1,4 +1,5 @@
 import React from 'react';
+import StarsSimple from '../../../../Components/StarsSimple/StarsSimple';
 
 class EditCustom extends React.Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class EditCustom extends React.Component {
 
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.changeRating = this.changeRating.bind(this);
   }
 
   getDate() {
@@ -62,6 +64,10 @@ class EditCustom extends React.Component {
     }
   }
 
+  changeRating(stars) {
+    this.setState({inputRating: stars})
+  }
+
   render() {
     return(
       <div>
@@ -78,6 +84,11 @@ class EditCustom extends React.Component {
                   </div>
               </div>
           </form>
+          <StarsSimple
+            gminder={this.props.gminder}
+            changeRating={this.changeRating}
+            stars={this.state.inputRating}
+            />
           <br />
           {/* Button trigger modal */}
           <button id="update-goodminder" type="button" className="btn btn-small" data-toggle="modal" onClick={this.handleClick} data-target="#editModal">

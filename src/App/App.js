@@ -11,6 +11,7 @@ import Faq from '../Scenes/Faq/Faq';
 import Contact from '../Scenes/Contact/Contact';
 //
 
+import MediaQuery from 'react-responsive';
 import './App.css';
 import logo from './logo.png';
 
@@ -34,9 +35,16 @@ class App extends Component {
 
       <Router>
         <div>
+      
+
           <header id='header' className="App-header">
             <nav className="navbar navbar-dark navbar-expand-sm justify-content-between">
-              <a className="navbar-brand" id='intro' href="/intro"><img src={logo} className="App-logo" alt="logo"/>Goodminder</a>
+              <a className="navbar-brand" id='intro' href="/intro">
+              <img src={logo} className="App-logo" alt="logo"/>
+              {/* MediaQuery for large screen */}
+                <MediaQuery query="(min-width: 576px)">
+                  Goodminder
+                  </MediaQuery></a>
               <div className="navbar-expand" id="navbarNav">
                 <ul className="navbar-nav ml-auto">
                   <li className="nav-item dropdown">

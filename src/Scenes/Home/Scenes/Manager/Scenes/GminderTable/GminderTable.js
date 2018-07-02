@@ -112,9 +112,10 @@ class GminderTable extends React.Component {
   }
 
   getPromptWithId(id) {
+    id = Number(id);
     for (let i = 0; i < this.state.prompts.length; i++) {
       if (this.state.prompts[i].id === id) {
-        return this.props.prompts[i];
+        return this.state.prompts[i];
       }
     }
   }
@@ -128,11 +129,24 @@ class GminderTable extends React.Component {
     return gminder
   }
 
-  displayAuthor(gminder) {
-    if(gminder.author) {
-      return (
-        <div>--{gminder.author}</div>
-      )
+  displayAuthor(quote) {
+    if (quote.who && quote.source && quote.author) {
+      return `-- ${quote.who}, from ${quote.source} by ${quote.author}`
+    }
+    if (!quote.who && quote.source && quote.author) {
+      return `-- ${quote.author}, ${quote.source}`;
+    }
+    if (!quote.who && !quote.source && quote.author) {
+      return `-- ${quote.author}`;
+    }
+    if (!quote.who && !quote.source && !quote.author) {
+      return null;
+    }
+    if (quote.who && !quote.source && quote.author) {
+      return `-- ${quote.who}, from a work by ${quote.author}`;
+    }
+    if (quote.who && !quote.source && !quote.author) {
+      return `-- ${quote.who}`;
     }
   }
 
@@ -210,8 +224,13 @@ class GminderTable extends React.Component {
                     <td>{gminder.category}</td>
                     <td>{gminder.rating}</td>
                     <td>
+                      {gminder.promptID ? this.getPromptWithId(gminder.promptID).promptText : null}
+                      {gminder.promptID ? <br /> : null}
                       {gminder.mainResponse}
-                      {this.displayAuthor(gminder)}
+                      {gminder.author ? <br /> : null}
+                      {gminder.author ? this.displayAuthor(gminder): null}
+                      {gminder.reason ? <br /> : null}
+                      {gminder.reason ? gminder.reason : null}
                     </td>
                     <td>
                       <button className='clear-button' type='button' value={gminder.id} onClick={this.handleClick}><i className="fas fa-edit"></i></button>
@@ -229,8 +248,6 @@ class GminderTable extends React.Component {
           <table className="table table-striped alignL">
             <thead>
               <tr>
-
-
                 <th scope="col">Stars
                     </th>
                 <th scope="col">Goodminder</th>
@@ -246,8 +263,13 @@ class GminderTable extends React.Component {
 
                     <td>{gminder.rating}</td>
                     <td>
+                      {gminder.promptID ? this.getPromptWithId(gminder.promptID).promptText : null}
+                      {gminder.promptID ? <br /> : null}
                       {gminder.mainResponse}
-                      {this.displayAuthor(gminder)}
+                      {gminder.author ? <br /> : null}
+                      {gminder.author ? this.displayAuthor(gminder): null}
+                      {gminder.reason ? <br /> : null}
+                      {gminder.reason ? gminder.reason : null}
                     </td>
                     <td>
                       <button className='clear-button' type='button' value={gminder.id} onClick={this.handleClick}><i className="fas fa-edit"></i></button>
