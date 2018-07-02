@@ -28,7 +28,10 @@ class AddPrompt extends React.Component {
       if (this.state.prompts.length !== 0) {
         let random = this.state.prompts[Math.floor(Math.random() * this.state.prompts.length)];
         this.setState({prompt: random});
-      } else if (this.state.random === "no") {
+      } else if (this.state.prompts.length === 0) {
+        this.setState({prompt: {promptText: 'No prompt available', collection: 'none'}});
+      }
+      else if (this.state.random === "no") {
         this.setState({prompt: this.props.prompt})
       }
     });
