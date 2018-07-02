@@ -2,6 +2,8 @@ import React from 'react';
 // mport Table from '../../Components/Table/Table';
 import './GminderTable.css';
 
+import MediaQuery from 'react-responsive';
+
 // Utils
 import Gminder from '../../../../../../Utils/Gminder';
 
@@ -18,7 +20,6 @@ class GminderTable extends React.Component {
       prompts: [],
       csvData: [],
       gmindersShowing: [],
-      filterBy: 'quote',
       sortBy: 'id'
     };
 
@@ -32,25 +33,49 @@ class GminderTable extends React.Component {
     // Get data from database
     Gminder.getGminders().then(res => this.setState({gminders: res.express})).catch(err => console.log(err)).then(() => {
       Gminder.getPrompts().then(res => this.setState({prompts: res.express})).catch(err => console.log(err)).then(() => {
-        this.setGmindersShowing();
+        this.setGmindersShowing('all');
       })
     })
   }
 
-  setGmindersShowing() {
-    if (this.state.filterBy === 'all') {
+  setGmindersShowing(filter) {
+    if (filter === 'all') {
       this.setState({gmindersShowing: this.state.gminders})
     }
-    if (this.state.filterBy === 'quote') {
+    if (filter === 'quote') {
       let filtered = this.state.gminders.filter(gminder => {return(gminder.category === 'quote')});
       this.setState({gmindersShowing: filtered})
     }
-    if (this.state.filterBy === 'prompt') {
+    if (filter === 'prompt') {
       let filtered = this.state.gminders.filter(gminder => {return(gminder.category === 'prompt')});
       this.setState({gmindersShowing: filtered})
     }
-    if (this.state.filterBy === 'custom') {
+    if (filter === 'custom') {
       let filtered = this.state.gminders.filter(gminder => {return(gminder.category === 'custom')});
+      this.setState({gmindersShowing: filtered})
+    }
+    if (filter === '5') {
+      let filtered = this.state.gminders.filter(gminder => {return(gminder.rating === 5)});
+      this.setState({gmindersShowing: filtered})
+    }
+    if (filter === '4') {
+      let filtered = this.state.gminders.filter(gminder => {return(gminder.rating === 4)});
+      this.setState({gmindersShowing: filtered})
+    }
+    if (filter === '3') {
+      let filtered = this.state.gminders.filter(gminder => {return(gminder.rating === 3)});
+      this.setState({gmindersShowing: filtered})
+    }
+    if (filter === '2') {
+      let filtered = this.state.gminders.filter(gminder => {return(gminder.rating === 2)});
+      this.setState({gmindersShowing: filtered})
+    }
+    if (filter === '1') {
+      let filtered = this.state.gminders.filter(gminder => {return(gminder.rating === 1)});
+      this.setState({gmindersShowing: filtered})
+    }
+    if (filter === '0') {
+      let filtered = this.state.gminders.filter(gminder => {return(gminder.rating === 0)});
       this.setState({gmindersShowing: filtered})
     }
   }
@@ -69,7 +94,7 @@ class GminderTable extends React.Component {
 
   handleSelect(event) {
     if (event.target.id === 'filter') {
-      console.log('blah');
+      this.setGmindersShowing(event.target.value);
     }
   }
 
@@ -117,29 +142,30 @@ class GminderTable extends React.Component {
       <div id='beginning' className="box">
         <div  >
           <h1 >Manage Goodminders</h1>
+          <hr />
           <div className='row justify-content-center'>
-            <div className='col'>
+            <div className='col col-12 col-sm-6'>
             <div className="input-group mb-3">
               <div className="input-group-prepend">
                 <label className="input-group-text dropLabel" htmlFor="filter">Show</label>
               </div>
-              <select onSelect={this.handleSelect} className="custom-select" id="filter" defaultValue='0'>
-                <option value="0">All</option>
+              <select onChange={this.handleSelect} className="custom-select" id="filter" defaultValue='all'>
+                <option value="all">All</option>
                 <option disabled="disabled">----</option>
                 <option disabled="disabled">By category</option>
                 <option disabled="disabled">----</option>
-                <option value="1">Prompt</option>
-                <option value="2">Quote</option>
-                <option value="3">Custom</option>
+                <option value="prompt">Prompt</option>
+                <option value="quote">Quote</option>
+                <option value="custom">Custom</option>
                 <option disabled="disabled">----</option>
                 <option disabled="disabled">By rating</option>
                 <option disabled="disabled">----</option>
-                <option value="4">5</option>
-                <option value="5">4</option>
-                <option value="6">3</option>
-                <option value="7">2</option>
-                <option value="8">1</option>
-                <option value="9">0</option>
+                <option value="5">5 stars</option>
+                <option value="4">4 stars</option>
+                <option value="3">3 stars</option>
+                <option value="2">2 stars</option>
+                <option value="1">1 stars</option>
+                <option value="0">0 stars</option>
               </select>
             </div>
             </div>
@@ -158,16 +184,18 @@ class GminderTable extends React.Component {
             </div>
             </div>
             </div>
-
+            <p>Showing {this.state.gmindersShowing.length}/{this.state.gminders.length} goodminders</p>
             <a href='#end'>Scroll to bottom</a>
 
+            {/* MediaQuery for large screen */}
+              <MediaQuery query="(min-width: 576px)">
           <table className="table table-striped alignL">
             <thead>
               <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Category</th>
                 <th scope="col">Rating</th>
-                <th scope="col">Gminder</th>
+                <th scope="col">Goodminder</th>
                 <th scope="col">Edit</th>
 
               </tr>
@@ -194,9 +222,50 @@ class GminderTable extends React.Component {
           }
         </tbody>
         </table>
+
+      </MediaQuery>
+        {/* MediaQuery for small screen */}
+        <MediaQuery query="(max-width: 576px)">
+          <table className="table table-striped alignL">
+            <thead>
+              <tr>
+
+
+                <th scope="col">Stars
+                    </th>
+                <th scope="col">Goodminder</th>
+                <th scope="col">Edit</th>
+
+              </tr>
+            </thead>
+            <tbody>
+          {
+            this.state.gmindersShowing.map((gminder, i) => {
+              return (
+                  <tr key={this.generateKey(i)}>
+
+                    <td>{gminder.rating}</td>
+                    <td>
+                      {gminder.mainResponse}
+                      {this.displayAuthor(gminder)}
+                    </td>
+                    <td>
+                      <button className='clear-button' type='button' value={gminder.id} onClick={this.handleClick}><i className="fas fa-edit"></i></button>
+                    </td>
+                  </tr>
+              )
+            })
+          }
+        </tbody>
+        </table>
+        </MediaQuery>
+
         <CSVLink data={this.makeCSVArray()} ><button id='end' className='btn btn-small' type='button'>Download CSV of all data</button></CSVLink>
         <br />
         <a href='#beginning'>Scroll to top</a>
+        <MediaQuery query="(max-width: 576px)">
+          <hr />
+        </MediaQuery>
       </div>
     </div>)
   }
