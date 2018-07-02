@@ -1,5 +1,4 @@
 import React from 'react';
-import './More.css';
 import Button from '../../Components/Button/Button';
 
 

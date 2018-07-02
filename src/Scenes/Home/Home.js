@@ -203,7 +203,7 @@ class Home extends Component {
   render() {
     return (
       <div className="gminder">
-        {console.log(this.state.previousDisplay)}
+        
         {this.renderWhat()}
       </div>
     )

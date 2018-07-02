@@ -109,8 +109,10 @@ class Edit extends React.Component {
 
 
         {/* End Modal */}
+
         <br />
-        <div className="container box">
+        <div className="container">
+          <div className="box">
           <h1>Edit Goodminder</h1>
         {this.setDisplay()}
         {/* Button trigger modal */}
@@ -126,6 +128,7 @@ class Edit extends React.Component {
         name="Back"
         onClick={this.props.changeDisplay}
         />
+        </div>
       </div>
   )
 }

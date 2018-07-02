@@ -455,7 +455,8 @@ class PDF extends React.Component {
 
     return (<div>
       <br />
-      <div className='container box alignL'>
+      <div className='container'>
+        <div className='box alignL'>
         <h1>Customize PDF</h1>
         <form>
           <div className="form-group">
@@ -481,8 +482,8 @@ class PDF extends React.Component {
               <input type="text" value={this.state.inputAuthor} onChange={this.handleChange} className="form-control" id="author" placeholder="optional - this creates an author on the title page"/>
             </div>
           </div>
-          <div className='row'>
-            <div className='col col-12 col-md-4'>
+          <div className='row justify-content-between'>
+            <div className='col'>
               <h4>Page Size</h4>
               <div className="form-check">
                 <input className="form-check-input" type="radio" name="sizeRadio" id="sizeRadio1" value="option1" defaultChecked/>
@@ -502,7 +503,7 @@ class PDF extends React.Component {
               </div>
               <br/>
             </div>
-            <div className='col col-12 col-md-4'>
+            <div className='col'>
               <h4>Font</h4>
               <div className="form-check">
                 <input className="form-check-input" type="radio" name="fontRadio" id="fontRadioTimes" value="font1" onChange={this.handleRadio} checked={this.state.radioFont === 'font1'}/>
@@ -518,7 +519,7 @@ class PDF extends React.Component {
               </div>
               <br/>
             </div>
-            <div className='col col-12 col-md-4'>
+            <div className='col'>
               <h4>Font Size</h4>
               <div className="form-check">
                 <input className="form-check-input" type="radio" name="fontSizeRadio" id="fontSizeRadio1" value="fontSize1" disabled/>
@@ -538,8 +539,8 @@ class PDF extends React.Component {
           {/* end row */}
           <h1>Content - Goodminders</h1>
           <br/>
-          <div className='row'>
-            <div className='col col-12 col-md-4'>
+          <div className='row justify-content-between'>
+            <div className='col'>
               <h4>By Rating</h4>
               <button type="button" id="checkAllRatings" onClick={this.handleClick} className='btn btn-small'>Check All
               </button>
@@ -579,9 +580,9 @@ class PDF extends React.Component {
                   0 stars
                 </label>
               </div>
-
+              <br/>
             </div>
-            <div className='col col-12 col-md-4'>
+            <div className='col'>
               <h4>By Type</h4>
               <button type="button" id='checkAllTypes' onClick={this.handleClick} className='btn btn-small'>Check All
               </button>
@@ -605,7 +606,7 @@ class PDF extends React.Component {
               </div>
               <br/>
             </div>
-            <div className='col col-12 col-md-4'>
+            <div className='col'>
               <h4>Order</h4>
               <div className="form-check">
                 <input className="form-check-input" type="radio" name="orderRadio" id="orderRadio1" value="chronological" onChange={this.handleRadio} checked={this.state.radioOrder === 'chronological'} />
@@ -664,6 +665,7 @@ class PDF extends React.Component {
       name="Back"
       onClick={this.props.changeDisplay}
       />
+      </div>
     </div>)
   }
 }

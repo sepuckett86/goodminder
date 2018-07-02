@@ -1,15 +1,8 @@
 import React from 'react';
-import Table from './Components/Table/Table'
 
 import Button from '../../Components/Button/Button';
 import GminderTable from './Scenes/GminderTable/GminderTable';
 // import Prompts from './Components/Prompts/Prompts';
-
-// Utils
-import Gminder from '../../../../Utils/Gminder'
-
-//Add CSVDownload to import if want to use it
-import {CSVLink} from 'react-csv';
 
 // This is the front-end of a database manager.
 // How you interact and change the database.
