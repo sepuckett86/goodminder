@@ -35,9 +35,7 @@ h1, h2, h3, h4, h5 {
 
 /* end space */
 
-p {
-	font-size: 18px;
-}
+
 
 header{
   color: white;
@@ -400,25 +398,16 @@ button:focus {outline:0;}
 
 .navbar-brand {
   padding-right: 1%;
+
 }
+
+
 .navbar-brand:hover {
   border-radius: 10px;
   padding-right: 1%;
 }
 
-body{
-  width:100%;
-  height:100%;
-  margin: 0;
-  background-repeat: no-repeat;
-  background-image: url('./texel_beach.jpg');
-  background-size:cover;
-  background-attachment: fixed;
-}
 
-p {
-  font-family: 'Comfortaa', cursive;
-}
 
 .App {
   text-align: center;
@@ -465,6 +454,18 @@ p {
 }
 
 
+body{
+  margin: 0;
+  background-repeat: no-repeat;
+  background-image: url('./texel_beach.jpg');
+  background-size:cover;
+  background-attachment: fixed;
+}
+
+p {
+  font-family: 'Comfortaa', cursive;
+	font-size: 18px;
+}
 
 footer{
 	color: #2b2b2b;
@@ -511,9 +512,8 @@ footer{
   }
   .App {
     background-color: rgba(255, 255, 255, 0.7);
-    background-size:cover;
-    background-attachment: fixed;
-    text-align: center;
+		min-height: 100vh;
+    height: 100%;
   }
 	.box {
       background-color: transparent;

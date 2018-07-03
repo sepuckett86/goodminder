@@ -17,7 +17,7 @@ class Examples extends Component {
     <br />
     <div className="card top">
       <div className="card-body">
-      <h5 className="card-title">goodminder<span className="noun"><i>noun</i></span></h5>
+      <h5 className="card-title">goodminder<div className="noun" style={{fontSize: '12px'}}><i>noun</i></div></h5>
     <p className="card-text">A prompt response, quote or custom entry crafted by <b>you</b>.</p>
     <p className="card-text">Purpose -- to <b><u>remind</u></b> you of the <b><u>good</u></b> in your life.</p>
   </div>

@@ -1,22 +1,53 @@
 import React from 'react';
-import Button from '../../Components/Button/Button';
+import Table from './Components/Table/Table'
 
+import Button from '../../Components/Button/Button';
+import GminderTable from './Scenes/GminderTable/GminderTable';
+// import Prompts from './Components/Prompts/Prompts';
+
+// Utils
+import Gminder from '../../../../Utils/Gminder'
 
 //Add CSVDownload to import if want to use it
 import {CSVLink} from 'react-csv';
 
-class More extends React.Component {
+// This is the front-end of a database manager.
+// How you interact and change the database.
+class Manager extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      display: 'none',
+      managerDisplay: 'none',
+      prompts: [],
       csvData: [],
-      prompt: {}
     };
+    // props
+    this.changeDisplay = this.props.changeDisplay;
 
+    // bind methods
     this.handleClick = this.handleClick.bind(this);
-    this.changeDisplay = this.changeDisplay.bind(this);
+    this.changeManagerDisplay = this.changeManagerDisplay.bind(this);
 
+  }
+
+  componentDidMount() {
+    // Get data from database
+    // Gminders
+    Gminder.getGminders().then(res => this.setState({gminders: res.express})).catch(err => console.log(err)).then(() => {
+    // Prompts
+    Gminder.getPrompts().then(res => this.setState({prompts: res.express})).catch(err => console.log(err)).then(() => {
+    if (this.props.collection) {
+          // Check if there is data in prompts
+          if (this.state.prompts.length !== 0) {
+            let random = this.state.prompts[Math.floor(Math.random() * this.state.prompts.length)];
+            this.setState({ prompt: random });
+          } else if (this.state.random === "no") {
+            this.setState({ prompt: this.props.prompt})
+          }
+        });
+      this.setState({display: 'promptTable'})
+      }
+    }
   }
 
   handleClick(event) {
@@ -29,7 +60,7 @@ class More extends React.Component {
   }
   }
 
-  changeDisplay(id) {
+  changeManagerDisplay(id) {
     this.setState({
       display: id
     })
@@ -50,7 +81,7 @@ class More extends React.Component {
 
   makeCSVArrayPrompts() {
     let myArray = [['ID', 'Collection', 'Prompt']];
-    this.props.prompts.forEach(prompt => {
+    this.state.prompts.forEach(prompt => {
       let innerArray = [prompt.id, prompt.collection, prompt.prompt];
       myArray.push(innerArray);
     })
@@ -75,9 +106,17 @@ class More extends React.Component {
   }
 
   render() {
+    let promptFilter = [];
+    if (this.props.collection) {
+      const prompts = this.state.prompts;
+      prompts.forEach(prompt => {
+        if(prompt.collection === this.props.collection){
+          promptFilter.push(prompt);
+        }
+      })
+    }
     return(
       <div className="container">
-
         { this.state.display === 'gminderTable' ?
       (<div className="box">
         <div id="gminders">
@@ -121,7 +160,7 @@ class More extends React.Component {
     </div>)
         : null }
 
-        { this.state.display === 'promptTable' ?
+        { this.state.display === 'promptTable' && !this.props.collection ?
         (<div className="box">
         <div id="prompts">
           <table className="table table-striped">
@@ -136,12 +175,12 @@ class More extends React.Component {
             </thead>
             <tbody>
           {
-            this.props.prompts.map((prompt, i) => {
+            this.state.prompts.map((prompt, i) => {
               return (
                   <tr key={this.generateKey(i)}>
                     <th scope="row">{prompt.id}</th>
                     <td>{prompt.collection}</td>
-                    <td>{prompt.prompt}</td>
+                    <td>{prompt.promptText}</td>
                     <td>
                     <button onClick={this.handleClick} prompt={prompt} value="respond">Respond</button>
                     </td>
@@ -155,34 +194,73 @@ class More extends React.Component {
         </div>
         </div>)
         : null }
+        { this.state.display === 'promptTable' && promptFilter.length > 0 ?
+        (<div className="box">
+        <div id="prompts">
+          <table className="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Collection</th>
+                <th scope="col">Prompt</th>
+                <th scope="col">Respond</th>
+                <th scope="col">Delete</th>
+
+              </tr>
+            </thead>
+            <tbody>
+          {
+            promptFilter.map((prompt, i) => {
+                return (
+                    <tr key={this.generateKey(i)}>
+                      <th scope="row">{prompt.id}</th>
+                      <td>{prompt.collection}</td>
+                      <td>{prompt.promptText}</td>
+                      <td>
+                      <button onClick={this.handleClick} prompt={prompt} value="respond">Respond</button>
+                      </td>
+                      <td>
+                      <ButtonModal id='delete' name="Delete"/>
+                      </td>
+                    </tr>
+                )
+
+            })
+          }
+        </tbody>
+        </table>
+        </div>
+        </div>)
+        : null }
 
 
+        <Table />
+        <Button
+        name="Table of All Gminders"
+        onClick={this.changeManagerDisplay}
+        id="gminderTable"
+        gms={this.props.gms}
+        />
         <br />
-
+        <br />
         <Button
-        name="Manage Database"
-        onClick={this.props.changeDisplay}
-        id="manager"
+        name="Table of All Prompts"
+        id="promptTable"
+        onClick={this.changeManagerDisplay}
         />
-
-        <Button
-        name="Create PDF"
-        onClick={this.props.changeDisplay}
-        id="PDF"
-        />
-
+        <br />
         <br />
         <Button
           id='random'
         name="Back"
-        onClick={this.props.changeDisplay}
+        onClick={this.changeDisplay}
         />
 
         <br />
         <br />
-        <br />
+
       </div>)
   }
 }
 
-export default More;
+export default Manager;

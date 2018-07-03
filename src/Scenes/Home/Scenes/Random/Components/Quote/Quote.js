@@ -57,7 +57,7 @@ class Quote extends React.Component {
       			</div>
       			<br />
             {/* Determine if there is reason content */}
-            { this.props.gminder.reason !== null ?
+            { this.props.gminder.reason ?
               (<div className="media reason">
               <div className="media-body lato" id="quote-reason">
                 {this.props.gminder.reason}

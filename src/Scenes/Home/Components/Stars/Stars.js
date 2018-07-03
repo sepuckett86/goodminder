@@ -29,6 +29,7 @@ class Stars extends React.Component {
   }
 
   handleClick(event) {
+    
     // Handle first star click
     // Note: currentTarget is necessary to record the number; target does not work
     if (event.currentTarget.id !== 'starModal') {

@@ -14,3 +14,7 @@ span .noun {
 .icon {
   font-size: 10vw;
 }
+
+.card-title {
+  font-weight: bold;
+}

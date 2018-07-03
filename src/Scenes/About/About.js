@@ -24,7 +24,8 @@ class About extends Component {
           <p>
             <b>Goodminder: Specifically you.</b>
           </p>
-          <p>How many times have you laughed or smiled, only to forget that happy event days later? Goodminder is a similar to a journal, yet it has a focus. Prompts help you think of things worth recording in your life. You can also save quotes or custom text that is meaningful to you. Having a bad day? Log into Goodminder and read a randomly chosen memory -- a
+          <p>Goodminder is a similar to a journal, yet is more focused. Prompts help you think of things worth recording in your life. You can also save quotes or custom text that is meaningful to you. </p>
+          <p>Having a bad day? Log into Goodminder and read a randomly chosen memory -- a
             <b> reminder </b>
             of the
             <b> good </b>
@@ -37,17 +38,17 @@ class About extends Component {
             "A human being is not one in pursuit of happiness but rather in search of a reason to be happy."
           </p>
           <p>
-            <a href="https://www.amazon.com/Mans-Search-Meaning-classic-Holocaust-ebook/dp/B00EKOC0HI">--Man's Search for Meaning</a>
-            by Viktor E. Frankl</p>
+            <a href="https://www.amazon.com/Mans-Search-Meaning-classic-Holocaust-ebook/dp/B00EKOC0HI" target="_blank" rel="noopener noreferrer">--Man's Search for Meaning</a>
+            {' '}by Viktor E. Frankl</p>
             <br />
           <hr/>
           <br />
           <h1>Who we are</h1>
 
           <p>
-            <a href="https://github.com/sepuckett86">sepuckett86</a>
+            <a href="https://github.com/sepuckett86" target="_blank" rel="noopener noreferrer">sepuckett86</a>
             {' '} and {' '}
-             <a href="https://github.com/codegold79">codegold79</a>
+             <a href="https://github.com/codegold79" target="_blank" rel="noopener noreferrer">codegold79</a>
           </p>
           <p>
             We are two friends who met in college and majored in something other than computer science. We both currenty share a passion for learning coding and web development.
@@ -107,10 +108,10 @@ class About extends Component {
           </div>
 
           <p>
-            <button className="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapseExample">
+            <button className="btn btn-small" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapseExample">
               Show goodminder fonts
             </button>{' '}
-            <button className="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapseExample">
+            <button className="btn btn-small" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapseExample">
               Show something else
             </button>
           </p>
@@ -147,10 +148,10 @@ class About extends Component {
           <h1>Support Us!</h1>
           <p>The more support we get, the more we will work on this site to improve it.</p>
           <p>If you'd like to donate, please contact us
-            {' '}<a href="/">here</a>. Thanks a lot!</p>
+            {' '}<a href="/contact">here</a>. Thanks a lot!</p>
 
           <p>
-            <button className="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapseExample">
+            <button className="btn btn-small" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapseExample">
               "Secret" Projects!!
             </button>
           </p>
@@ -167,7 +168,7 @@ class About extends Component {
             </div>
           </div>
 <br />
-          <hr/>
+        
           <br/><br/><br/><br/>
         </div>
       </div>

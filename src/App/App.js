@@ -7,9 +7,11 @@ import About from '../Scenes/About/About';
 import Intro from '../Scenes/Intro/Intro';
 import Settings from '../Scenes/Settings/Settings';
 import Examples from '../Scenes/Examples/Examples';
-import Faq from '../Scenes/Faq/Faq'
+import Faq from '../Scenes/Faq/Faq';
+import Contact from '../Scenes/Contact/Contact';
 //
 
+import MediaQuery from 'react-responsive';
 import './App.css';
 import logo from './logo.png';
 
@@ -33,9 +35,16 @@ class App extends Component {
 
       <Router>
         <div>
+      
+
           <header id='header' className="App-header">
             <nav className="navbar navbar-dark navbar-expand-sm justify-content-between">
-              <a className="navbar-brand" id='intro' href="/intro"><img src={logo} className="App-logo" alt="logo"/>Goodminder</a>
+              <a className="navbar-brand" id='intro' href="/intro">
+              <img src={logo} className="App-logo" alt="logo"/>
+              {/* MediaQuery for large screen */}
+                <MediaQuery query="(min-width: 576px)">
+                  Goodminder
+                  </MediaQuery></a>
               <div className="navbar-expand" id="navbarNav">
                 <ul className="navbar-nav ml-auto">
                   <li className="nav-item dropdown">
@@ -50,6 +59,7 @@ class App extends Component {
                       <a className="dropdown-item" href="/about">About</a>
                       <a className="dropdown-item" href="/examples">Examples</a>
                       <a className="dropdown-item" href="/faq">FAQ</a>
+                      <a className="dropdown-item" href="/contact">Contact</a>
                       <div className="dropdown-divider"></div>
                       <a className="dropdown-item" href="/logout">Log out</a>
                     </div>
@@ -71,6 +81,7 @@ class App extends Component {
           <Route path="/settings" render={() => (<Settings token={this.state.token}/>)}/>
           <Route path="/examples" render={() => (<Examples token={this.state.token}/>)}/>
           <Route path="/faq" render={() => (<Faq token={this.state.token}/>)}/>
+          <Route path="/contact" render={() => (<Contact token={this.state.token}/>)}/>
 
         </div>
       </Router>
