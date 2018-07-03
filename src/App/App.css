@@ -455,7 +455,6 @@ button:focus {outline:0;}
 
 
 body{
-
   margin: 0;
   background-repeat: no-repeat;
   background-image: url('./texel_beach.jpg');
@@ -513,7 +512,8 @@ footer{
   }
   .App {
     background-color: rgba(255, 255, 255, 0.7);
-    height: 100vh;
+		min-height: 100vh;
+    height: 100%;
   }
 	.box {
       background-color: transparent;
