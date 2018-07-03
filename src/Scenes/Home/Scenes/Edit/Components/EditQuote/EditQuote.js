@@ -142,6 +142,7 @@ class EditQuote extends React.Component {
             changeRating={this.changeRating}
             stars={this.state.inputRating}
             />
+          <br />
           {/* Button trigger modal */}
           <button id="update-goodminder" type="button" className="btn btn-small" data-toggle="modal" onClick={this.handleClick} data-target="#editModal">
             Update Goodminder
