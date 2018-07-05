@@ -166,15 +166,11 @@ class Random extends Component {
     return (
         <div className="container">
             <div>
-            <span>
-              <button className="btn arrow-button" onClick={this.backClick}><i className="fas fa-arrow-left"></i> </button>
-            </span>
-            {/* Spaces */}
+            <button className="btn arrow-button" onClick={this.backClick}><i className="fas fa-arrow-left"></i> </button>
             {'\u00A0'}{'\u00A0'}{'\u00A0'}{'\u00A0'}
-            <span>
             <button className="btn arrow-button" onClick={this.nextClick}> <i className="fas fa-arrow-right"></i></button>
-            </span>
             </div>
+
 
             <div className="box">
 
