@@ -42,13 +42,12 @@ class Manager extends React.Component {
           onClick={this.changeManagerDisplay}
           id="gminderTable"
           />
-          <br />
+
           <Button
           name="Table of All Prompts"
           id="promptTable"
           onClick={this.changeManagerDisplay}
           />
-          <br />
           <br />
           <Button
           id='random'
@@ -68,7 +67,7 @@ class Manager extends React.Component {
           onClick={this.changeManagerDisplay}
           />
           <br />
-          <br />
+
           <Button
             id='random'
           name="Back"
@@ -90,14 +89,12 @@ class Manager extends React.Component {
           id="gminderTable"
           />
           <br />
-          <br />
           <Button
             id='random'
           name="Back"
           onClick={this.changeDisplay}
           />
 
-          <br />
           <br />
         </div>) : null }
 

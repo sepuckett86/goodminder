@@ -23,7 +23,7 @@ class Intro3 extends Component {
 
 
               <h2 id='callHeader2'><span style={{fontFamily: "comfortaa", backgroundColor: "white"}}>Goodminder</span> is a <b>free web-app</b> to catalogue ideas that make life worth living.
-                <b> Collect</b> and <b>create</b> words meaningful to <b>you</b>.</h2>
+                <b> Collect</b> and <b>create</b> text meaningful to <b>you</b>.</h2>
 
                 <br />
 
