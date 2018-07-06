@@ -16,27 +16,26 @@ class Add extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      type: 'empty',
       gminderForDatabase: {}
     }
 
-    this.changeType = this.changeType.bind(this);
     this.setGminderforDatabase = this.setGminderforDatabase.bind(this);
     this.changeDatabase = this.changeDatabase.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.back = this.back.bind(this);
   }
 
 
 
   handleClick(event) {
     if (event.target.id === "prompt-tab") {
-      this.changeType('prompt');
+      this.props.changeType('prompt');
     }
     if (event.target.id === "quote-tab") {
-      this.changeType('quote');
+      this.props.changeType('quote');
     }
     if (event.target.id === "custom-tab") {
-      this.changeType('custom');
+      this.props.changeType('custom');
     }
   }
 
@@ -58,7 +57,7 @@ class Add extends React.Component {
   }
 
   chooseType() {
-    if(this.state.type === 'empty') {
+    if(this.props.typeToAdd === 'empty') {
       return(<div>
         <div className='my-flex-parent'>
           <button id="prompt-tab" className='my-flex-child btn-left btn' onClick={this.handleClick}>
@@ -73,7 +72,7 @@ class Add extends React.Component {
         </div>
       </div>)
     }
-    if(this.state.type === 'prompt') {
+    if(this.props.typeToAdd === 'prompt') {
       return(<div>
         <div className='my-flex-parent'>
           <button id="prompt-tab" className='my-flex-child-active btn-left btn' onClick={this.handleClick}>
@@ -97,7 +96,7 @@ class Add extends React.Component {
               random="yes" />
             </div>)
     }
-    if(this.state.type === 'quote') {
+    if(this.props.typeToAdd === 'quote') {
       return(<div>
         <div className='my-flex-parent'>
           <button id="prompt-tab" className='my-flex-child btn-left btn' onClick={this.handleClick}>
@@ -117,7 +116,7 @@ class Add extends React.Component {
               setGminderForDatabase={this.setGminderforDatabase} />
             </div>)
     }
-    if(this.state.type === 'custom') {
+    if(this.props.typeToAdd === 'custom') {
       return(<div>
         <div className='my-flex-parent'>
           <button id="prompt-tab" className='my-flex-child btn-left btn' onClick={this.handleClick}>
@@ -139,23 +138,11 @@ class Add extends React.Component {
     }
   }
 
-  changeType(type) {
-    if(type === 'prompt'){
-      this.setState({
-        type: 'prompt'
-      })
-    }
-    if(type === 'quote'){
-      this.setState({
-        type: 'quote'
-      })
-    }
-    if(type === 'custom'){
-      this.setState({
-        type: 'custom'
-      })
-    }
+  back(id) {
+    this.props.changeType('empty');
+    this.props.changeDisplay(id);
   }
+
   render() {
     return(
       <div className="container">
@@ -199,7 +186,7 @@ class Add extends React.Component {
         <Button
           id='random'
           name="Back"
-          onClick={this.props.changeDisplay}
+          onClick={this.back}
           />
         <br />
 
