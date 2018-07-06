@@ -5,7 +5,7 @@ import {BrowserRouter as Router, Route} from "react-router-dom";
 import Home from '../Scenes/Home/Home';
 import About from '../Scenes/About/About';
 // import Intro from '../Scenes/Intro/Intro';
-import Intro2 from '../Scenes/Intro/Intro2';
+import Intro3 from '../Scenes/Intro/Intro3';
 import Settings from '../Scenes/Settings/Settings';
 import Examples from '../Scenes/Examples/Examples';
 import Faq from '../Scenes/Faq/Faq';
@@ -78,7 +78,7 @@ class App extends Component {
 
           <Route exact={true} path="/" render={() => (<Home token={this.state.token}/>)}/>
           <Route path="/about" render={() => (<About token={this.state.token}/>)}/>
-          <Route path="/intro" render={() => (<Intro2 token={this.state.token}/>)}/>
+          <Route path="/intro" render={() => (<Intro3 token={this.state.token}/>)}/>
           <Route path="/settings" render={() => (<Settings token={this.state.token}/>)}/>
           <Route path="/examples" render={() => (<Examples token={this.state.token}/>)}/>
           <Route path="/faq" render={() => (<Faq token={this.state.token}/>)}/>
