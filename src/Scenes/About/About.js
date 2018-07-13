@@ -22,7 +22,7 @@ class About extends Component {
           <h1>Enter
             <img src="/favicon.png" alt="logoDark" height="60px"/>goodminder</h1>
           <p>
-            <b>Goodminder: Specifically you.</b>
+            <b>Goodminder: Explicitly you.</b>
           </p>
           <p>Goodminder is a similar to a journal, yet is more focused. Prompts help you think of things worth recording in your life. You can also save quotes or custom text that is meaningful to you. </p>
           <p>Having a bad day? Log into Goodminder and read a randomly chosen memory -- a
@@ -45,6 +45,9 @@ class About extends Component {
           <br />
           <h1>Who we are</h1>
 
+
+          <img src='https://avatars1.githubusercontent.com/u/29714675?s=400&v=4' alt='sepuckett86_picture' height='100px' width='auto' style={{borderRadius:'50%', margin: '2%'}}/>
+          <img src='https://avatars1.githubusercontent.com/u/17328443?s=400&v=4' alt='codegold79_picture' height='100px' width='auto' style={{borderRadius:'50%', margin: '2%'}}/>
           <p>
             <a href="https://github.com/sepuckett86" target="_blank" rel="noopener noreferrer">sepuckett86</a>
             {' '} and {' '}
@@ -53,6 +56,7 @@ class About extends Component {
           <p>
             We are two friends who met in college and majored in something other than computer science. We both currenty share a passion for learning coding and web development.
           </p>
+
           <br />
           <hr/>
           <br />
@@ -168,7 +172,7 @@ class About extends Component {
             </div>
           </div>
 <br />
-        
+
           <br/><br/><br/><br/>
         </div>
       </div>

@@ -2,7 +2,7 @@ import React from 'react';
 
 import Button from '../../Components/Button/Button';
 import GminderTable from './Scenes/GminderTable/GminderTable';
-// import Prompts from './Components/Prompts/Prompts';
+import PromptTable from './Scenes/PromptTable/PromptTable';
 
 // This is the front-end of a database manager.
 // How you interact and change the database.
@@ -20,7 +20,6 @@ class Manager extends React.Component {
     // bind methods
     this.handleClick = this.handleClick.bind(this);
     this.changeManagerDisplay = this.changeManagerDisplay.bind(this);
-
   }
 
   handleClick(event) {
@@ -43,13 +42,12 @@ class Manager extends React.Component {
           onClick={this.changeManagerDisplay}
           id="gminderTable"
           />
-          <br />
+
           <Button
           name="Table of All Prompts"
           id="promptTable"
           onClick={this.changeManagerDisplay}
           />
-          <br />
           <br />
           <Button
           id='random'
@@ -69,7 +67,7 @@ class Manager extends React.Component {
           onClick={this.changeManagerDisplay}
           />
           <br />
-          <br />
+
           <Button
             id='random'
           name="Back"
@@ -80,12 +78,16 @@ class Manager extends React.Component {
 
         { this.state.managerDisplay === 'promptTable' ?
         (<div>
+          <PromptTable
+            collection={this.props.collection}
+            setPrompt={this.props.setPrompt}
+            changeDisplay={this.props.changeDisplay}
+            changeType={this.props.changeType}/>
           <Button
           name="Table of All Gminders"
           onClick={this.changeManagerDisplay}
           id="gminderTable"
           />
-          <br />
           <br />
           <Button
             id='random'
@@ -93,7 +95,6 @@ class Manager extends React.Component {
           onClick={this.changeDisplay}
           />
 
-          <br />
           <br />
         </div>) : null }
 

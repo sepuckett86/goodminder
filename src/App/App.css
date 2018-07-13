@@ -503,7 +503,7 @@ footer{
 // No media query since this is the default in Bootstrap*/
 
 /* Small screen */
-@media (min-width: 0px) {
+@media (max-width: 576px) {
   .container {
     position: relative;
     margin-left: auto;
@@ -532,6 +532,12 @@ footer{
   }
 	.btn-small {
 	  width: 100%;
+	}
+	h1 {
+		font-size: 2rem;
+	}
+	h2 {
+		font-size: 1.5rem;
 	}
 }
 

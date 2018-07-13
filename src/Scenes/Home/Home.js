@@ -23,7 +23,8 @@ class Home extends Component {
       currentPrompt: {},
       gminders: [],
       prompts: [],
-      collection: null,
+      collection: [],
+      typeToAdd: 'empty'
     }
 
     this.setGminder = this.setGminder.bind(this);
@@ -32,6 +33,7 @@ class Home extends Component {
     this.setPrompts = this.setPrompts.bind(this);
     this.setCollection = this.setCollection.bind(this);
     this.changeDisplay = this.changeDisplay.bind(this);
+    this.changeType = this.changeType.bind(this);
   }
 
   componentDidMount() {
@@ -109,6 +111,29 @@ class Home extends Component {
   setCollection(collection) {
     this.setState({collection: collection})
   }
+
+  changeType(type) {
+    if(type === 'prompt'){
+      this.setState({
+        typeToAdd: 'prompt'
+      })
+    }
+    if(type === 'quote'){
+      this.setState({
+        typeToAdd: 'quote'
+      })
+    }
+    if(type === 'custom'){
+      this.setState({
+        typeToAdd: 'custom'
+      })
+    }
+    if(type === 'empty'){
+      this.setState({
+        typeToAdd: 'empty'
+      })
+    }
+  }
   //
 
   renderWhat() {
@@ -138,6 +163,8 @@ class Home extends Component {
         prompt={this.state.currentPrompt}
         setPrompt={this.setPrompt}
         setCollection={this.setCollection}
+        typeToAdd={this.state.typeToAdd}
+        changeType={this.changeType}
       />
     }
 
@@ -166,7 +193,9 @@ class Home extends Component {
         gminder={this.state.currentGminder}
         prompt={this.state.currentPrompt}
         collection={this.state.collection}
-        setGminder={this.setGminder}/>
+        setGminder={this.setGminder}
+        setPrompt={this.setPrompt}
+        changeType={this.changeType}/>
     }
 
     if (this.state.display === 'PDF') {
@@ -203,7 +232,7 @@ class Home extends Component {
   render() {
     return (
       <div className="gminder">
-        
+
         {this.renderWhat()}
       </div>
     )
