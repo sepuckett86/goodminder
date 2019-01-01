@@ -1,6 +1,0 @@
-/* Make something invisible during printing */
-@media print {
-  #printPageButton {
-    display: none;
-  }
-}

@@ -1,0 +1,213 @@
+/* INTRO CSS */
+
+#sectionCallToAction {
+  background-image: url('../images/mountain.jpg');
+  background-size: cover;
+}
+.sectionCallToActionContent {
+  height: 100vh;
+}
+
+
+#introMiddle {
+  padding: 2%;
+}
+
+#sectionList {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  color: white;
+  height: 100%;
+}
+
+#inspirationList {
+  width: 100%;
+  font-family: lato;
+  font-size: 1.2em;
+}
+
+#callHeader1 {
+  width: 100%;
+  text-align: left;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: lato;
+  font-size: 2em;
+}
+
+#callHeader2 {
+  width: 100%;
+  text-align: left;
+  font-size: 1.5em;
+  font-family: lato;
+  line-height: 1.5;
+}
+
+#pressMe {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+#pressMe:hover {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+#inspirationList ul {
+  list-style-type: none;
+  padding-left: 0px;
+}
+
+.followUpStyles {
+  background-color: #2b2b2b;
+  height: 100vh;
+}
+
+.followUp {
+  text-align: center;
+}
+
+/* Extra small devices (phones, 400px and down) */
+@media only screen and (max-width: 400px) {
+  #sectionCallToAction {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  #callHeader1 {
+    font-size: 3em;
+  }
+  #callHeader2 {
+    font-size: 1.2em;
+  }
+  .gradient {
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), #46B3B3);
+  }
+  #followUpButton {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+  #followUpButton:hover {
+    background-color: white;
+  }
+  #outerDiv {
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 92vh;
+  }
+}
+
+/* Small screen */
+
+@media (min-width: 400px) {
+  #sectionCallToAction {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  #callHeader1 {
+    font-size: 4em;
+  }
+  #callHeader2 {
+    font-size: 1.5em;
+  }
+  .gradient {
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), #46B3B3);
+  }
+  #followUpButton {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+  #followUpButton:hover {
+    background-color: white;
+  }
+  #outerDiv {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+}
+
+/* Regular screen and up */
+
+@media (min-width: 576px) {
+  #sectionCallToAction {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+  #callHeader1 {
+    font-size: 5em;
+    color: white;
+  }
+  #introMiddle {
+    padding: 2%;
+  }
+  .gradient {
+    background: linear-gradient(to right, #46B3B3, rgba(255, 255, 255, 0));
+  }
+  #callHeader2 {
+    color: #2b2b2b;
+  }
+  #outerDiv {
+    height: 92vh;
+  }
+  #div0 {
+    height: 0%;
+  }
+  #div2 {
+    height: 15%;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  #sectionCallToAction {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+  #callHeader1 {
+    font-size: 5em;
+    color: white;
+  }
+  #introMiddle {
+    padding: 2%;
+  }
+  .gradient {
+    background: linear-gradient(to right, #46B3B3, rgba(255, 255, 255, 0));
+  }
+  #callHeader2 {
+    color: #2b2b2b;
+    font-size: 1.5em;
+  }
+  #outerDiv {
+    height: 92vh;
+  }
+  #div0 {
+    height: 0%;
+  }
+  #div2 {
+    height: 15%;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 2000px) {
+  #sectionCallToAction {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  #callHeader1 {
+    font-size: 15em;
+    color: white;
+  }
+  #introMiddle {
+    padding: 2%;
+    background-color: rgba(255, 255, 255, 0.7);
+  }
+  .gradient {
+    background: linear-gradient(to right, #46B3B3, rgba(255, 255, 255, 0));
+  }
+  #callHeader2 {
+    color: #2b2b2b;
+    font-size: 2em;
+  }
+  #outerDiv {
+    height: 92vh;
+  }
+  #div0 {
+    height: 0%;
+  }
+  #div2 {
+    height: 15%;
+  }
+}
+
+/* END INTRO CSS */

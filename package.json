@@ -1,32 +1,55 @@
 {
-  "name": "gminder",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "ajv": "^6.5.0",
-    "body-parser": "^1.18.3",
-    "chai": "^4.1.2",
-    "cors": "^2.8.4",
-    "express": "^4.16.3",
-    "jspdf": "^1.4.1",
-    "mocha": "^5.2.0",
-    "morgan": "^1.9.0",
-    "react": "^16.3.0",
-    "react-csv": "^1.0.14",
-    "react-dom": "^16.3.0",
-    "react-responsive": "^4.1.0",
-    "react-router": "^4.3.1",
-    "react-router-dom": "^4.2.2",
-    "react-scripts": "1.1.1",
-    "react-table": "^6.8.0",
-    "sqlite3": "^4.0.0",
-    "supertest": "^3.1.0"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "mocha",
-    "eject": "react-scripts eject"
-  },
-  "proxy": "http://localhost:4000/"
+    "name": "mynextproject",
+    "version": "1.0.0",
+    "description": "Susan project based off of https://github.com/francescomalatesta/laravel-api-boilerplate-jwt",
+    "main": "webpack.mix.js",
+    "directories": {
+        "test": "tests"
+    },
+    "scripts": {
+        "dev": "npm run development",
+        "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "watch": "npm run development -- --watch",
+        "watch-poll": "npm run watch -- --watch-poll",
+        "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "prod": "npm run production",
+        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+    },
+    "author": "Susan Puckett",
+    "license": "ISC",
+    "private": true,
+    "devDependencies": {
+        "axios": "^0.18.0",
+        "babel-preset-react": "^6.23.0",
+        "bootstrap": "^4.0.0",
+        "cross-env": "^5.2.0",
+        "jquery": "^3.2",
+        "laravel-mix": "^2.1.14",
+        "lodash": "^4.17.11",
+        "popper.js": "^1.14.6",
+        "react": "^16.6.3",
+        "react-dom": "^16.6.3"
+    },
+    "dependencies": {
+        "ajv": "^6.6.1",
+        "cors": "^2.8.5",
+        "emoji-regex": "^7.0.1",
+        "enzyme": "^3.8.0",
+        "enzyme-adapter-react-16": "^1.7.1",
+        "jspdf": "^1.4.1",
+        "jwt-decode": "^2.2.0",
+        "react-animate-height": "^2.0.7",
+        "react-csv": "^1.0.19",
+        "react-csv-reader": "^1.1.0",
+        "react-onclickoutside": "^6.7.1",
+        "react-redux": "^5.1.1",
+        "react-responsive": "^6.0.1",
+        "react-router-dom": "^4.3.1",
+        "react-scrollable-anchor": "^0.6.1",
+        "react-tooltip": "^3.9.0",
+        "react-transition-group": "^2.5.1",
+        "redux": "^4.0.1",
+        "redux-logger": "^3.0.6",
+        "redux-thunk": "^2.3.0"
+    }
 }

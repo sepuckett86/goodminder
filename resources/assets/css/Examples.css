@@ -1,0 +1,30 @@
+.examples-card {
+  width: 100%
+}
+
+.top {
+  text-align: left;
+  border:solid 5px;
+}
+
+span .noun {
+  font-size: 12px;
+}
+
+.icon {
+  font-size: 10vw;
+}
+
+.card-title {
+  font-weight: bold;
+}
+
+/* make all cards in row the same height */
+.examples-row {
+   display: flex;
+   flex-wrap: wrap;
+}
+
+.examples-row > div[class*='col-'] {
+  display: flex;
+}
