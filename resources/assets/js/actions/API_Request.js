@@ -274,7 +274,7 @@ export const getStoredPrompts = (callback) => async dispatch => {
       if (tokenInLocalStorage()) {
         const response = await axios.get(path, options);
         let data = [];
-        data = response.data.original
+        data = response.data
         dispatch({ type: GET_STORED_PROMPTS, payload: data});
         callback();
     } else {
