@@ -249,14 +249,12 @@ export const getPrompts = (callback) => async dispatch => {
   try {
     let path;
     let options = optionsWithToken();
+      // Gets user prompts only
       path = baseURL + 'api/prompts?getDisplayPromptsOnly=false';
       if (tokenInLocalStorage()) {
         const response = await axios.get(path, options);
         let data = [];
         data = response.data
-        // const user_prompts = response.data['user prompts'];
-        // const stored_prompts = response.data['stored prompts'];
-        // const all_prompts = user_prompts.concat(stored_prompts);
         dispatch({ type: GET_PROMPTS, payload: data});
         callback();
     } else {
