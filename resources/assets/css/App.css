@@ -1,0 +1,284 @@
+/* STANDARDS
+  green: #46B3B3;
+  black: #2b2b2b;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+*/
+
+/* html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+} */
+
+/* BACKGROUND */
+
+body {
+  background-repeat: no-repeat;
+  background-image: url('../images/texel_beach.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* END BACKGROUND */
+
+/* APP SIZING */
+
+.App {
+  text-align: center;
+  width: 100%;
+}
+
+/* END APP SIZING */
+
+.card-body-menu {
+  height: 300px;
+  overflow: scroll;
+}
+
+.invisible-input {
+  border: 0;
+  background: transparent
+}
+
+.cursor-text:hover {
+  cursor: text
+}
+
+.btn-editMe {
+  background-color: #E8E8E8;
+  border-radius: 10px;
+}
+
+.btn-editMe:hover {
+  cursor: pointer;
+  background-color: #C7C7C7;
+}
+
+.btn-editStar {
+  background-color: #E8E8E8;
+  border-radius: 10px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.btn-editStar:hover {
+  cursor: pointer;
+  background-color: #C7C7C7;
+}
+
+.show-whitespace {
+  white-space: pre-line
+}
+
+.list-group-item-night {
+  background-color: #2b2b2b;
+  color: #E8E8E8;
+}
+
+.list-group-item-night:hover {
+  background-color: #515151;
+  color: #E8E8E8;
+}
+
+/* FONTS */
+
+.header-font {
+  font-family: 'Comfortaa', cursive;
+}
+
+.paragraph-font {
+  font-family: 'Lato', sans-serif;
+}
+
+.brand-font {
+  font-family: 'Comfortaa', cursive;
+}
+
+/* END FONTS */
+
+/* Parallax */
+
+.parallax {
+  position: relative;
+  opacity: 1;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bgimg-1 {
+  background-image: url(http://res.cloudinary.com/sepuckett86/image/upload/v1513095416/IMG_7240_q9dadh.jpg);
+  min-height: 300px;
+}
+
+.bgimg-2 {
+  background-image: url('../images/beach_grass.jpg');
+  min-height: 300px;
+}
+
+.bgimg-3 {
+  background-image: url('../images/mountain.jpg');
+  min-height: 300px;
+}
+
+.opaque-container {
+  background-color: rgba(255, 255, 255, 0.8);
+  min-height: 100%;
+}
+
+.caption {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  color: #000;
+}
+
+.caption span.border {
+  background-color: #46B3B3;
+  color: #fff;
+  padding: 20px;
+  letter-spacing: 3px;
+  font-size: 36px;
+}
+
+/* End parallax */
+
+/* space */
+
+body {
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5 {
+  line-height: 1.4;
+}
+
+.alignR {
+	text-align: right;
+}
+
+.floatR {
+	float: right;
+}
+
+.alignL {
+	text-align: left;
+}
+.floatL {
+	float: left;
+}
+/* end space */
+
+/* LISTS */
+
+ul.clean {
+  list-style-type: none;
+  padding-left: 0px;
+}
+
+/* END LISTS */
+
+/* DROPDOWNS */
+.dropdown-item:active {
+  background-color: #46B3B3;
+}
+/* END DROPDOWNS */
+
+/* SCREEN RESIZING */
+
+/* Extra small devices (phones, 400px and down) */
+@media (max-width: 400px) {
+  .invisible-when-super-small {
+    display: none;
+  }
+  .invisible-when-small {
+    display: none;
+  }
+  .invisible-when-large {
+    display: inline-block;
+  }
+  .App {
+    background-color: rgba(255, 255, 255, 0.7);
+    min-height: 100vh;
+    height: 100%;
+  }
+}
+
+@media (min-width: 400px) {
+  .invisible-when-super-small {
+    display: inline-block;
+  }
+  .invisible-when-small {
+    display: none;
+  }
+  .invisible-when-large {
+    display: inline-block;
+  }
+  .App {
+    background-color: rgba(255, 255, 255, 0.7);
+    min-height: 100vh;
+    height: 100%;
+  }
+}
+/* Small screen */
+
+@media (min-width: 576px) {
+  .invisible-when-super-small {
+    display: inline-block;
+  }
+  .invisible-when-small {
+    display: none;
+  }
+  .invisible-when-large {
+    display: inline-block;
+  }
+  .container {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .App {
+    background-color: rgba(255, 255, 255, 0.7);
+    min-height: 100vh;
+    height: 100%;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+
+}
+
+/* Regular screen and up */
+
+@media (min-width: 576px) {
+  .invisible-when-super-small {
+    display: inline-block;
+  }
+  .invisible-when-small {
+    display: inline-block;
+  }
+  .invisible-when-large {
+    display: none;
+  }
+  .container {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .App {
+    background-color: transparent;
+  }
+  h1 {
+    font-size: 2.5rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+}
