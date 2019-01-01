@@ -250,7 +250,7 @@ export const getPrompts = (callback) => async dispatch => {
     let path;
     let options = optionsWithToken();
       // Gets user prompts only
-      path = baseURL + 'api/prompts?getDisplayPromptsOnly=false';
+      path = baseURL + 'api/prompts';
       if (tokenInLocalStorage()) {
         const response = await axios.get(path, options);
         let data = [];
@@ -269,8 +269,12 @@ export const getStoredPrompts = (callback) => async dispatch => {
   try {
     let path;
     let options = optionsWithToken();
+    options = {
+      'headers': { ...options.headers},
+      'params': { getDisplayPromptsOnly: true}
+    }
     // Gets all prompts in stored collections
-      path = baseURL + 'api/prompts?getDisplayPromptsOnly=true';
+      path = baseURL + 'api/prompts';
       if (tokenInLocalStorage()) {
         const response = await axios.get(path, options);
         let data = [];
