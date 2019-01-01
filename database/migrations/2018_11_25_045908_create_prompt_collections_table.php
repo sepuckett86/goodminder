@@ -21,8 +21,6 @@ class CreatePromptCollectionsTable extends Migration
             $table->text('description')->nullable();
             $table->timestamps();
         });
-    
-        \Artisan::call('db:seed', ['--class' => 'PromptsTableSeeder']);
     }
 
     /**
