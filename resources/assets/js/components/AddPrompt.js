@@ -15,6 +15,7 @@ class AddPrompt extends React.Component {
       inputReason: '',
       inputCollection: '',
       random: 'no',
+      allPrompts: []
 
     }
 
@@ -28,30 +29,31 @@ class AddPrompt extends React.Component {
     this.props.clearResponse();
     // Get data from database
       this.props.getPrompts(() => {
-        // Check if there is data in prompts
-        if (this.props.prompts.length !== 0 && !this.props.currentPrompt.id) {
-          this.changePrompt();
-        } else if (this.props.currentPrompt === {}) {
-            this.props.setCurrentPrompt({promptText: 'No prompt available'});
-        }
+        this.props.getStoredPrompts(()=> {
+          let allPrompts = this.props.prompts.concat(this.props.storedPrompts);
+          if (allPrompts.length === 0) {
+            allPrompts.push({promptText: 'No prompt available. Click the dropdown menu to create your own prompts or find public prompt collections.'})
+          }
+          this.setState({ allPrompts: allPrompts})
+          // Check if there is data in prompts
+          if (allPrompts.length !== 0 && !this.props.currentPrompt.id) {
+            this.changePrompt();
+          } else if (this.props.currentPrompt === {}) {
+              this.props.setCurrentPrompt({promptText: 'No prompt available'});
+          }
+        })
+
       });
   }
 
   changePrompt() {
-    let random = this.props.prompts[Math.floor(Math.random() * this.props.prompts.length)];
-    // Only perform get request if needed
-    if (this.props.currentPrompt.creator_id !== random.creator_id) {
-      this.props.getNickname(random.creator_id, () => {
-        this.props.setCurrentPrompt(random);
-      })
-    } else {
-      this.props.setCurrentPrompt(random);
-    }
+    let random = this.state.allPrompts[Math.floor(Math.random() * this.state.allPrompts.length)];
+    this.props.setCurrentPrompt(random);
   }
 
   changePromptSame() {
     let collectionArray = [];
-    this.props.prompts.forEach(prompt => {
+    this.state.allPrompts.forEach(prompt => {
       if (prompt.collection === this.props.currentPrompt.collection) {
         collectionArray.push(prompt);
       }
@@ -223,7 +225,8 @@ function mapStateToProps(state) {
     nickname: state.navigation.nickname,
     responseError: state.response.responseError,
     user_id: state.user.backend.id,
-    user_name: state.user.name
+    user_name: state.user.name,
+    storedPrompts: state.promptsInStoredCollections
    }
 }
 

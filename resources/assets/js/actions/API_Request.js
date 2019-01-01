@@ -14,7 +14,7 @@ import { AUTH_USER, AUTH_ERROR, RESPONSE, RESPONSE_ERROR,
   POST_PASSWORD, POST_CONTACT, DELETE_USER } from './types';
 import { GET_GOODMINDERS, POST_GOODMINDER, PUT_GOODMINDER,
   DELETE_GOODMINDER } from './types';
-import { GET_PROMPTS, POST_PROMPT, PUT_PROMPT, DELETE_PROMPT} from './types';
+import { GET_PROMPTS, GET_STORED_PROMPTS, POST_PROMPT, PUT_PROMPT, DELETE_PROMPT} from './types';
 import { GET_PROMPT_COLLECTIONS, GET_PROMPT_COLLECTION, POST_PROMPT_COLLECTION,
   PUT_PROMPT_COLLECTION, POST_PROMPT_PROMPT_COLLECTION, DELETE_PROMPTS_FROM_COLLECTION,
   DELETE_PROMPT_COLLECTION, SET_PROMPT_COLLECTION_ID } from './types';
@@ -247,28 +247,39 @@ export const deleteGoodminder = (id, goodminders, callback) => async dispatch =>
 
 export const getPrompts = (callback) => async dispatch => {
   try {
-    // Gets all available prompts
-    const path = baseURL + 'api/prompts?getDisplayPromptsOnly=true';
-    // Gets Your prompts only
-    //const path = baseURL + 'api/prompts';
+    let path;
     let options = optionsWithToken();
-    if (tokenInLocalStorage()) {
-      const response = await axios.get(path, options);
-      let data = [];
-      if (response.data.original.length === 0) {
-        data = [{promptText: 'No prompt available. Click the dropdown menu to create your own prompts or find public prompt collections.'}]
-      } else {
-        data = response.data.original
-      }
-      // const user_prompts = response.data['user prompts'];
-      // const stored_prompts = response.data['stored prompts'];
-      // const all_prompts = user_prompts.concat(stored_prompts);
-      dispatch({ type: GET_PROMPTS, payload: data});
-      callback();
+      // Gets user prompts only
+      path = baseURL + 'api/prompts?getDisplayPromptsOnly=false';
+      if (tokenInLocalStorage()) {
+        const response = await axios.get(path, options);
+        let data = [];
+        data = response.data
+        dispatch({ type: GET_PROMPTS, payload: data});
+        callback();
     } else {
       console.log('No token')
     }
+  } catch (e) {
+    dispatch({ type: RESPONSE_ERROR, payload: e});
+  }
+};
 
+export const getStoredPrompts = (callback) => async dispatch => {
+  try {
+    let path;
+    let options = optionsWithToken();
+    // Gets all prompts in stored collections
+      path = baseURL + 'api/prompts?getDisplayPromptsOnly=true';
+      if (tokenInLocalStorage()) {
+        const response = await axios.get(path, options);
+        let data = [];
+        data = response.data.original
+        dispatch({ type: GET_STORED_PROMPTS, payload: data});
+        callback();
+    } else {
+      console.log('No token')
+    }
   } catch (e) {
     dispatch({ type: RESPONSE_ERROR, payload: e});
   }
