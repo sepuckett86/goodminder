@@ -23,19 +23,19 @@ class PromptsTableSeeder extends Seeder
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ]);
-
+            
             $prompt_collection_id++;
-
             DB::table('stored_prompt_collections')->insert([
                 'user_id'  => 1,
                 'prompt_collection_id' => $prompt_collection_id,
                 'displayFlag'  => 1,
                 'created_at'  => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
-            ]);
-            
+                ]);
+                
             // The first 'prompt' is the description for the category.
             $promptCount = count($prompts);
+            $prompt_id = 1;
             for ($i=1; $i<$promptCount; $i++){
                 DB::table('prompts')->insert([
                     'creator_id' => 1,
@@ -44,6 +44,14 @@ class PromptsTableSeeder extends Seeder
                     'created_at' => date('Y-m-d H:i:s'),
                     'updated_at' => date('Y-m-d H:i:s')
                 ]);
+
+                DB::table('prompts_prompt_collections')->insert([
+                    'prompt_id' => $prompt_id,
+                    'prompt_collection_id' => $prompt_collection_id,
+                    'created_at' => date('Y-m-d H:i:s'),
+                    'updated_at' => date('Y-m-d H:i:s')
+                    ]);
+                $prompt_id++;
             }
         }
 
