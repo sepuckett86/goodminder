@@ -12,16 +12,37 @@ class PromptsTableSeeder extends Seeder
     public function run()
     {
         $promptsToInsert = $this->getPromptsToInsert();
+        $prompt_collection_id = 0;
 
         foreach ($promptsToInsert as $promptCategory => $prompts){
-            $promptCount = count($prompts);
+            DB::table('prompt_collections')->insert([
+                'creator_id' => 1,
+                'collection' => $promptCategory,
+                'publicFlag' => 1,
+                'description' => $prompts[0]['description'],
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+            ]);
 
-            for ($i=0; $i<$promptCount; $i++){
+            $prompt_collection_id++;
+
+            DB::table('stored_prompt_collections')->insert([
+                'user_id'  => 1,
+                'prompt_collection_id' => $prompt_collection_id,
+                'displayFlag'  => 1,
+                'created_at'  => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s')
+            ]);
+            
+            // The first 'prompt' is the description for the category.
+            $promptCount = count($prompts);
+            for ($i=1; $i<$promptCount; $i++){
                 DB::table('prompts')->insert([
                     'creator_id' => 1,
                     'creatorDeleted' => 0,
                     'promptText' => $prompts[$i],
-                    'created_at' => date('Y-m-d H:i:s')
+                    'created_at' => date('Y-m-d H:i:s'),
+                    'updated_at' => date('Y-m-d H:i:s')
                 ]);
             }
         }
@@ -33,24 +54,27 @@ class PromptsTableSeeder extends Seeder
     {
         return [ 
             'General' => [
-                    "If you could be any animal, what would you be?",
-                    "Find something you highlighted on your eBook reader that you find hilarious/profound/great.",
-                    "Write a funny joke. Or share one you like :) ",
-                    "What's something interesting and new today?",
-                    "How do you relax?"
+                ['description' => 'A general prompt collection.'],
+                "If you could be any animal, what would you be?",
+                "Find something you highlighted on your eBook reader that you find hilarious/profound/great.",
+                "Write a funny joke. Or share one you like :) ",
+                "What's something interesting and new today?",
+                "How do you relax?"
             ],
             'Favorites' => [
-                    "What is a song that made you smile in the past month?",
-                    "What is something you cooked recently that was new and tasty?",
-                    "Who is your favorite person? Why?",
-                    "What is your favorite computer game and why?",
-                    "What is a simple activity that you enjoy doing?",
-                    "What is the cutest thing you saw today?",
-                    "What is a movie that tends to improve your mood?",
-                    "Who is someone you are glad exists?",
-                    "What is a really interesting question somebody asked you?"
+                ['description' => ''],
+                "What is a song that made you smile in the past month?",
+                "What is something you cooked recently that was new and tasty?",
+                "Who is your favorite person? Why?",
+                "What is your favorite computer game and why?",
+                "What is a simple activity that you enjoy doing?",
+                "What is the cutest thing you saw today?",
+                "What is a movie that tends to improve your mood?",
+                "Who is someone you are glad exists?",
+                "What is a really interesting question somebody asked you?"
             ],
             'Happenings' => [
+                ['description' => ''],
                 "What was an experience that you will treasure forever?",
                 "Share a time when you were proud of yourself",
                 "What unique experience did you have today that was unexpected but interesting in a good way?",
@@ -76,9 +100,10 @@ class PromptsTableSeeder extends Seeder
                 "When was the last time someone 'kept it real' for the better?",
                 "Describe a time you were in the flow/in the zone. Focused, dedicated to something you excel at, and lost track of time. What kept you going?",
                 "When's the last time you couldn't stop laughing? Why were you laughing?",
-                "Describe a time in which you were cozy with friends and were being your true, relaxed self.",
+                "Describe a time in which you were cozy with friends and were being your true, relaxed self."
             ],
             'Personal' => [
+                ['description' => ''],
                 "How have you changed for the better (in your opinion) in the past year?",
                 "Have you made a new friendship recently? Who is it and what do you like about that person?",
                 "What is a quality that you admire in someone else? What are examples of this quality?",
