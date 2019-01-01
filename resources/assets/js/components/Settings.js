@@ -195,7 +195,7 @@ class Settings extends Component {
         </div>
         <br />
         <Link to='/reset'>
-        <button className="btn btn-green">Change password</button>
+        <button className="btn btn-green" onClick={()=>{this.props.clearError()}}>Change password</button>
         </Link>
         <br /><br />
 
