@@ -20,8 +20,6 @@ class CreatePromptsTable extends Migration
             $table->mediumText('promptText');
             $table->timestamps();
         });
-        
-        \Artisan::call('db:seed', ['--class' => 'PromptsTableSeeder']);
     }
 
     /**
