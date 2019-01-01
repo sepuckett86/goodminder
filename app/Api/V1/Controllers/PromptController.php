@@ -47,7 +47,7 @@ class PromptController extends Controller
     {   
         $currentUser = Auth::guard()->user()->id;
 
-        if ($request->get('getDisplayPromptsOnly') === true) {
+        if ($request->get('getDisplayPromptsOnly') == 'true') {
             return $this->getDisplayPrompts($currentUser);
         }
 
