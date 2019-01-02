@@ -39,6 +39,7 @@ $api->version('v1', function (Router $api) {
         $api->put('prompts/{id}', 'App\\Api\\V1\\Controllers\\PromptController@update');
         $api->delete('prompts/{id}', 'App\\Api\\V1\\Controllers\\PromptController@destroy');
         $api->get('prompts', 'App\\Api\\V1\\Controllers\\PromptController@userPrompts');
+        $api->get('storedPrompts', 'App\\Api\\V1\\Controllers\\PromptController@getStoredPrompts');
 
         $api->get('users/{id}', 'App\\Api\\V1\\Controllers\\UserController@nickname');
         $api->put('users/{id}', 'App\\Api\\V1\\Controllers\\UserController@update');

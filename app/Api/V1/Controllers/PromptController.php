@@ -43,14 +43,9 @@ class PromptController extends Controller
     /*
     * Get all of user's prompts
     */
-    public function userPrompts(PromptRequest $request)
+    public function userPrompts()
     {   
         $currentUser = Auth::guard()->user()->id;
-
-        if ($request->get('getDisplayPromptsOnly') === 'yes') {
-return 'is this returning anything????';
-            //return $this->getDisplayPrompts($currentUser);
-        }
 
         $prompts = Prompt::where('creator_id', $currentUser)->get();
 
@@ -60,8 +55,10 @@ return 'is this returning anything????';
     /*
     * Get all prompts that have displayFlag=1 in stored_prompt_collections.
     */
-    public function getDisplayPrompts($currentUser)
+    public function getStoredPrompts()
     {
+        $currentUser = Auth::guard()->user()->id;
+
         $prompts = [];
         $promptIDs = \DB::table('stored_prompt_collections')
             ->join(
