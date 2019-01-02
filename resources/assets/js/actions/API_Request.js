@@ -269,12 +269,12 @@ export const getStoredPrompts = (callback) => async dispatch => {
   try {
     let path;
     let options = optionsWithToken();
-    options = {
+    /* options = {
       'headers': { ...options.headers},
       'params': { getDisplayPromptsOnly: 'yes'}
-    }
+    }*/
     // Gets all prompts in stored collections
-      path = baseURL + 'api/prompts';
+      path = baseURL + 'api/storedPrompts';
       if (tokenInLocalStorage()) {
         const response = await axios.get(path, options);
         let data = [];
