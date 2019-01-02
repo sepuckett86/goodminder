@@ -1,6 +1,15 @@
-# GoodminderLaravel
+# Goodminder
 
-Getting the authentication to work with Goodminder app frontend
+Goodminder is a free web-app for you to collect and create meaningful text.
+
+Front-end developer: sepuckett86 <br />
+Back-end developer: codegold79
+
+First launch: Jan. 1, 2019.
+This is a work in progress.
+
+## Web app
+www.goodminder.com
 
 ## How to use this repository via Homestead
 
@@ -16,6 +25,8 @@ Getting the authentication to work with Goodminder app frontend
 Note: you may need to type
 `npm install cross-env`
 before `npm run dev`
+
+Note 2: You will also need to add .env details about mail, as well as run database seedings and/or migrations.
 
 <h2>Resources</h2>
   <ul>
