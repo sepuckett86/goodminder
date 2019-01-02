@@ -5,10 +5,10 @@ Goodminder is a free web-app for you to collect and create meaningful text.
 Front-end developer: sepuckett86 <br />
 Back-end developer: codegold79
 
-First launch: Jan. 1, 2019.
-This is a work in progress.
+First launch: Jan. 1, 2019. <br />
+We are continually improving this site. Feedback is welcome.
 
-## Web app
+## Web site
 www.goodminder.com
 
 ## How to use this repository via Homestead
