@@ -271,7 +271,7 @@ export const getStoredPrompts = (callback) => async dispatch => {
     let options = optionsWithToken();
     options = {
       'headers': { ...options.headers},
-      'params': { getDisplayPromptsOnly: true}
+      'params': { getDisplayPromptsOnly: 'yes'}
     }
     // Gets all prompts in stored collections
       path = baseURL + 'api/prompts';
