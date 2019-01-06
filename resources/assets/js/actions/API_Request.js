@@ -22,7 +22,8 @@ import { GET_STORED_COLLECTIONS, POST_STORED_COLLECTION, PUT_STORED_COLLECTION,
   DELETE_STORED_COLLECTION } from './types';
 import { optionsWithToken, tokenInLocalStorage } from './functions';
 
-const baseURL = 'http://www.goodminder.com/';
+// const baseURL = 'http://www.goodminder.com/';
+const baseURL = 'http://' + window.location.hostname + '/';
 
 // AUTH
 
