@@ -60,3 +60,16 @@ export const replaceQuotes = (text) => {
     .replace(/[\u2026]/g, '...');
   return goodQuotes
 }
+
+function sanitize(string) {
+  const map = {
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#x27;',
+      "/": '&#x2F;',
+  };
+  const reg = /[&<>"'/]/ig;
+  return string.replace(reg, (match)=>(map[match]));
+}
