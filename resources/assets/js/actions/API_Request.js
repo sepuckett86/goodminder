@@ -278,8 +278,7 @@ export const getStoredPrompts = (callback) => async dispatch => {
       path = baseURL + 'api/storedPrompts';
       if (tokenInLocalStorage()) {
         const response = await axios.get(path, options);
-        let data = [];
-        data = response.data
+        const data = response.data;
         dispatch({ type: GET_STORED_PROMPTS, payload: data});
         callback();
     } else {
