@@ -1,4 +1,4 @@
-# Goodminder
+# Goodminder <img height='50rem' src='http://www.goodminder.com/images/logo_dark.png'></img>
 
 Goodminder is a free web-app for you to collect and create meaningful text.
 
