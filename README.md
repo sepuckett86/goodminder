@@ -11,6 +11,9 @@ We are continually improving this site. Feedback is welcome.
 ## Web Site
 www.goodminder.com
 
+## Our Set-up
+This app was made using Laravel, Laravel-Mix, React, Redux, and MySQL. 
+
 ## Developmental Server
 How to use this repository via Homestead
 
