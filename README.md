@@ -8,10 +8,11 @@ Back-end developer: codegold79
 First launch: Jan. 1, 2019. <br />
 We are continually improving this site. Feedback is welcome.
 
-## Web site
+## Web Site
 www.goodminder.com
 
-## How to use this repository via Homestead
+## Developmental Server
+How to use this repository via Homestead
 
 1) update `homestead.yaml` folders and sites to include your repo followed by `vagrant up --provision`
 2) update `/etc/hosts` to include new site
